@@ -1,4 +1,5 @@
 import * as hks from "./generated";
+import { VaultContractDiscriminator } from "@qidao/sdk";
 
 const CrosschainNativeQiStablecoin = {
   crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
@@ -1479,6 +1480,191 @@ const Erc20QiStablecoinwbtc = {
     hks.usePrepareErc20QiStablecoinwbtcWrite,
 };
 
+const Erc20QiStablecoincamwbtc = {
+  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
+  useErc20QiStablecoincamwbtcApprovalEvent:
+    hks.useErc20QiStablecoincamwbtcApprovalEvent,
+  useErc20QiStablecoincamwbtcApprovalForAllEvent:
+    hks.useErc20QiStablecoincamwbtcApprovalForAllEvent,
+  useErc20QiStablecoincamwbtcApprove: hks.useErc20QiStablecoincamwbtcApprove,
+  useErc20QiStablecoincamwbtcBalanceOf:
+    hks.useErc20QiStablecoincamwbtcBalanceOf,
+  useErc20QiStablecoincamwbtcBorrowTokenEvent:
+    hks.useErc20QiStablecoincamwbtcBorrowTokenEvent,
+  useErc20QiStablecoincamwbtcBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useErc20QiStablecoincamwbtcChangeEthPriceSource:
+    hks.useErc20QiStablecoincamwbtcChangeEthPriceSource,
+  useErc20QiStablecoincamwbtcCheckCollateralPercentage:
+    hks.useErc20QiStablecoincamwbtcCheckCollateralPercentage,
+  useErc20QiStablecoincamwbtcCheckCost:
+    hks.useErc20QiStablecoincamwbtcCheckCost,
+  useErc20QiStablecoincamwbtcCheckExtract:
+    hks.useErc20QiStablecoincamwbtcCheckExtract,
+  useErc20QiStablecoincamwbtcCheckLiquidation:
+    hks.useErc20QiStablecoincamwbtcCheckLiquidation,
+  useErc20QiStablecoincamwbtcClosingFee:
+    hks.useErc20QiStablecoincamwbtcClosingFee,
+  useErc20QiStablecoincamwbtcCollateral:
+    hks.useErc20QiStablecoincamwbtcCollateral,
+  useErc20QiStablecoincamwbtcCreateVault:
+    hks.useErc20QiStablecoincamwbtcCreateVault,
+  useErc20QiStablecoincamwbtcCreateVaultEvent:
+    hks.useErc20QiStablecoincamwbtcCreateVaultEvent,
+  useErc20QiStablecoincamwbtcDebtRatio:
+    hks.useErc20QiStablecoincamwbtcDebtRatio,
+  useErc20QiStablecoincamwbtcDepositCollateral:
+    hks.useErc20QiStablecoincamwbtcDepositCollateral,
+  useErc20QiStablecoincamwbtcDepositCollateralEvent:
+    hks.useErc20QiStablecoincamwbtcDepositCollateralEvent,
+  useErc20QiStablecoincamwbtcDestroyVault:
+    hks.useErc20QiStablecoincamwbtcDestroyVault,
+  useErc20QiStablecoincamwbtcDestroyVaultEvent:
+    hks.useErc20QiStablecoincamwbtcDestroyVaultEvent,
+  useErc20QiStablecoincamwbtcEthPriceSource:
+    hks.useErc20QiStablecoincamwbtcEthPriceSource,
+  useErc20QiStablecoincamwbtcEvent: hks.useErc20QiStablecoincamwbtcEvent,
+  useErc20QiStablecoincamwbtcExists: hks.useErc20QiStablecoincamwbtcExists,
+  useErc20QiStablecoincamwbtcGainRatio:
+    hks.useErc20QiStablecoincamwbtcGainRatio,
+  useErc20QiStablecoincamwbtcGetApproved:
+    hks.useErc20QiStablecoincamwbtcGetApproved,
+  useErc20QiStablecoincamwbtcGetClosingFee:
+    hks.useErc20QiStablecoincamwbtcGetClosingFee,
+  useErc20QiStablecoincamwbtcGetDebtCeiling:
+    hks.useErc20QiStablecoincamwbtcGetDebtCeiling,
+  useErc20QiStablecoincamwbtcGetEthPriceSource:
+    hks.useErc20QiStablecoincamwbtcGetEthPriceSource,
+  useErc20QiStablecoincamwbtcGetOpeningFee:
+    hks.useErc20QiStablecoincamwbtcGetOpeningFee,
+  useErc20QiStablecoincamwbtcGetPaid: hks.useErc20QiStablecoincamwbtcGetPaid,
+  useErc20QiStablecoincamwbtcGetTokenPriceSource:
+    hks.useErc20QiStablecoincamwbtcGetTokenPriceSource,
+  useErc20QiStablecoincamwbtcIsApprovedForAll:
+    hks.useErc20QiStablecoincamwbtcIsApprovedForAll,
+  useErc20QiStablecoincamwbtcIsOwner: hks.useErc20QiStablecoincamwbtcIsOwner,
+  useErc20QiStablecoincamwbtcLiquidateVault:
+    hks.useErc20QiStablecoincamwbtcLiquidateVault,
+  useErc20QiStablecoincamwbtcLiquidateVaultEvent:
+    hks.useErc20QiStablecoincamwbtcLiquidateVaultEvent,
+  useErc20QiStablecoincamwbtcMai: hks.useCrosschainNativeQiStablecoinMai,
+  useErc20QiStablecoincamwbtcMaticDebt:
+    hks.useErc20QiStablecoincamwbtcMaticDebt,
+  useErc20QiStablecoincamwbtcMinimumCollateralPercentage:
+    hks.useErc20QiStablecoincamwbtcMinimumCollateralPercentage,
+  useErc20QiStablecoincamwbtcName: hks.useCrosschainNativeQiStablecoinName,
+  useErc20QiStablecoincamwbtcOpeningFee:
+    hks.useErc20QiStablecoincamwbtcOpeningFee,
+  useErc20QiStablecoincamwbtcOwner: hks.useErc20QiStablecoincamwbtcOwner,
+  useErc20QiStablecoincamwbtcOwnerOf: hks.useErc20QiStablecoincamwbtcOwnerOf,
+  useErc20QiStablecoincamwbtcOwnershipTransferredEvent:
+    hks.useErc20QiStablecoincamwbtcOwnershipTransferredEvent,
+  useErc20QiStablecoincamwbtcPayBackToken:
+    hks.useErc20QiStablecoincamwbtcPayBackToken,
+  useErc20QiStablecoincamwbtcPayBackTokenEvent:
+    hks.useErc20QiStablecoincamwbtcPayBackTokenEvent,
+  useErc20QiStablecoincamwbtcRead: hks.useCrosschainNativeQiStablecoinRead,
+  useErc20QiStablecoincamwbtcRenounceOwnership:
+    hks.useErc20QiStablecoincamwbtcRenounceOwnership,
+  useErc20QiStablecoincamwbtcSafeTransferFrom:
+    hks.useErc20QiStablecoincamwbtcSafeTransferFrom,
+  useErc20QiStablecoincamwbtcSetApprovalForAll:
+    hks.useErc20QiStablecoincamwbtcSetApprovalForAll,
+  useErc20QiStablecoincamwbtcSetClosingFee:
+    hks.useErc20QiStablecoincamwbtcSetClosingFee,
+  useErc20QiStablecoincamwbtcSetDebtRatio:
+    hks.useErc20QiStablecoincamwbtcSetDebtRatio,
+  useErc20QiStablecoincamwbtcSetGainRatio:
+    hks.useErc20QiStablecoincamwbtcSetGainRatio,
+  useErc20QiStablecoincamwbtcSetMinCollateralRatio:
+    hks.useErc20QiStablecoincamwbtcSetMinCollateralRatio,
+  useErc20QiStablecoincamwbtcSetOpeningFee:
+    hks.useErc20QiStablecoincamwbtcSetOpeningFee,
+  useErc20QiStablecoincamwbtcSetStabilityPool:
+    hks.useErc20QiStablecoincamwbtcSetStabilityPool,
+  useErc20QiStablecoincamwbtcSetTreasury:
+    hks.useErc20QiStablecoincamwbtcSetTreasury,
+  useErc20QiStablecoincamwbtcStabilityPool:
+    hks.useErc20QiStablecoincamwbtcStabilityPool,
+  useErc20QiStablecoincamwbtcSupportsInterface:
+    hks.useErc20QiStablecoincamwbtcSupportsInterface,
+  useErc20QiStablecoincamwbtcSymbol: hks.useErc20QiStablecoincamwbtcSymbol,
+  useErc20QiStablecoincamwbtcTokenByIndex:
+    hks.useErc20QiStablecoincamwbtcTokenByIndex,
+  useErc20QiStablecoincamwbtcTokenOfOwnerByIndex:
+    hks.useErc20QiStablecoincamwbtcTokenOfOwnerByIndex,
+  useErc20QiStablecoincamwbtcTokenPeg: hks.useErc20QiStablecoincamwbtcTokenPeg,
+  useErc20QiStablecoincamwbtcTokenUri: hks.useErc20QiStablecoincamwbtcTokenUri,
+  useErc20QiStablecoincamwbtcTotalSupply:
+    hks.useErc20QiStablecoincamwbtcTotalSupply,
+  useErc20QiStablecoincamwbtcTransferEvent:
+    hks.useErc20QiStablecoincamwbtcTransferEvent,
+  useErc20QiStablecoincamwbtcTransferFrom:
+    hks.useErc20QiStablecoincamwbtcTransferFrom,
+  useErc20QiStablecoincamwbtcTransferOwnership:
+    hks.useErc20QiStablecoincamwbtcTransferOwnership,
+  useErc20QiStablecoincamwbtcTransferVaultEvent:
+    hks.useErc20QiStablecoincamwbtcTransferVaultEvent,
+  useErc20QiStablecoincamwbtcTreasury: hks.useErc20QiStablecoincamwbtcTreasury,
+  useErc20QiStablecoincamwbtcUri: hks.useCrosschainNativeQiStablecoinUri,
+  useErc20QiStablecoincamwbtcVaultCollateral:
+    hks.useErc20QiStablecoincamwbtcVaultCollateral,
+  useErc20QiStablecoincamwbtcVaultCount:
+    hks.useErc20QiStablecoincamwbtcVaultCount,
+  useErc20QiStablecoincamwbtcVaultDebt:
+    hks.useErc20QiStablecoincamwbtcVaultDebt,
+  useErc20QiStablecoincamwbtcWithdrawCollateral:
+    hks.useErc20QiStablecoincamwbtcWithdrawCollateral,
+  useErc20QiStablecoincamwbtcWithdrawCollateralEvent:
+    hks.useErc20QiStablecoincamwbtcWithdrawCollateralEvent,
+  useErc20QiStablecoincamwbtcWrite: hks.useErc20QiStablecoincamwbtcWrite,
+  usePrepareErc20QiStablecoincamwbtcApprove:
+    hks.usePrepareErc20QiStablecoincamwbtcApprove,
+  usePrepareErc20QiStablecoincamwbtcBorrowToken:
+    hks.usePrepareErc20QiStablecoincamwbtcBorrowToken,
+  usePrepareErc20QiStablecoincamwbtcChangeEthPriceSource:
+    hks.usePrepareErc20QiStablecoincamwbtcChangeEthPriceSource,
+  usePrepareErc20QiStablecoincamwbtcCreateVault:
+    hks.usePrepareErc20QiStablecoincamwbtcCreateVault,
+  usePrepareErc20QiStablecoincamwbtcDepositCollateral:
+    hks.usePrepareErc20QiStablecoincamwbtcDepositCollateral,
+  usePrepareErc20QiStablecoincamwbtcDestroyVault:
+    hks.usePrepareErc20QiStablecoincamwbtcDestroyVault,
+  usePrepareErc20QiStablecoincamwbtcGetPaid:
+    hks.usePrepareErc20QiStablecoincamwbtcGetPaid,
+  usePrepareErc20QiStablecoincamwbtcLiquidateVault:
+    hks.usePrepareErc20QiStablecoincamwbtcLiquidateVault,
+  usePrepareErc20QiStablecoincamwbtcPayBackToken:
+    hks.usePrepareErc20QiStablecoincamwbtcPayBackToken,
+  usePrepareErc20QiStablecoincamwbtcRenounceOwnership:
+    hks.usePrepareErc20QiStablecoincamwbtcRenounceOwnership,
+  usePrepareErc20QiStablecoincamwbtcSafeTransferFrom:
+    hks.usePrepareErc20QiStablecoincamwbtcSafeTransferFrom,
+  usePrepareErc20QiStablecoincamwbtcSetApprovalForAll:
+    hks.usePrepareErc20QiStablecoincamwbtcSetApprovalForAll,
+  usePrepareErc20QiStablecoincamwbtcSetClosingFee:
+    hks.usePrepareErc20QiStablecoincamwbtcSetClosingFee,
+  usePrepareErc20QiStablecoincamwbtcSetDebtRatio:
+    hks.usePrepareErc20QiStablecoincamwbtcSetDebtRatio,
+  usePrepareErc20QiStablecoincamwbtcSetGainRatio:
+    hks.usePrepareErc20QiStablecoincamwbtcSetGainRatio,
+  usePrepareErc20QiStablecoincamwbtcSetMinCollateralRatio:
+    hks.usePrepareErc20QiStablecoincamwbtcSetMinCollateralRatio,
+  usePrepareErc20QiStablecoincamwbtcSetOpeningFee:
+    hks.usePrepareErc20QiStablecoincamwbtcSetOpeningFee,
+  usePrepareErc20QiStablecoincamwbtcSetStabilityPool:
+    hks.usePrepareErc20QiStablecoincamwbtcSetStabilityPool,
+  usePrepareErc20QiStablecoincamwbtcSetTreasury:
+    hks.usePrepareErc20QiStablecoincamwbtcSetTreasury,
+  usePrepareErc20QiStablecoincamwbtcTransferFrom:
+    hks.usePrepareErc20QiStablecoincamwbtcTransferFrom,
+  usePrepareErc20QiStablecoincamwbtcTransferOwnership:
+    hks.usePrepareErc20QiStablecoincamwbtcTransferOwnership,
+  usePrepareErc20QiStablecoincamwbtcWithdrawCollateral:
+    hks.usePrepareErc20QiStablecoincamwbtcWithdrawCollateral,
+  usePrepareErc20QiStablecoincamwbtcWrite:
+    hks.usePrepareErc20QiStablecoincamwbtcWrite,
+};
+
 const QiStablecoin = {
   crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
   useQiStablecoinApprovalEvent: hks.useQiStablecoinApprovalEvent,
@@ -1669,6 +1855,33 @@ const StableQiVault = {
   usePrepareStableQiVaultWithdrawCollateral:
     hks.usePrepareStableQiVaultWithdrawCollateral,
   usePrepareStableQiVaultWrite: hks.usePrepareStableQiVaultWrite,
+};
+
+export type VaultMethods =
+  | typeof CrosschainNativeQiStablecoin
+  | typeof CrosschainQiStablecoin
+  | typeof CrosschainQiStablecoinV2
+  | typeof CrosschainQiStablecoinSlim
+  | typeof CrosschainQiStablecoinSlimV2
+  | typeof CrosschainQiStablecoinwbtc
+  | typeof Erc20QiStablecoincamwbtc
+  | typeof Erc20Stablecoin
+  | typeof Erc20QiStablecoinwbtc
+  | typeof QiStablecoin
+  | typeof StableQiVault;
+
+export const Lookup: Record<VaultContractDiscriminator, VaultMethods> = {
+  CrosschainNativeQiStablecoin: CrosschainNativeQiStablecoin,
+  CrosschainQiStablecoin: CrosschainQiStablecoin,
+  CrosschainQiStablecoinSlim: CrosschainQiStablecoinSlim,
+  CrosschainQiStablecoinSlimV2: CrosschainQiStablecoinSlimV2,
+  CrosschainQiStablecoinV2: CrosschainQiStablecoinV2,
+  CrosschainQiStablecoinwbtc: CrosschainQiStablecoinwbtc,
+  Erc20QiStablecoincamwbtc: Erc20QiStablecoincamwbtc,
+  Erc20QiStablecoinwbtc: Erc20QiStablecoinwbtc,
+  Erc20Stablecoin: Erc20Stablecoin,
+  QiStablecoin: QiStablecoin,
+  StableQiVault: StableQiVault,
 };
 
 export {
