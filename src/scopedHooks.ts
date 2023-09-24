@@ -1,1861 +1,1261 @@
 import * as hks from "./generated";
-import { VaultContractDiscriminator } from "@qidao/sdk";
 
 const CrosschainNativeQiStablecoin = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useCrosschainNativeQiStablecoinApprovalEvent:
-    hks.useCrosschainNativeQiStablecoinApprovalEvent,
-  useCrosschainNativeQiStablecoinApprovalForAllEvent:
+  useApprovalEvent: hks.useCrosschainNativeQiStablecoinApprovalEvent,
+  useApprovalForAllEvent:
     hks.useCrosschainNativeQiStablecoinApprovalForAllEvent,
-  useCrosschainNativeQiStablecoinApprove:
-    hks.useCrosschainNativeQiStablecoinApprove,
-  useCrosschainNativeQiStablecoinBalanceOf:
-    hks.useCrosschainNativeQiStablecoinBalanceOf,
-  useCrosschainNativeQiStablecoinBorrowTokenEvent:
-    hks.useCrosschainNativeQiStablecoinBorrowTokenEvent,
-  useCrosschainNativeQiStablecoinBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useCrosschainNativeQiStablecoinChangeEthPriceSource:
+  useApprove: hks.useCrosschainNativeQiStablecoinApprove,
+  useBalanceOf: hks.useCrosschainNativeQiStablecoinBalanceOf,
+  useBorrowTokenEvent: hks.useCrosschainNativeQiStablecoinBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource:
     hks.useCrosschainNativeQiStablecoinChangeEthPriceSource,
-  useCrosschainNativeQiStablecoinCheckCollateralPercentage:
+  useCheckCollateralPercentage:
     hks.useCrosschainNativeQiStablecoinCheckCollateralPercentage,
-  useCrosschainNativeQiStablecoinCheckCost:
-    hks.useCrosschainNativeQiStablecoinCheckCost,
-  useCrosschainNativeQiStablecoinCheckExtract:
-    hks.useCrosschainNativeQiStablecoinCheckExtract,
-  useCrosschainNativeQiStablecoinCheckLiquidation:
-    hks.useCrosschainNativeQiStablecoinCheckLiquidation,
-  useCrosschainNativeQiStablecoinClosingFee:
-    hks.useCrosschainNativeQiStablecoinClosingFee,
-  useCrosschainNativeQiStablecoinCollateral:
-    hks.useCrosschainNativeQiStablecoinCollateral,
-  useCrosschainNativeQiStablecoinCreateVault:
-    hks.useCrosschainNativeQiStablecoinCreateVault,
-  useCrosschainNativeQiStablecoinCreateVaultEvent:
-    hks.useCrosschainNativeQiStablecoinCreateVaultEvent,
-  useCrosschainNativeQiStablecoinDebtRatio:
-    hks.useCrosschainNativeQiStablecoinDebtRatio,
-  useCrosschainNativeQiStablecoinDepositCollateral:
-    hks.useCrosschainNativeQiStablecoinDepositCollateral,
-  useCrosschainNativeQiStablecoinDepositCollateralEvent:
+  useCheckCost: hks.useCrosschainNativeQiStablecoinCheckCost,
+  useCheckExtract: hks.useCrosschainNativeQiStablecoinCheckExtract,
+  useCheckLiquidation: hks.useCrosschainNativeQiStablecoinCheckLiquidation,
+  useClosingFee: hks.useCrosschainNativeQiStablecoinClosingFee,
+  useCollateral: hks.useCrosschainNativeQiStablecoinCollateral,
+  useCreateVault: hks.useCrosschainNativeQiStablecoinCreateVault,
+  useCreateVaultEvent: hks.useCrosschainNativeQiStablecoinCreateVaultEvent,
+  useDebtRatio: hks.useCrosschainNativeQiStablecoinDebtRatio,
+  useDepositCollateral: hks.useCrosschainNativeQiStablecoinDepositCollateral,
+  useDepositCollateralEvent:
     hks.useCrosschainNativeQiStablecoinDepositCollateralEvent,
-  useCrosschainNativeQiStablecoinDepositNative:
-    hks.useCrosschainNativeQiStablecoinDepositNative,
-  useCrosschainNativeQiStablecoinDestroyVault:
-    hks.useCrosschainNativeQiStablecoinDestroyVault,
-  useCrosschainNativeQiStablecoinDestroyVaultEvent:
-    hks.useCrosschainNativeQiStablecoinDestroyVaultEvent,
-  useCrosschainNativeQiStablecoinEthPriceSource:
-    hks.useCrosschainNativeQiStablecoinEthPriceSource,
-  useCrosschainNativeQiStablecoinEvent:
-    hks.useCrosschainNativeQiStablecoinEvent,
-  useCrosschainNativeQiStablecoinExists:
-    hks.useCrosschainNativeQiStablecoinExists,
-  useCrosschainNativeQiStablecoinGainRatio:
-    hks.useCrosschainNativeQiStablecoinGainRatio,
-  useCrosschainNativeQiStablecoinGetApproved:
-    hks.useCrosschainNativeQiStablecoinGetApproved,
-  useCrosschainNativeQiStablecoinGetClosingFee:
-    hks.useCrosschainNativeQiStablecoinGetClosingFee,
-  useCrosschainNativeQiStablecoinGetDebtCeiling:
-    hks.useCrosschainNativeQiStablecoinGetDebtCeiling,
-  useCrosschainNativeQiStablecoinGetEthPriceSource:
-    hks.useCrosschainNativeQiStablecoinGetEthPriceSource,
-  useCrosschainNativeQiStablecoinGetOpeningFee:
-    hks.useCrosschainNativeQiStablecoinGetOpeningFee,
-  useCrosschainNativeQiStablecoinGetPaid:
-    hks.useCrosschainNativeQiStablecoinGetPaid,
-  useCrosschainNativeQiStablecoinGetTokenPriceSource:
+  useDepositNative: hks.useCrosschainNativeQiStablecoinDepositNative,
+  useDestroyVault: hks.useCrosschainNativeQiStablecoinDestroyVault,
+  useDestroyVaultEvent: hks.useCrosschainNativeQiStablecoinDestroyVaultEvent,
+  useEthPriceSource: hks.useCrosschainNativeQiStablecoinEthPriceSource,
+  useEvent: hks.useCrosschainNativeQiStablecoinEvent,
+  useExists: hks.useCrosschainNativeQiStablecoinExists,
+  useGainRatio: hks.useCrosschainNativeQiStablecoinGainRatio,
+  useGetApproved: hks.useCrosschainNativeQiStablecoinGetApproved,
+  useGetClosingFee: hks.useCrosschainNativeQiStablecoinGetClosingFee,
+  useGetDebtCeiling: hks.useCrosschainNativeQiStablecoinGetDebtCeiling,
+  useGetEthPriceSource: hks.useCrosschainNativeQiStablecoinGetEthPriceSource,
+  useGetOpeningFee: hks.useCrosschainNativeQiStablecoinGetOpeningFee,
+  useGetPaid: hks.useCrosschainNativeQiStablecoinGetPaid,
+  useGetTokenPriceSource:
     hks.useCrosschainNativeQiStablecoinGetTokenPriceSource,
-  useCrosschainNativeQiStablecoinIsApprovedForAll:
-    hks.useCrosschainNativeQiStablecoinIsApprovedForAll,
-  useCrosschainNativeQiStablecoinIsOwner:
-    hks.useCrosschainNativeQiStablecoinIsOwner,
-  useCrosschainNativeQiStablecoinLiquidateVault:
-    hks.useCrosschainNativeQiStablecoinLiquidateVault,
-  useCrosschainNativeQiStablecoinLiquidateVaultEvent:
+  useIsApprovedForAll: hks.useCrosschainNativeQiStablecoinIsApprovedForAll,
+  useIsOwner: hks.useCrosschainNativeQiStablecoinIsOwner,
+  useLiquidateVault: hks.useCrosschainNativeQiStablecoinLiquidateVault,
+  useLiquidateVaultEvent:
     hks.useCrosschainNativeQiStablecoinLiquidateVaultEvent,
-  useCrosschainNativeQiStablecoinMai: hks.useCrosschainNativeQiStablecoinMai,
-  useCrosschainNativeQiStablecoinMaticDebt:
-    hks.useCrosschainNativeQiStablecoinMaticDebt,
-  useCrosschainNativeQiStablecoinMinimumCollateralPercentage:
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useCrosschainNativeQiStablecoinMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useCrosschainNativeQiStablecoinMinimumCollateralPercentage,
-  useCrosschainNativeQiStablecoinName: hks.useCrosschainNativeQiStablecoinName,
-  useCrosschainNativeQiStablecoinOpeningFee:
-    hks.useCrosschainNativeQiStablecoinOpeningFee,
-  useCrosschainNativeQiStablecoinOwner:
-    hks.useCrosschainNativeQiStablecoinOwner,
-  useCrosschainNativeQiStablecoinOwnerOf:
-    hks.useCrosschainNativeQiStablecoinOwnerOf,
-  useCrosschainNativeQiStablecoinOwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useCrosschainNativeQiStablecoinOpeningFee,
+  useOwner: hks.useCrosschainNativeQiStablecoinOwner,
+  useOwnerOf: hks.useCrosschainNativeQiStablecoinOwnerOf,
+  useOwnershipTransferredEvent:
     hks.useCrosschainNativeQiStablecoinOwnershipTransferredEvent,
-  useCrosschainNativeQiStablecoinPayBackToken:
-    hks.useCrosschainNativeQiStablecoinPayBackToken,
-  useCrosschainNativeQiStablecoinPayBackTokenEvent:
-    hks.useCrosschainNativeQiStablecoinPayBackTokenEvent,
-  useCrosschainNativeQiStablecoinPriceSourceDecimals:
+  usePayBackToken: hks.useCrosschainNativeQiStablecoinPayBackToken,
+  usePayBackTokenEvent: hks.useCrosschainNativeQiStablecoinPayBackTokenEvent,
+  usePriceSourceDecimals:
     hks.useCrosschainNativeQiStablecoinPriceSourceDecimals,
-  useCrosschainNativeQiStablecoinRead: hks.useCrosschainNativeQiStablecoinRead,
-  useCrosschainNativeQiStablecoinRenounceOwnership:
-    hks.useCrosschainNativeQiStablecoinRenounceOwnership,
-  useCrosschainNativeQiStablecoinSafeTransferFrom:
-    hks.useCrosschainNativeQiStablecoinSafeTransferFrom,
-  useCrosschainNativeQiStablecoinSetApprovalForAll:
-    hks.useCrosschainNativeQiStablecoinSetApprovalForAll,
-  useCrosschainNativeQiStablecoinSetClosingFee:
-    hks.useCrosschainNativeQiStablecoinSetClosingFee,
-  useCrosschainNativeQiStablecoinSetDebtRatio:
-    hks.useCrosschainNativeQiStablecoinSetDebtRatio,
-  useCrosschainNativeQiStablecoinSetGainRatio:
-    hks.useCrosschainNativeQiStablecoinSetGainRatio,
-  useCrosschainNativeQiStablecoinSetMinCollateralRatio:
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useCrosschainNativeQiStablecoinRenounceOwnership,
+  useSafeTransferFrom: hks.useCrosschainNativeQiStablecoinSafeTransferFrom,
+  useSetApprovalForAll: hks.useCrosschainNativeQiStablecoinSetApprovalForAll,
+  useSetClosingFee: hks.useCrosschainNativeQiStablecoinSetClosingFee,
+  useSetDebtRatio: hks.useCrosschainNativeQiStablecoinSetDebtRatio,
+  useSetGainRatio: hks.useCrosschainNativeQiStablecoinSetGainRatio,
+  useSetMinCollateralRatio:
     hks.useCrosschainNativeQiStablecoinSetMinCollateralRatio,
-  useCrosschainNativeQiStablecoinSetOpeningFee:
-    hks.useCrosschainNativeQiStablecoinSetOpeningFee,
-  useCrosschainNativeQiStablecoinSetStabilityPool:
-    hks.useCrosschainNativeQiStablecoinSetStabilityPool,
-  useCrosschainNativeQiStablecoinSetTokenUri:
-    hks.useCrosschainNativeQiStablecoinSetTokenUri,
-  useCrosschainNativeQiStablecoinSetTreasury:
-    hks.useCrosschainNativeQiStablecoinSetTreasury,
-  useCrosschainNativeQiStablecoinStabilityPool:
-    hks.useCrosschainNativeQiStablecoinStabilityPool,
-  useCrosschainNativeQiStablecoinSupportsInterface:
-    hks.useCrosschainNativeQiStablecoinSupportsInterface,
-  useCrosschainNativeQiStablecoinSymbol:
-    hks.useCrosschainNativeQiStablecoinSymbol,
-  useCrosschainNativeQiStablecoinTokenByIndex:
-    hks.useCrosschainNativeQiStablecoinTokenByIndex,
-  useCrosschainNativeQiStablecoinTokenOfOwnerByIndex:
+  useSetOpeningFee: hks.useCrosschainNativeQiStablecoinSetOpeningFee,
+  useSetStabilityPool: hks.useCrosschainNativeQiStablecoinSetStabilityPool,
+  useSetTokenUri: hks.useCrosschainNativeQiStablecoinSetTokenUri,
+  useSetTreasury: hks.useCrosschainNativeQiStablecoinSetTreasury,
+  useStabilityPool: hks.useCrosschainNativeQiStablecoinStabilityPool,
+  useSupportsInterface: hks.useCrosschainNativeQiStablecoinSupportsInterface,
+  useSymbol: hks.useCrosschainNativeQiStablecoinSymbol,
+  useTokenByIndex: hks.useCrosschainNativeQiStablecoinTokenByIndex,
+  useTokenOfOwnerByIndex:
     hks.useCrosschainNativeQiStablecoinTokenOfOwnerByIndex,
-  useCrosschainNativeQiStablecoinTokenPeg:
-    hks.useCrosschainNativeQiStablecoinTokenPeg,
-  useCrosschainNativeQiStablecoinTokenUri:
-    hks.useCrosschainNativeQiStablecoinTokenUri,
-  useCrosschainNativeQiStablecoinTotalBorrowed:
-    hks.useCrosschainNativeQiStablecoinTotalBorrowed,
-  useCrosschainNativeQiStablecoinTotalSupply:
-    hks.useCrosschainNativeQiStablecoinTotalSupply,
-  useCrosschainNativeQiStablecoinTransferEvent:
-    hks.useCrosschainNativeQiStablecoinTransferEvent,
-  useCrosschainNativeQiStablecoinTransferFrom:
-    hks.useCrosschainNativeQiStablecoinTransferFrom,
-  useCrosschainNativeQiStablecoinTransferOwnership:
-    hks.useCrosschainNativeQiStablecoinTransferOwnership,
-  useCrosschainNativeQiStablecoinTransferVaultEvent:
-    hks.useCrosschainNativeQiStablecoinTransferVaultEvent,
-  useCrosschainNativeQiStablecoinTreasury:
-    hks.useCrosschainNativeQiStablecoinTreasury,
-  useCrosschainNativeQiStablecoinUri: hks.useCrosschainNativeQiStablecoinUri,
-  useCrosschainNativeQiStablecoinVaultCollateral:
-    hks.useCrosschainNativeQiStablecoinVaultCollateral,
-  useCrosschainNativeQiStablecoinVaultCount:
-    hks.useCrosschainNativeQiStablecoinVaultCount,
-  useCrosschainNativeQiStablecoinVaultDebt:
-    hks.useCrosschainNativeQiStablecoinVaultDebt,
-  useCrosschainNativeQiStablecoinWithdrawCollateral:
-    hks.useCrosschainNativeQiStablecoinWithdrawCollateral,
-  useCrosschainNativeQiStablecoinWithdrawCollateralEvent:
+  useTokenPeg: hks.useCrosschainNativeQiStablecoinTokenPeg,
+  useTokenUri: hks.useCrosschainNativeQiStablecoinTokenUri,
+  useTotalBorrowed: hks.useCrosschainNativeQiStablecoinTotalBorrowed,
+  useTotalSupply: hks.useCrosschainNativeQiStablecoinTotalSupply,
+  useTransferEvent: hks.useCrosschainNativeQiStablecoinTransferEvent,
+  useTransferFrom: hks.useCrosschainNativeQiStablecoinTransferFrom,
+  useTransferOwnership: hks.useCrosschainNativeQiStablecoinTransferOwnership,
+  useTransferVaultEvent: hks.useCrosschainNativeQiStablecoinTransferVaultEvent,
+  useTreasury: hks.useCrosschainNativeQiStablecoinTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useCrosschainNativeQiStablecoinVaultCollateral,
+  useVaultCount: hks.useCrosschainNativeQiStablecoinVaultCount,
+  useVaultDebt: hks.useCrosschainNativeQiStablecoinVaultDebt,
+  useWithdrawCollateral: hks.useCrosschainNativeQiStablecoinWithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useCrosschainNativeQiStablecoinWithdrawCollateralEvent,
-  useCrosschainNativeQiStablecoinWrite:
-    hks.useCrosschainNativeQiStablecoinWrite,
-  usePrepareCrosschainNativeQiStablecoinApprove:
-    hks.usePrepareCrosschainNativeQiStablecoinApprove,
-  usePrepareCrosschainNativeQiStablecoinBorrowToken:
-    hks.usePrepareCrosschainNativeQiStablecoinBorrowToken,
-  usePrepareCrosschainNativeQiStablecoinBurn:
-    hks.usePrepareCrosschainNativeQiStablecoinBurn,
-  usePrepareCrosschainNativeQiStablecoinChangeEthPriceSource:
+  useWrite: hks.useCrosschainNativeQiStablecoinWrite,
+  usePrepareApprove: hks.usePrepareCrosschainNativeQiStablecoinApprove,
+  usePrepareBorrowToken: hks.usePrepareCrosschainNativeQiStablecoinBorrowToken,
+  usePrepareBurn: hks.usePrepareCrosschainNativeQiStablecoinBurn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareCrosschainNativeQiStablecoinChangeEthPriceSource,
-  usePrepareCrosschainNativeQiStablecoinCreateVault:
-    hks.usePrepareCrosschainNativeQiStablecoinCreateVault,
-  usePrepareCrosschainNativeQiStablecoinDepositCollateral:
+  usePrepareCreateVault: hks.usePrepareCrosschainNativeQiStablecoinCreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareCrosschainNativeQiStablecoinDepositCollateral,
-  usePrepareCrosschainNativeQiStablecoinDepositNative:
+  usePrepareDepositNative:
     hks.usePrepareCrosschainNativeQiStablecoinDepositNative,
-  usePrepareCrosschainNativeQiStablecoinDestroyVault:
+  usePrepareDestroyVault:
     hks.usePrepareCrosschainNativeQiStablecoinDestroyVault,
-  usePrepareCrosschainNativeQiStablecoinGetPaid:
-    hks.usePrepareCrosschainNativeQiStablecoinGetPaid,
-  usePrepareCrosschainNativeQiStablecoinLiquidateVault:
+  usePrepareGetPaid: hks.usePrepareCrosschainNativeQiStablecoinGetPaid,
+  usePrepareLiquidateVault:
     hks.usePrepareCrosschainNativeQiStablecoinLiquidateVault,
-  usePrepareCrosschainNativeQiStablecoinPayBackToken:
+  usePreparePayBackToken:
     hks.usePrepareCrosschainNativeQiStablecoinPayBackToken,
-  usePrepareCrosschainNativeQiStablecoinRenounceOwnership:
+  usePrepareRenounceOwnership:
     hks.usePrepareCrosschainNativeQiStablecoinRenounceOwnership,
-  usePrepareCrosschainNativeQiStablecoinSafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareCrosschainNativeQiStablecoinSafeTransferFrom,
-  usePrepareCrosschainNativeQiStablecoinSetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareCrosschainNativeQiStablecoinSetApprovalForAll,
-  usePrepareCrosschainNativeQiStablecoinSetClosingFee:
+  usePrepareSetClosingFee:
     hks.usePrepareCrosschainNativeQiStablecoinSetClosingFee,
-  usePrepareCrosschainNativeQiStablecoinSetDebtRatio:
+  usePrepareSetDebtRatio:
     hks.usePrepareCrosschainNativeQiStablecoinSetDebtRatio,
-  usePrepareCrosschainNativeQiStablecoinSetGainRatio:
+  usePrepareSetGainRatio:
     hks.usePrepareCrosschainNativeQiStablecoinSetGainRatio,
-  usePrepareCrosschainNativeQiStablecoinSetMinCollateralRatio:
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareCrosschainNativeQiStablecoinSetMinCollateralRatio,
-  usePrepareCrosschainNativeQiStablecoinSetOpeningFee:
+  usePrepareSetOpeningFee:
     hks.usePrepareCrosschainNativeQiStablecoinSetOpeningFee,
-  usePrepareCrosschainNativeQiStablecoinSetStabilityPool:
+  usePrepareSetStabilityPool:
     hks.usePrepareCrosschainNativeQiStablecoinSetStabilityPool,
-  usePrepareCrosschainNativeQiStablecoinSetTokenUri:
-    hks.usePrepareCrosschainNativeQiStablecoinSetTokenUri,
-  usePrepareCrosschainNativeQiStablecoinSetTreasury:
-    hks.usePrepareCrosschainNativeQiStablecoinSetTreasury,
-  usePrepareCrosschainNativeQiStablecoinTransferFrom:
+  usePrepareSetTokenUri: hks.usePrepareCrosschainNativeQiStablecoinSetTokenUri,
+  usePrepareSetTreasury: hks.usePrepareCrosschainNativeQiStablecoinSetTreasury,
+  usePrepareTransferFrom:
     hks.usePrepareCrosschainNativeQiStablecoinTransferFrom,
-  usePrepareCrosschainNativeQiStablecoinTransferOwnership:
+  usePrepareTransferOwnership:
     hks.usePrepareCrosschainNativeQiStablecoinTransferOwnership,
-  usePrepareCrosschainNativeQiStablecoinWithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareCrosschainNativeQiStablecoinWithdrawCollateral,
-  usePrepareCrosschainNativeQiStablecoinWrite:
-    hks.usePrepareCrosschainNativeQiStablecoinWrite,
-};
+  usePrepareWrite: hks.usePrepareCrosschainNativeQiStablecoinWrite,
+} as const;
 
 const CrosschainQiStablecoin = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useCrosschainQiStablecoinApprovalEvent:
-    hks.useCrosschainNativeQiStablecoinApprovalEvent,
-  useCrosschainQiStablecoinApprovalForAllEvent:
-    hks.useCrosschainQiStablecoinApprovalForAllEvent,
-  useCrosschainQiStablecoinApprove: hks.useCrosschainQiStablecoinApprove,
-  useCrosschainQiStablecoinBalanceOf: hks.useCrosschainQiStablecoinBalanceOf,
-  useCrosschainQiStablecoinBorrowTokenEvent:
-    hks.useCrosschainQiStablecoinBorrowTokenEvent,
-  useCrosschainQiStablecoinBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useCrosschainQiStablecoinChangeEthPriceSource:
-    hks.useCrosschainQiStablecoinChangeEthPriceSource,
-  useCrosschainQiStablecoinCheckCollateralPercentage:
+  useApprovalEvent: hks.useCrosschainNativeQiStablecoinApprovalEvent,
+  useApprovalForAllEvent: hks.useCrosschainQiStablecoinApprovalForAllEvent,
+  useApprove: hks.useCrosschainQiStablecoinApprove,
+  useBalanceOf: hks.useCrosschainQiStablecoinBalanceOf,
+  useBorrowTokenEvent: hks.useCrosschainQiStablecoinBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useCrosschainQiStablecoinChangeEthPriceSource,
+  useCheckCollateralPercentage:
     hks.useCrosschainQiStablecoinCheckCollateralPercentage,
-  useCrosschainQiStablecoinCheckCost: hks.useCrosschainQiStablecoinCheckCost,
-  useCrosschainQiStablecoinCheckExtract:
-    hks.useCrosschainQiStablecoinCheckExtract,
-  useCrosschainQiStablecoinCheckLiquidation:
-    hks.useCrosschainQiStablecoinCheckLiquidation,
-  useCrosschainQiStablecoinClosingFee: hks.useCrosschainQiStablecoinClosingFee,
-  useCrosschainQiStablecoinCollateral: hks.useCrosschainQiStablecoinCollateral,
-  useCrosschainQiStablecoinCreateVault:
-    hks.useCrosschainQiStablecoinCreateVault,
-  useCrosschainQiStablecoinCreateVaultEvent:
-    hks.useCrosschainQiStablecoinCreateVaultEvent,
-  useCrosschainQiStablecoinDebtRatio: hks.useCrosschainQiStablecoinDebtRatio,
-  useCrosschainQiStablecoinDepositCollateral:
-    hks.useCrosschainQiStablecoinDepositCollateral,
-  useCrosschainQiStablecoinDepositCollateralEvent:
+  useCheckCost: hks.useCrosschainQiStablecoinCheckCost,
+  useCheckExtract: hks.useCrosschainQiStablecoinCheckExtract,
+  useCheckLiquidation: hks.useCrosschainQiStablecoinCheckLiquidation,
+  useClosingFee: hks.useCrosschainQiStablecoinClosingFee,
+  useCollateral: hks.useCrosschainQiStablecoinCollateral,
+  useCreateVault: hks.useCrosschainQiStablecoinCreateVault,
+  useCreateVaultEvent: hks.useCrosschainQiStablecoinCreateVaultEvent,
+  useDebtRatio: hks.useCrosschainQiStablecoinDebtRatio,
+  useDepositCollateral: hks.useCrosschainQiStablecoinDepositCollateral,
+  useDepositCollateralEvent:
     hks.useCrosschainQiStablecoinDepositCollateralEvent,
-  useCrosschainQiStablecoinDepositNative:
-    hks.useCrosschainQiStablecoinDepositNative,
-  useCrosschainQiStablecoinDestroyVault:
-    hks.useCrosschainQiStablecoinDestroyVault,
-  useCrosschainQiStablecoinDestroyVaultEvent:
-    hks.useCrosschainQiStablecoinDestroyVaultEvent,
-  useCrosschainQiStablecoinEthPriceSource:
-    hks.useCrosschainQiStablecoinEthPriceSource,
-  useCrosschainQiStablecoinEvent: hks.useCrosschainQiStablecoinEvent,
-  useCrosschainQiStablecoinExists: hks.useCrosschainQiStablecoinExists,
-  useCrosschainQiStablecoinGainRatio: hks.useCrosschainQiStablecoinGainRatio,
-  useCrosschainQiStablecoinGetApproved:
-    hks.useCrosschainQiStablecoinGetApproved,
-  useCrosschainQiStablecoinGetClosingFee:
-    hks.useCrosschainQiStablecoinGetClosingFee,
-  useCrosschainQiStablecoinGetDebtCeiling:
-    hks.useCrosschainQiStablecoinGetDebtCeiling,
-  useCrosschainQiStablecoinGetEthPriceSource:
-    hks.useCrosschainQiStablecoinGetEthPriceSource,
-  useCrosschainQiStablecoinGetOpeningFee:
-    hks.useCrosschainQiStablecoinGetOpeningFee,
-  useCrosschainQiStablecoinGetPaid: hks.useCrosschainQiStablecoinGetPaid,
-  useCrosschainQiStablecoinGetTokenPriceSource:
-    hks.useCrosschainQiStablecoinGetTokenPriceSource,
-  useCrosschainQiStablecoinIsApprovedForAll:
-    hks.useCrosschainQiStablecoinIsApprovedForAll,
-  useCrosschainQiStablecoinIsOwner: hks.useCrosschainQiStablecoinIsOwner,
-  useCrosschainQiStablecoinLiquidateVault:
-    hks.useCrosschainQiStablecoinLiquidateVault,
-  useCrosschainQiStablecoinLiquidateVaultEvent:
-    hks.useCrosschainQiStablecoinLiquidateVaultEvent,
-  useCrosschainQiStablecoinMai: hks.useCrosschainNativeQiStablecoinMai,
-  useCrosschainQiStablecoinMaticDebt: hks.useCrosschainQiStablecoinMaticDebt,
-  useCrosschainQiStablecoinMinimumCollateralPercentage:
+  useDepositNative: hks.useCrosschainQiStablecoinDepositNative,
+  useDestroyVault: hks.useCrosschainQiStablecoinDestroyVault,
+  useDestroyVaultEvent: hks.useCrosschainQiStablecoinDestroyVaultEvent,
+  useEthPriceSource: hks.useCrosschainQiStablecoinEthPriceSource,
+  useEvent: hks.useCrosschainQiStablecoinEvent,
+  useExists: hks.useCrosschainQiStablecoinExists,
+  useGainRatio: hks.useCrosschainQiStablecoinGainRatio,
+  useGetApproved: hks.useCrosschainQiStablecoinGetApproved,
+  useGetClosingFee: hks.useCrosschainQiStablecoinGetClosingFee,
+  useGetDebtCeiling: hks.useCrosschainQiStablecoinGetDebtCeiling,
+  useGetEthPriceSource: hks.useCrosschainQiStablecoinGetEthPriceSource,
+  useGetOpeningFee: hks.useCrosschainQiStablecoinGetOpeningFee,
+  useGetPaid: hks.useCrosschainQiStablecoinGetPaid,
+  useGetTokenPriceSource: hks.useCrosschainQiStablecoinGetTokenPriceSource,
+  useIsApprovedForAll: hks.useCrosschainQiStablecoinIsApprovedForAll,
+  useIsOwner: hks.useCrosschainQiStablecoinIsOwner,
+  useLiquidateVault: hks.useCrosschainQiStablecoinLiquidateVault,
+  useLiquidateVaultEvent: hks.useCrosschainQiStablecoinLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useCrosschainQiStablecoinMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useCrosschainQiStablecoinMinimumCollateralPercentage,
-  useCrosschainQiStablecoinName: hks.useCrosschainNativeQiStablecoinName,
-  useCrosschainQiStablecoinOpeningFee: hks.useCrosschainQiStablecoinOpeningFee,
-  useCrosschainQiStablecoinOwner: hks.useCrosschainQiStablecoinOwner,
-  useCrosschainQiStablecoinOwnerOf: hks.useCrosschainQiStablecoinOwnerOf,
-  useCrosschainQiStablecoinOwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useCrosschainQiStablecoinOpeningFee,
+  useOwner: hks.useCrosschainQiStablecoinOwner,
+  useOwnerOf: hks.useCrosschainQiStablecoinOwnerOf,
+  useOwnershipTransferredEvent:
     hks.useCrosschainQiStablecoinOwnershipTransferredEvent,
-  useCrosschainQiStablecoinPayBackToken:
-    hks.useCrosschainQiStablecoinPayBackToken,
-  useCrosschainQiStablecoinPayBackTokenEvent:
-    hks.useCrosschainQiStablecoinPayBackTokenEvent,
-  useCrosschainQiStablecoinPriceSourceDecimals:
-    hks.useCrosschainQiStablecoinPriceSourceDecimals,
-  useCrosschainQiStablecoinRead: hks.useCrosschainNativeQiStablecoinRead,
-  useCrosschainQiStablecoinRenounceOwnership:
-    hks.useCrosschainQiStablecoinRenounceOwnership,
-  useCrosschainQiStablecoinSafeTransferFrom:
-    hks.useCrosschainQiStablecoinSafeTransferFrom,
-  useCrosschainQiStablecoinSetApprovalForAll:
-    hks.useCrosschainQiStablecoinSetApprovalForAll,
-  useCrosschainQiStablecoinSetClosingFee:
-    hks.useCrosschainQiStablecoinSetClosingFee,
-  useCrosschainQiStablecoinSetDebtRatio:
-    hks.useCrosschainQiStablecoinSetDebtRatio,
-  useCrosschainQiStablecoinSetGainRatio:
-    hks.useCrosschainQiStablecoinSetGainRatio,
-  useCrosschainQiStablecoinSetMinCollateralRatio:
-    hks.useCrosschainQiStablecoinSetMinCollateralRatio,
-  useCrosschainQiStablecoinSetOpeningFee:
-    hks.useCrosschainQiStablecoinSetOpeningFee,
-  useCrosschainQiStablecoinSetStabilityPool:
-    hks.useCrosschainQiStablecoinSetStabilityPool,
-  useCrosschainQiStablecoinSetTokenUri:
-    hks.useCrosschainQiStablecoinSetTokenUri,
-  useCrosschainQiStablecoinSetTreasury:
-    hks.useCrosschainQiStablecoinSetTreasury,
-  useCrosschainQiStablecoinStabilityPool:
-    hks.useCrosschainQiStablecoinStabilityPool,
-  useCrosschainQiStablecoinSupportsInterface:
-    hks.useCrosschainQiStablecoinSupportsInterface,
-  useCrosschainQiStablecoinSymbol: hks.useCrosschainQiStablecoinSymbol,
-  useCrosschainQiStablecoinTokenByIndex:
-    hks.useCrosschainQiStablecoinTokenByIndex,
-  useCrosschainQiStablecoinTokenOfOwnerByIndex:
-    hks.useCrosschainQiStablecoinTokenOfOwnerByIndex,
-  useCrosschainQiStablecoinTokenPeg: hks.useCrosschainQiStablecoinTokenPeg,
-  useCrosschainQiStablecoinTokenUri: hks.useCrosschainQiStablecoinTokenUri,
-  useCrosschainQiStablecoinTotalBorrowed:
-    hks.useCrosschainQiStablecoinTotalBorrowed,
-  useCrosschainQiStablecoinTotalSupply:
-    hks.useCrosschainQiStablecoinTotalSupply,
-  useCrosschainQiStablecoinTransferEvent:
-    hks.useCrosschainQiStablecoinTransferEvent,
-  useCrosschainQiStablecoinTransferFrom:
-    hks.useCrosschainQiStablecoinTransferFrom,
-  useCrosschainQiStablecoinTransferOwnership:
-    hks.useCrosschainQiStablecoinTransferOwnership,
-  useCrosschainQiStablecoinTransferVaultEvent:
-    hks.useCrosschainQiStablecoinTransferVaultEvent,
-  useCrosschainQiStablecoinTreasury: hks.useCrosschainQiStablecoinTreasury,
-  useCrosschainQiStablecoinUri: hks.useCrosschainNativeQiStablecoinUri,
-  useCrosschainQiStablecoinVaultCollateral:
-    hks.useCrosschainQiStablecoinVaultCollateral,
-  useCrosschainQiStablecoinVaultCount: hks.useCrosschainQiStablecoinVaultCount,
-  useCrosschainQiStablecoinVaultDebt: hks.useCrosschainQiStablecoinVaultDebt,
-  useCrosschainQiStablecoinWithdrawCollateral:
-    hks.useCrosschainQiStablecoinWithdrawCollateral,
-  useCrosschainQiStablecoinWithdrawCollateralEvent:
+  usePayBackToken: hks.useCrosschainQiStablecoinPayBackToken,
+  usePayBackTokenEvent: hks.useCrosschainQiStablecoinPayBackTokenEvent,
+  usePriceSourceDecimals: hks.useCrosschainQiStablecoinPriceSourceDecimals,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useCrosschainQiStablecoinRenounceOwnership,
+  useSafeTransferFrom: hks.useCrosschainQiStablecoinSafeTransferFrom,
+  useSetApprovalForAll: hks.useCrosschainQiStablecoinSetApprovalForAll,
+  useSetClosingFee: hks.useCrosschainQiStablecoinSetClosingFee,
+  useSetDebtRatio: hks.useCrosschainQiStablecoinSetDebtRatio,
+  useSetGainRatio: hks.useCrosschainQiStablecoinSetGainRatio,
+  useSetMinCollateralRatio: hks.useCrosschainQiStablecoinSetMinCollateralRatio,
+  useSetOpeningFee: hks.useCrosschainQiStablecoinSetOpeningFee,
+  useSetStabilityPool: hks.useCrosschainQiStablecoinSetStabilityPool,
+  useSetTokenUri: hks.useCrosschainQiStablecoinSetTokenUri,
+  useSetTreasury: hks.useCrosschainQiStablecoinSetTreasury,
+  useStabilityPool: hks.useCrosschainQiStablecoinStabilityPool,
+  useSupportsInterface: hks.useCrosschainQiStablecoinSupportsInterface,
+  useSymbol: hks.useCrosschainQiStablecoinSymbol,
+  useTokenByIndex: hks.useCrosschainQiStablecoinTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useCrosschainQiStablecoinTokenOfOwnerByIndex,
+  useTokenPeg: hks.useCrosschainQiStablecoinTokenPeg,
+  useTokenUri: hks.useCrosschainQiStablecoinTokenUri,
+  useTotalBorrowed: hks.useCrosschainQiStablecoinTotalBorrowed,
+  useTotalSupply: hks.useCrosschainQiStablecoinTotalSupply,
+  useTransferEvent: hks.useCrosschainQiStablecoinTransferEvent,
+  useTransferFrom: hks.useCrosschainQiStablecoinTransferFrom,
+  useTransferOwnership: hks.useCrosschainQiStablecoinTransferOwnership,
+  useTransferVaultEvent: hks.useCrosschainQiStablecoinTransferVaultEvent,
+  useTreasury: hks.useCrosschainQiStablecoinTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useCrosschainQiStablecoinVaultCollateral,
+  useVaultCount: hks.useCrosschainQiStablecoinVaultCount,
+  useVaultDebt: hks.useCrosschainQiStablecoinVaultDebt,
+  useWithdrawCollateral: hks.useCrosschainQiStablecoinWithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useCrosschainQiStablecoinWithdrawCollateralEvent,
-  useCrosschainQiStablecoinWrite: hks.useCrosschainQiStablecoinWrite,
-  usePrepareCrosschainQiStablecoinApprove:
-    hks.usePrepareCrosschainQiStablecoinApprove,
-  usePrepareCrosschainQiStablecoinBorrowToken:
-    hks.usePrepareCrosschainQiStablecoinBorrowToken,
-  usePrepareCrosschainQiStablecoinBurn:
-    hks.usePrepareCrosschainQiStablecoinBurn,
-  usePrepareCrosschainQiStablecoinChangeEthPriceSource:
+  useWrite: hks.useCrosschainQiStablecoinWrite,
+  usePrepareApprove: hks.usePrepareCrosschainQiStablecoinApprove,
+  usePrepareBorrowToken: hks.usePrepareCrosschainQiStablecoinBorrowToken,
+  usePrepareBurn: hks.usePrepareCrosschainQiStablecoinBurn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareCrosschainQiStablecoinChangeEthPriceSource,
-  usePrepareCrosschainQiStablecoinCreateVault:
-    hks.usePrepareCrosschainQiStablecoinCreateVault,
-  usePrepareCrosschainQiStablecoinDepositCollateral:
+  usePrepareCreateVault: hks.usePrepareCrosschainQiStablecoinCreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareCrosschainQiStablecoinDepositCollateral,
-  usePrepareCrosschainQiStablecoinDepositNative:
-    hks.usePrepareCrosschainQiStablecoinDepositNative,
-  usePrepareCrosschainQiStablecoinDestroyVault:
-    hks.usePrepareCrosschainQiStablecoinDestroyVault,
-  usePrepareCrosschainQiStablecoinGetPaid:
-    hks.usePrepareCrosschainQiStablecoinGetPaid,
-  usePrepareCrosschainQiStablecoinLiquidateVault:
-    hks.usePrepareCrosschainQiStablecoinLiquidateVault,
-  usePrepareCrosschainQiStablecoinPayBackToken:
-    hks.usePrepareCrosschainQiStablecoinPayBackToken,
-  usePrepareCrosschainQiStablecoinRenounceOwnership:
+  usePrepareDepositNative: hks.usePrepareCrosschainQiStablecoinDepositNative,
+  usePrepareDestroyVault: hks.usePrepareCrosschainQiStablecoinDestroyVault,
+  usePrepareGetPaid: hks.usePrepareCrosschainQiStablecoinGetPaid,
+  usePrepareLiquidateVault: hks.usePrepareCrosschainQiStablecoinLiquidateVault,
+  usePreparePayBackToken: hks.usePrepareCrosschainQiStablecoinPayBackToken,
+  usePrepareRenounceOwnership:
     hks.usePrepareCrosschainQiStablecoinRenounceOwnership,
-  usePrepareCrosschainQiStablecoinSafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareCrosschainQiStablecoinSafeTransferFrom,
-  usePrepareCrosschainQiStablecoinSetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareCrosschainQiStablecoinSetApprovalForAll,
-  usePrepareCrosschainQiStablecoinSetClosingFee:
-    hks.usePrepareCrosschainQiStablecoinSetClosingFee,
-  usePrepareCrosschainQiStablecoinSetDebtRatio:
-    hks.usePrepareCrosschainQiStablecoinSetDebtRatio,
-  usePrepareCrosschainQiStablecoinSetGainRatio:
-    hks.usePrepareCrosschainQiStablecoinSetGainRatio,
-  usePrepareCrosschainQiStablecoinSetMinCollateralRatio:
+  usePrepareSetClosingFee: hks.usePrepareCrosschainQiStablecoinSetClosingFee,
+  usePrepareSetDebtRatio: hks.usePrepareCrosschainQiStablecoinSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareCrosschainQiStablecoinSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareCrosschainQiStablecoinSetMinCollateralRatio,
-  usePrepareCrosschainQiStablecoinSetOpeningFee:
-    hks.usePrepareCrosschainQiStablecoinSetOpeningFee,
-  usePrepareCrosschainQiStablecoinSetStabilityPool:
+  usePrepareSetOpeningFee: hks.usePrepareCrosschainQiStablecoinSetOpeningFee,
+  usePrepareSetStabilityPool:
     hks.usePrepareCrosschainQiStablecoinSetStabilityPool,
-  usePrepareCrosschainQiStablecoinSetTokenUri:
-    hks.usePrepareCrosschainQiStablecoinSetTokenUri,
-  usePrepareCrosschainQiStablecoinSetTreasury:
-    hks.usePrepareCrosschainQiStablecoinSetTreasury,
-  usePrepareCrosschainQiStablecoinTransferFrom:
-    hks.usePrepareCrosschainQiStablecoinTransferFrom,
-  usePrepareCrosschainQiStablecoinTransferOwnership:
+  usePrepareSetTokenUri: hks.usePrepareCrosschainQiStablecoinSetTokenUri,
+  usePrepareSetTreasury: hks.usePrepareCrosschainQiStablecoinSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareCrosschainQiStablecoinTransferFrom,
+  usePrepareTransferOwnership:
     hks.usePrepareCrosschainQiStablecoinTransferOwnership,
-  usePrepareCrosschainQiStablecoinWithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareCrosschainQiStablecoinWithdrawCollateral,
-  usePrepareCrosschainQiStablecoinWrite:
-    hks.usePrepareCrosschainQiStablecoinWrite,
-};
+  usePrepareWrite: hks.usePrepareCrosschainQiStablecoinWrite,
+} as const;
 
 const CrosschainQiStablecoinV2 = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useCrosschainQiStablecoinV2ApprovalEvent:
-    hks.useCrosschainQiStablecoinV2ApprovalEvent,
-  useCrosschainQiStablecoinV2ApprovalForAllEvent:
-    hks.useCrosschainQiStablecoinV2ApprovalForAllEvent,
-  useCrosschainQiStablecoinV2Approve: hks.useCrosschainQiStablecoinV2Approve,
-  useCrosschainQiStablecoinV2BalanceOf:
-    hks.useCrosschainQiStablecoinV2BalanceOf,
-  useCrosschainQiStablecoinV2BorrowTokenEvent:
-    hks.useCrosschainQiStablecoinV2BorrowTokenEvent,
-  useCrosschainQiStablecoinV2Burn: hks.useCrosschainNativeQiStablecoinBurn,
-  useCrosschainQiStablecoinV2ChangeEthPriceSource:
-    hks.useCrosschainQiStablecoinV2ChangeEthPriceSource,
-  useCrosschainQiStablecoinV2CheckCollateralPercentage:
+  useApprovalEvent: hks.useCrosschainQiStablecoinV2ApprovalEvent,
+  useApprovalForAllEvent: hks.useCrosschainQiStablecoinV2ApprovalForAllEvent,
+  useApprove: hks.useCrosschainQiStablecoinV2Approve,
+  useBalanceOf: hks.useCrosschainQiStablecoinV2BalanceOf,
+  useBorrowTokenEvent: hks.useCrosschainQiStablecoinV2BorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useCrosschainQiStablecoinV2ChangeEthPriceSource,
+  useCheckCollateralPercentage:
     hks.useCrosschainQiStablecoinV2CheckCollateralPercentage,
-  useCrosschainQiStablecoinV2CheckCost:
-    hks.useCrosschainQiStablecoinV2CheckCost,
-  useCrosschainQiStablecoinV2CheckExtract:
-    hks.useCrosschainQiStablecoinV2CheckExtract,
-  useCrosschainQiStablecoinV2CheckLiquidation:
-    hks.useCrosschainQiStablecoinV2CheckLiquidation,
-  useCrosschainQiStablecoinV2ClosingFee:
-    hks.useCrosschainQiStablecoinV2ClosingFee,
-  useCrosschainQiStablecoinV2Collateral:
-    hks.useCrosschainQiStablecoinV2Collateral,
-  useCrosschainQiStablecoinV2CreateVault:
-    hks.useCrosschainQiStablecoinV2CreateVault,
-  useCrosschainQiStablecoinV2CreateVaultEvent:
-    hks.useCrosschainQiStablecoinV2CreateVaultEvent,
-  useCrosschainQiStablecoinV2DebtRatio:
-    hks.useCrosschainQiStablecoinV2DebtRatio,
-  useCrosschainQiStablecoinV2DepositCollateral:
-    hks.useCrosschainQiStablecoinV2DepositCollateral,
-  useCrosschainQiStablecoinV2DepositCollateralEvent:
+  useCheckCost: hks.useCrosschainQiStablecoinV2CheckCost,
+  useCheckExtract: hks.useCrosschainQiStablecoinV2CheckExtract,
+  useCheckLiquidation: hks.useCrosschainQiStablecoinV2CheckLiquidation,
+  useClosingFee: hks.useCrosschainQiStablecoinV2ClosingFee,
+  useCollateral: hks.useCrosschainQiStablecoinV2Collateral,
+  useCreateVault: hks.useCrosschainQiStablecoinV2CreateVault,
+  useCreateVaultEvent: hks.useCrosschainQiStablecoinV2CreateVaultEvent,
+  useDebtRatio: hks.useCrosschainQiStablecoinV2DebtRatio,
+  useDepositCollateral: hks.useCrosschainQiStablecoinV2DepositCollateral,
+  useDepositCollateralEvent:
     hks.useCrosschainQiStablecoinV2DepositCollateralEvent,
-  useCrosschainQiStablecoinV2DestroyVault:
-    hks.useCrosschainQiStablecoinV2DestroyVault,
-  useCrosschainQiStablecoinV2DestroyVaultEvent:
-    hks.useCrosschainQiStablecoinV2DestroyVaultEvent,
-  useCrosschainQiStablecoinV2EthPriceSource:
-    hks.useCrosschainQiStablecoinV2EthPriceSource,
-  useCrosschainQiStablecoinV2Event: hks.useCrosschainQiStablecoinV2Event,
-  useCrosschainQiStablecoinV2Exists: hks.useCrosschainQiStablecoinV2Exists,
-  useCrosschainQiStablecoinV2GainRatio:
-    hks.useCrosschainQiStablecoinV2GainRatio,
-  useCrosschainQiStablecoinV2GetApproved:
-    hks.useCrosschainQiStablecoinV2GetApproved,
-  useCrosschainQiStablecoinV2GetClosingFee:
-    hks.useCrosschainQiStablecoinV2GetClosingFee,
-  useCrosschainQiStablecoinV2GetDebtCeiling:
-    hks.useCrosschainQiStablecoinV2GetDebtCeiling,
-  useCrosschainQiStablecoinV2GetEthPriceSource:
-    hks.useCrosschainQiStablecoinV2GetEthPriceSource,
-  useCrosschainQiStablecoinV2GetPaid: hks.useCrosschainQiStablecoinV2GetPaid,
-  useCrosschainQiStablecoinV2GetTokenPriceSource:
-    hks.useCrosschainQiStablecoinV2GetTokenPriceSource,
-  useCrosschainQiStablecoinV2IsApprovedForAll:
-    hks.useCrosschainQiStablecoinV2IsApprovedForAll,
-  useCrosschainQiStablecoinV2IsOwner: hks.useCrosschainQiStablecoinV2IsOwner,
-  useCrosschainQiStablecoinV2LiquidateVault:
-    hks.useCrosschainQiStablecoinV2LiquidateVault,
-  useCrosschainQiStablecoinV2LiquidateVaultEvent:
-    hks.useCrosschainQiStablecoinV2LiquidateVaultEvent,
-  useCrosschainQiStablecoinV2Mai: hks.useCrosschainNativeQiStablecoinMai,
-  useCrosschainQiStablecoinV2MaticDebt:
-    hks.useCrosschainQiStablecoinV2MaticDebt,
-  useCrosschainQiStablecoinV2MinimumCollateralPercentage:
+  useDestroyVault: hks.useCrosschainQiStablecoinV2DestroyVault,
+  useDestroyVaultEvent: hks.useCrosschainQiStablecoinV2DestroyVaultEvent,
+  useEthPriceSource: hks.useCrosschainQiStablecoinV2EthPriceSource,
+  useEvent: hks.useCrosschainQiStablecoinV2Event,
+  useExists: hks.useCrosschainQiStablecoinV2Exists,
+  useGainRatio: hks.useCrosschainQiStablecoinV2GainRatio,
+  useGetApproved: hks.useCrosschainQiStablecoinV2GetApproved,
+  useGetClosingFee: hks.useCrosschainQiStablecoinV2GetClosingFee,
+  useGetDebtCeiling: hks.useCrosschainQiStablecoinV2GetDebtCeiling,
+  useGetEthPriceSource: hks.useCrosschainQiStablecoinV2GetEthPriceSource,
+  useGetPaid: hks.useCrosschainQiStablecoinV2GetPaid,
+  useGetTokenPriceSource: hks.useCrosschainQiStablecoinV2GetTokenPriceSource,
+  useIsApprovedForAll: hks.useCrosschainQiStablecoinV2IsApprovedForAll,
+  useIsOwner: hks.useCrosschainQiStablecoinV2IsOwner,
+  useLiquidateVault: hks.useCrosschainQiStablecoinV2LiquidateVault,
+  useLiquidateVaultEvent: hks.useCrosschainQiStablecoinV2LiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useCrosschainQiStablecoinV2MaticDebt,
+  useMinimumCollateralPercentage:
     hks.useCrosschainQiStablecoinV2MinimumCollateralPercentage,
-  useCrosschainQiStablecoinV2Name: hks.useCrosschainNativeQiStablecoinName,
-  useCrosschainQiStablecoinV2Owner: hks.useCrosschainQiStablecoinV2Owner,
-  useCrosschainQiStablecoinV2OwnerOf: hks.useCrosschainQiStablecoinV2OwnerOf,
-  useCrosschainQiStablecoinV2OwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOwner: hks.useCrosschainQiStablecoinV2Owner,
+  useOwnerOf: hks.useCrosschainQiStablecoinV2OwnerOf,
+  useOwnershipTransferredEvent:
     hks.useCrosschainQiStablecoinV2OwnershipTransferredEvent,
-  useCrosschainQiStablecoinV2PayBackToken:
-    hks.useCrosschainQiStablecoinV2PayBackToken,
-  useCrosschainQiStablecoinV2PayBackTokenEvent:
-    hks.useCrosschainQiStablecoinV2PayBackTokenEvent,
-  useCrosschainQiStablecoinV2PriceSourceDecimals:
-    hks.useCrosschainQiStablecoinV2PriceSourceDecimals,
-  useCrosschainQiStablecoinV2Read: hks.useCrosschainNativeQiStablecoinRead,
-  useCrosschainQiStablecoinV2RenounceOwnership:
-    hks.useCrosschainQiStablecoinV2RenounceOwnership,
-  useCrosschainQiStablecoinV2SafeTransferFrom:
-    hks.useCrosschainQiStablecoinV2SafeTransferFrom,
-  useCrosschainQiStablecoinV2SetApprovalForAll:
-    hks.useCrosschainQiStablecoinV2SetApprovalForAll,
-  useCrosschainQiStablecoinV2SetDebtRatio:
-    hks.useCrosschainQiStablecoinV2SetDebtRatio,
-  useCrosschainQiStablecoinV2SetGainRatio:
-    hks.useCrosschainQiStablecoinV2SetGainRatio,
-  useCrosschainQiStablecoinV2SetMinCollateralRatio:
+  usePayBackToken: hks.useCrosschainQiStablecoinV2PayBackToken,
+  usePayBackTokenEvent: hks.useCrosschainQiStablecoinV2PayBackTokenEvent,
+  usePriceSourceDecimals: hks.useCrosschainQiStablecoinV2PriceSourceDecimals,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useCrosschainQiStablecoinV2RenounceOwnership,
+  useSafeTransferFrom: hks.useCrosschainQiStablecoinV2SafeTransferFrom,
+  useSetApprovalForAll: hks.useCrosschainQiStablecoinV2SetApprovalForAll,
+  useSetDebtRatio: hks.useCrosschainQiStablecoinV2SetDebtRatio,
+  useSetGainRatio: hks.useCrosschainQiStablecoinV2SetGainRatio,
+  useSetMinCollateralRatio:
     hks.useCrosschainQiStablecoinV2SetMinCollateralRatio,
-  useCrosschainQiStablecoinV2SetStabilityPool:
-    hks.useCrosschainQiStablecoinV2SetStabilityPool,
-  useCrosschainQiStablecoinV2SetTokenUri:
-    hks.useCrosschainQiStablecoinV2SetTokenUri,
-  useCrosschainQiStablecoinV2SetTreasury:
-    hks.useCrosschainQiStablecoinV2SetTreasury,
-  useCrosschainQiStablecoinV2StabilityPool:
-    hks.useCrosschainQiStablecoinV2StabilityPool,
-  useCrosschainQiStablecoinV2SupportsInterface:
-    hks.useCrosschainQiStablecoinV2SupportsInterface,
-  useCrosschainQiStablecoinV2Symbol: hks.useCrosschainQiStablecoinV2Symbol,
-  useCrosschainQiStablecoinV2TokenByIndex:
-    hks.useCrosschainQiStablecoinV2TokenByIndex,
-  useCrosschainQiStablecoinV2TokenOfOwnerByIndex:
-    hks.useCrosschainQiStablecoinV2TokenOfOwnerByIndex,
-  useCrosschainQiStablecoinV2TokenPeg: hks.useCrosschainQiStablecoinV2TokenPeg,
-  useCrosschainQiStablecoinV2TokenUri: hks.useCrosschainQiStablecoinV2TokenUri,
-  useCrosschainQiStablecoinV2TotalBorrowed:
-    hks.useCrosschainQiStablecoinV2TotalBorrowed,
-  useCrosschainQiStablecoinV2TotalSupply:
-    hks.useCrosschainQiStablecoinV2TotalSupply,
-  useCrosschainQiStablecoinV2TransferEvent:
-    hks.useCrosschainQiStablecoinV2TransferEvent,
-  useCrosschainQiStablecoinV2TransferFrom:
-    hks.useCrosschainQiStablecoinV2TransferFrom,
-  useCrosschainQiStablecoinV2TransferOwnership:
-    hks.useCrosschainQiStablecoinV2TransferOwnership,
-  useCrosschainQiStablecoinV2TransferVaultEvent:
-    hks.useCrosschainQiStablecoinV2TransferVaultEvent,
-  useCrosschainQiStablecoinV2Treasury: hks.useCrosschainQiStablecoinV2Treasury,
-  useCrosschainQiStablecoinV2Uri: hks.useCrosschainNativeQiStablecoinUri,
-  useCrosschainQiStablecoinV2VaultCollateral:
-    hks.useCrosschainQiStablecoinV2VaultCollateral,
-  useCrosschainQiStablecoinV2VaultCount:
-    hks.useCrosschainQiStablecoinV2VaultCount,
-  useCrosschainQiStablecoinV2VaultDebt:
-    hks.useCrosschainQiStablecoinV2VaultDebt,
-  useCrosschainQiStablecoinV2WithdrawCollateral:
-    hks.useCrosschainQiStablecoinV2WithdrawCollateral,
-  useCrosschainQiStablecoinV2WithdrawCollateralEvent:
+  useSetStabilityPool: hks.useCrosschainQiStablecoinV2SetStabilityPool,
+  useSetTokenUri: hks.useCrosschainQiStablecoinV2SetTokenUri,
+  useSetTreasury: hks.useCrosschainQiStablecoinV2SetTreasury,
+  useStabilityPool: hks.useCrosschainQiStablecoinV2StabilityPool,
+  useSupportsInterface: hks.useCrosschainQiStablecoinV2SupportsInterface,
+  useSymbol: hks.useCrosschainQiStablecoinV2Symbol,
+  useTokenByIndex: hks.useCrosschainQiStablecoinV2TokenByIndex,
+  useTokenOfOwnerByIndex: hks.useCrosschainQiStablecoinV2TokenOfOwnerByIndex,
+  useTokenPeg: hks.useCrosschainQiStablecoinV2TokenPeg,
+  useTokenUri: hks.useCrosschainQiStablecoinV2TokenUri,
+  useTotalBorrowed: hks.useCrosschainQiStablecoinV2TotalBorrowed,
+  useTotalSupply: hks.useCrosschainQiStablecoinV2TotalSupply,
+  useTransferEvent: hks.useCrosschainQiStablecoinV2TransferEvent,
+  useTransferFrom: hks.useCrosschainQiStablecoinV2TransferFrom,
+  useTransferOwnership: hks.useCrosschainQiStablecoinV2TransferOwnership,
+  useTransferVaultEvent: hks.useCrosschainQiStablecoinV2TransferVaultEvent,
+  useTreasury: hks.useCrosschainQiStablecoinV2Treasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useCrosschainQiStablecoinV2VaultCollateral,
+  useVaultCount: hks.useCrosschainQiStablecoinV2VaultCount,
+  useVaultDebt: hks.useCrosschainQiStablecoinV2VaultDebt,
+  useWithdrawCollateral: hks.useCrosschainQiStablecoinV2WithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useCrosschainQiStablecoinV2WithdrawCollateralEvent,
-  useCrosschainQiStablecoinV2Write: hks.useCrosschainQiStablecoinV2Write,
-  usePrepareCrosschainQiStablecoinV2Approve:
-    hks.usePrepareCrosschainQiStablecoinV2Approve,
-  usePrepareCrosschainQiStablecoinV2BorrowToken:
-    hks.usePrepareCrosschainQiStablecoinV2BorrowToken,
-  usePrepareCrosschainQiStablecoinV2Burn:
-    hks.usePrepareCrosschainQiStablecoinV2Burn,
-  usePrepareCrosschainQiStablecoinV2ChangeEthPriceSource:
+  useWrite: hks.useCrosschainQiStablecoinV2Write,
+  usePrepareApprove: hks.usePrepareCrosschainQiStablecoinV2Approve,
+  usePrepareBorrowToken: hks.usePrepareCrosschainQiStablecoinV2BorrowToken,
+  usePrepareBurn: hks.usePrepareCrosschainQiStablecoinV2Burn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareCrosschainQiStablecoinV2ChangeEthPriceSource,
-  usePrepareCrosschainQiStablecoinV2CreateVault:
-    hks.usePrepareCrosschainQiStablecoinV2CreateVault,
-  usePrepareCrosschainQiStablecoinV2DepositCollateral:
+  usePrepareCreateVault: hks.usePrepareCrosschainQiStablecoinV2CreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareCrosschainQiStablecoinV2DepositCollateral,
-  usePrepareCrosschainQiStablecoinV2DestroyVault:
-    hks.usePrepareCrosschainQiStablecoinV2DestroyVault,
-  usePrepareCrosschainQiStablecoinV2GetPaid:
-    hks.usePrepareCrosschainQiStablecoinV2GetPaid,
-  usePrepareCrosschainQiStablecoinV2LiquidateVault:
+  usePrepareDestroyVault: hks.usePrepareCrosschainQiStablecoinV2DestroyVault,
+  usePrepareGetPaid: hks.usePrepareCrosschainQiStablecoinV2GetPaid,
+  usePrepareLiquidateVault:
     hks.usePrepareCrosschainQiStablecoinV2LiquidateVault,
-  usePrepareCrosschainQiStablecoinV2PayBackToken:
-    hks.usePrepareCrosschainQiStablecoinV2PayBackToken,
-  usePrepareCrosschainQiStablecoinV2RenounceOwnership:
+  usePreparePayBackToken: hks.usePrepareCrosschainQiStablecoinV2PayBackToken,
+  usePrepareRenounceOwnership:
     hks.usePrepareCrosschainQiStablecoinV2RenounceOwnership,
-  usePrepareCrosschainQiStablecoinV2SafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareCrosschainQiStablecoinV2SafeTransferFrom,
-  usePrepareCrosschainQiStablecoinV2SetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareCrosschainQiStablecoinV2SetApprovalForAll,
-  usePrepareCrosschainQiStablecoinV2SetDebtRatio:
-    hks.usePrepareCrosschainQiStablecoinV2SetDebtRatio,
-  usePrepareCrosschainQiStablecoinV2SetGainRatio:
-    hks.usePrepareCrosschainQiStablecoinV2SetGainRatio,
-  usePrepareCrosschainQiStablecoinV2SetMinCollateralRatio:
+  usePrepareSetDebtRatio: hks.usePrepareCrosschainQiStablecoinV2SetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareCrosschainQiStablecoinV2SetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareCrosschainQiStablecoinV2SetMinCollateralRatio,
-  usePrepareCrosschainQiStablecoinV2SetStabilityPool:
+  usePrepareSetStabilityPool:
     hks.usePrepareCrosschainQiStablecoinV2SetStabilityPool,
-  usePrepareCrosschainQiStablecoinV2SetTokenUri:
-    hks.usePrepareCrosschainQiStablecoinV2SetTokenUri,
-  usePrepareCrosschainQiStablecoinV2SetTreasury:
-    hks.usePrepareCrosschainQiStablecoinV2SetTreasury,
-  usePrepareCrosschainQiStablecoinV2TransferFrom:
-    hks.usePrepareCrosschainQiStablecoinV2TransferFrom,
-  usePrepareCrosschainQiStablecoinV2TransferOwnership:
+  usePrepareSetTokenUri: hks.usePrepareCrosschainQiStablecoinV2SetTokenUri,
+  usePrepareSetTreasury: hks.usePrepareCrosschainQiStablecoinV2SetTreasury,
+  usePrepareTransferFrom: hks.usePrepareCrosschainQiStablecoinV2TransferFrom,
+  usePrepareTransferOwnership:
     hks.usePrepareCrosschainQiStablecoinV2TransferOwnership,
-  usePrepareCrosschainQiStablecoinV2WithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareCrosschainQiStablecoinV2WithdrawCollateral,
-  usePrepareCrosschainQiStablecoinV2Write:
-    hks.usePrepareCrosschainQiStablecoinV2Write,
-};
+  usePrepareWrite: hks.usePrepareCrosschainQiStablecoinV2Write,
+} as const;
 
 const CrosschainQiStablecoinSlim = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useCrosschainQiStablecoinSlimApprovalEvent:
-    hks.useCrosschainQiStablecoinSlimApprovalEvent,
-  useCrosschainQiStablecoinSlimApprovalForAllEvent:
-    hks.useCrosschainQiStablecoinSlimApprovalForAllEvent,
-  useCrosschainQiStablecoinSlimApprove:
-    hks.useCrosschainQiStablecoinSlimApprove,
-  useCrosschainQiStablecoinSlimBalanceOf:
-    hks.useCrosschainQiStablecoinSlimBalanceOf,
-  useCrosschainQiStablecoinSlimBorrowTokenEvent:
-    hks.useCrosschainQiStablecoinSlimBorrowTokenEvent,
-  useCrosschainQiStablecoinSlimBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useCrosschainQiStablecoinSlimChangeEthPriceSource:
+  useApprovalEvent: hks.useCrosschainQiStablecoinSlimApprovalEvent,
+  useApprovalForAllEvent: hks.useCrosschainQiStablecoinSlimApprovalForAllEvent,
+  useApprove: hks.useCrosschainQiStablecoinSlimApprove,
+  useBalanceOf: hks.useCrosschainQiStablecoinSlimBalanceOf,
+  useBorrowTokenEvent: hks.useCrosschainQiStablecoinSlimBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource:
     hks.useCrosschainQiStablecoinSlimChangeEthPriceSource,
-  useCrosschainQiStablecoinSlimCheckCollateralPercentage:
+  useCheckCollateralPercentage:
     hks.useCrosschainQiStablecoinSlimCheckCollateralPercentage,
-  useCrosschainQiStablecoinSlimCheckCost:
-    hks.useCrosschainQiStablecoinSlimCheckCost,
-  useCrosschainQiStablecoinSlimCheckExtract:
-    hks.useCrosschainQiStablecoinSlimCheckExtract,
-  useCrosschainQiStablecoinSlimCheckLiquidation:
-    hks.useCrosschainQiStablecoinSlimCheckLiquidation,
-  useCrosschainQiStablecoinSlimClosingFee:
-    hks.useCrosschainQiStablecoinSlimClosingFee,
-  useCrosschainQiStablecoinSlimCollateral:
-    hks.useCrosschainQiStablecoinSlimCollateral,
-  useCrosschainQiStablecoinSlimCreateVault:
-    hks.useCrosschainQiStablecoinSlimCreateVault,
-  useCrosschainQiStablecoinSlimCreateVaultEvent:
-    hks.useCrosschainQiStablecoinSlimCreateVaultEvent,
-  useCrosschainQiStablecoinSlimDebtRatio:
-    hks.useCrosschainQiStablecoinSlimDebtRatio,
-  useCrosschainQiStablecoinSlimDepositCollateral:
-    hks.useCrosschainQiStablecoinSlimDepositCollateral,
-  useCrosschainQiStablecoinSlimDepositCollateralEvent:
+  useCheckCost: hks.useCrosschainQiStablecoinSlimCheckCost,
+  useCheckExtract: hks.useCrosschainQiStablecoinSlimCheckExtract,
+  useCheckLiquidation: hks.useCrosschainQiStablecoinSlimCheckLiquidation,
+  useClosingFee: hks.useCrosschainQiStablecoinSlimClosingFee,
+  useCollateral: hks.useCrosschainQiStablecoinSlimCollateral,
+  useCreateVault: hks.useCrosschainQiStablecoinSlimCreateVault,
+  useCreateVaultEvent: hks.useCrosschainQiStablecoinSlimCreateVaultEvent,
+  useDebtRatio: hks.useCrosschainQiStablecoinSlimDebtRatio,
+  useDepositCollateral: hks.useCrosschainQiStablecoinSlimDepositCollateral,
+  useDepositCollateralEvent:
     hks.useCrosschainQiStablecoinSlimDepositCollateralEvent,
-  useCrosschainQiStablecoinSlimDestroyVault:
-    hks.useCrosschainQiStablecoinSlimDestroyVault,
-  useCrosschainQiStablecoinSlimDestroyVaultEvent:
-    hks.useCrosschainQiStablecoinSlimDestroyVaultEvent,
-  useCrosschainQiStablecoinSlimEthPriceSource:
-    hks.useCrosschainQiStablecoinSlimEthPriceSource,
-  useCrosschainQiStablecoinSlimEvent: hks.useCrosschainQiStablecoinSlimEvent,
-  useCrosschainQiStablecoinSlimExists: hks.useCrosschainQiStablecoinSlimExists,
-  useCrosschainQiStablecoinSlimGainRatio:
-    hks.useCrosschainQiStablecoinSlimGainRatio,
-  useCrosschainQiStablecoinSlimGetApproved:
-    hks.useCrosschainQiStablecoinSlimGetApproved,
-  useCrosschainQiStablecoinSlimGetClosingFee:
-    hks.useCrosschainQiStablecoinSlimGetClosingFee,
-  useCrosschainQiStablecoinSlimGetDebtCeiling:
-    hks.useCrosschainQiStablecoinSlimGetDebtCeiling,
-  useCrosschainQiStablecoinSlimGetEthPriceSource:
-    hks.useCrosschainQiStablecoinSlimGetEthPriceSource,
-  useCrosschainQiStablecoinSlimGetPaid:
-    hks.useCrosschainQiStablecoinSlimGetPaid,
-  useCrosschainQiStablecoinSlimGetTokenPriceSource:
-    hks.useCrosschainQiStablecoinSlimGetTokenPriceSource,
-  useCrosschainQiStablecoinSlimIsApprovedForAll:
-    hks.useCrosschainQiStablecoinSlimIsApprovedForAll,
-  useCrosschainQiStablecoinSlimIsOwner:
-    hks.useCrosschainQiStablecoinSlimIsOwner,
-  useCrosschainQiStablecoinSlimLiquidateVault:
-    hks.useCrosschainQiStablecoinSlimLiquidateVault,
-  useCrosschainQiStablecoinSlimLiquidateVaultEvent:
-    hks.useCrosschainQiStablecoinSlimLiquidateVaultEvent,
-  useCrosschainQiStablecoinSlimMai: hks.useCrosschainNativeQiStablecoinMai,
-  useCrosschainQiStablecoinSlimMaticDebt:
-    hks.useCrosschainQiStablecoinSlimMaticDebt,
-  useCrosschainQiStablecoinSlimMinimumCollateralPercentage:
+  useDestroyVault: hks.useCrosschainQiStablecoinSlimDestroyVault,
+  useDestroyVaultEvent: hks.useCrosschainQiStablecoinSlimDestroyVaultEvent,
+  useEthPriceSource: hks.useCrosschainQiStablecoinSlimEthPriceSource,
+  useEvent: hks.useCrosschainQiStablecoinSlimEvent,
+  useExists: hks.useCrosschainQiStablecoinSlimExists,
+  useGainRatio: hks.useCrosschainQiStablecoinSlimGainRatio,
+  useGetApproved: hks.useCrosschainQiStablecoinSlimGetApproved,
+  useGetClosingFee: hks.useCrosschainQiStablecoinSlimGetClosingFee,
+  useGetDebtCeiling: hks.useCrosschainQiStablecoinSlimGetDebtCeiling,
+  useGetEthPriceSource: hks.useCrosschainQiStablecoinSlimGetEthPriceSource,
+  useGetPaid: hks.useCrosschainQiStablecoinSlimGetPaid,
+  useGetTokenPriceSource: hks.useCrosschainQiStablecoinSlimGetTokenPriceSource,
+  useIsApprovedForAll: hks.useCrosschainQiStablecoinSlimIsApprovedForAll,
+  useIsOwner: hks.useCrosschainQiStablecoinSlimIsOwner,
+  useLiquidateVault: hks.useCrosschainQiStablecoinSlimLiquidateVault,
+  useLiquidateVaultEvent: hks.useCrosschainQiStablecoinSlimLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useCrosschainQiStablecoinSlimMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useCrosschainQiStablecoinSlimMinimumCollateralPercentage,
-  useCrosschainQiStablecoinSlimName: hks.useCrosschainNativeQiStablecoinName,
-  useCrosschainQiStablecoinSlimOwner: hks.useCrosschainQiStablecoinSlimOwner,
-  useCrosschainQiStablecoinSlimOwnerOf:
-    hks.useCrosschainQiStablecoinSlimOwnerOf,
-  useCrosschainQiStablecoinSlimOwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOwner: hks.useCrosschainQiStablecoinSlimOwner,
+  useOwnerOf: hks.useCrosschainQiStablecoinSlimOwnerOf,
+  useOwnershipTransferredEvent:
     hks.useCrosschainQiStablecoinSlimOwnershipTransferredEvent,
-  useCrosschainQiStablecoinSlimPayBackToken:
-    hks.useCrosschainQiStablecoinSlimPayBackToken,
-  useCrosschainQiStablecoinSlimPayBackTokenEvent:
-    hks.useCrosschainQiStablecoinSlimPayBackTokenEvent,
-  useCrosschainQiStablecoinSlimPriceSourceDecimals:
-    hks.useCrosschainQiStablecoinSlimPriceSourceDecimals,
-  useCrosschainQiStablecoinSlimRead: hks.useCrosschainNativeQiStablecoinRead,
-  useCrosschainQiStablecoinSlimRenounceOwnership:
-    hks.useCrosschainQiStablecoinSlimRenounceOwnership,
-  useCrosschainQiStablecoinSlimSafeTransferFrom:
-    hks.useCrosschainQiStablecoinSlimSafeTransferFrom,
-  useCrosschainQiStablecoinSlimSetApprovalForAll:
-    hks.useCrosschainQiStablecoinSlimSetApprovalForAll,
-  useCrosschainQiStablecoinSlimSetDebtRatio:
-    hks.useCrosschainQiStablecoinSlimSetDebtRatio,
-  useCrosschainQiStablecoinSlimSetGainRatio:
-    hks.useCrosschainQiStablecoinSlimSetGainRatio,
-  useCrosschainQiStablecoinSlimSetMinCollateralRatio:
+  usePayBackToken: hks.useCrosschainQiStablecoinSlimPayBackToken,
+  usePayBackTokenEvent: hks.useCrosschainQiStablecoinSlimPayBackTokenEvent,
+  usePriceSourceDecimals: hks.useCrosschainQiStablecoinSlimPriceSourceDecimals,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useCrosschainQiStablecoinSlimRenounceOwnership,
+  useSafeTransferFrom: hks.useCrosschainQiStablecoinSlimSafeTransferFrom,
+  useSetApprovalForAll: hks.useCrosschainQiStablecoinSlimSetApprovalForAll,
+  useSetDebtRatio: hks.useCrosschainQiStablecoinSlimSetDebtRatio,
+  useSetGainRatio: hks.useCrosschainQiStablecoinSlimSetGainRatio,
+  useSetMinCollateralRatio:
     hks.useCrosschainQiStablecoinSlimSetMinCollateralRatio,
-  useCrosschainQiStablecoinSlimSetStabilityPool:
-    hks.useCrosschainQiStablecoinSlimSetStabilityPool,
-  useCrosschainQiStablecoinSlimSetTokenUri:
-    hks.useCrosschainQiStablecoinSlimSetTokenUri,
-  useCrosschainQiStablecoinSlimSetTreasury:
-    hks.useCrosschainQiStablecoinSlimSetTreasury,
-  useCrosschainQiStablecoinSlimStabilityPool:
-    hks.useCrosschainQiStablecoinSlimStabilityPool,
-  useCrosschainQiStablecoinSlimSupportsInterface:
-    hks.useCrosschainQiStablecoinSlimSupportsInterface,
-  useCrosschainQiStablecoinSlimSymbol: hks.useCrosschainQiStablecoinSlimSymbol,
-  useCrosschainQiStablecoinSlimTokenByIndex:
-    hks.useCrosschainQiStablecoinSlimTokenByIndex,
-  useCrosschainQiStablecoinSlimTokenOfOwnerByIndex:
-    hks.useCrosschainQiStablecoinSlimTokenOfOwnerByIndex,
-  useCrosschainQiStablecoinSlimTokenPeg:
-    hks.useCrosschainQiStablecoinSlimTokenPeg,
-  useCrosschainQiStablecoinSlimTokenUri:
-    hks.useCrosschainQiStablecoinSlimTokenUri,
-  useCrosschainQiStablecoinSlimTotalBorrowed:
-    hks.useCrosschainQiStablecoinSlimTotalBorrowed,
-  useCrosschainQiStablecoinSlimTotalSupply:
-    hks.useCrosschainQiStablecoinSlimTotalSupply,
-  useCrosschainQiStablecoinSlimTransferEvent:
-    hks.useCrosschainQiStablecoinSlimTransferEvent,
-  useCrosschainQiStablecoinSlimTransferFrom:
-    hks.useCrosschainQiStablecoinSlimTransferFrom,
-  useCrosschainQiStablecoinSlimTransferOwnership:
-    hks.useCrosschainQiStablecoinSlimTransferOwnership,
-  useCrosschainQiStablecoinSlimTransferVaultEvent:
-    hks.useCrosschainQiStablecoinSlimTransferVaultEvent,
-  useCrosschainQiStablecoinSlimTreasury:
-    hks.useCrosschainQiStablecoinSlimTreasury,
-  useCrosschainQiStablecoinSlimUri: hks.useCrosschainNativeQiStablecoinUri,
-  useCrosschainQiStablecoinSlimVaultCollateral:
-    hks.useCrosschainQiStablecoinSlimVaultCollateral,
-  useCrosschainQiStablecoinSlimVaultCount:
-    hks.useCrosschainQiStablecoinSlimVaultCount,
-  useCrosschainQiStablecoinSlimVaultDebt:
-    hks.useCrosschainQiStablecoinSlimVaultDebt,
-  useCrosschainQiStablecoinSlimWithdrawCollateral:
-    hks.useCrosschainQiStablecoinSlimWithdrawCollateral,
-  useCrosschainQiStablecoinSlimWithdrawCollateralEvent:
+  useSetStabilityPool: hks.useCrosschainQiStablecoinSlimSetStabilityPool,
+  useSetTokenUri: hks.useCrosschainQiStablecoinSlimSetTokenUri,
+  useSetTreasury: hks.useCrosschainQiStablecoinSlimSetTreasury,
+  useStabilityPool: hks.useCrosschainQiStablecoinSlimStabilityPool,
+  useSupportsInterface: hks.useCrosschainQiStablecoinSlimSupportsInterface,
+  useSymbol: hks.useCrosschainQiStablecoinSlimSymbol,
+  useTokenByIndex: hks.useCrosschainQiStablecoinSlimTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useCrosschainQiStablecoinSlimTokenOfOwnerByIndex,
+  useTokenPeg: hks.useCrosschainQiStablecoinSlimTokenPeg,
+  useTokenUri: hks.useCrosschainQiStablecoinSlimTokenUri,
+  useTotalBorrowed: hks.useCrosschainQiStablecoinSlimTotalBorrowed,
+  useTotalSupply: hks.useCrosschainQiStablecoinSlimTotalSupply,
+  useTransferEvent: hks.useCrosschainQiStablecoinSlimTransferEvent,
+  useTransferFrom: hks.useCrosschainQiStablecoinSlimTransferFrom,
+  useTransferOwnership: hks.useCrosschainQiStablecoinSlimTransferOwnership,
+  useTransferVaultEvent: hks.useCrosschainQiStablecoinSlimTransferVaultEvent,
+  useTreasury: hks.useCrosschainQiStablecoinSlimTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useCrosschainQiStablecoinSlimVaultCollateral,
+  useVaultCount: hks.useCrosschainQiStablecoinSlimVaultCount,
+  useVaultDebt: hks.useCrosschainQiStablecoinSlimVaultDebt,
+  useWithdrawCollateral: hks.useCrosschainQiStablecoinSlimWithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useCrosschainQiStablecoinSlimWithdrawCollateralEvent,
-  useCrosschainQiStablecoinSlimWrite: hks.useCrosschainQiStablecoinSlimWrite,
-  usePrepareCrosschainQiStablecoinSlimApprove:
-    hks.usePrepareCrosschainQiStablecoinSlimApprove,
-  usePrepareCrosschainQiStablecoinSlimBorrowToken:
-    hks.usePrepareCrosschainQiStablecoinSlimBorrowToken,
-  usePrepareCrosschainQiStablecoinSlimBurn:
-    hks.usePrepareCrosschainQiStablecoinSlimBurn,
-  usePrepareCrosschainQiStablecoinSlimChangeEthPriceSource:
+  useWrite: hks.useCrosschainQiStablecoinSlimWrite,
+  usePrepareApprove: hks.usePrepareCrosschainQiStablecoinSlimApprove,
+  usePrepareBorrowToken: hks.usePrepareCrosschainQiStablecoinSlimBorrowToken,
+  usePrepareBurn: hks.usePrepareCrosschainQiStablecoinSlimBurn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareCrosschainQiStablecoinSlimChangeEthPriceSource,
-  usePrepareCrosschainQiStablecoinSlimCreateVault:
-    hks.usePrepareCrosschainQiStablecoinSlimCreateVault,
-  usePrepareCrosschainQiStablecoinSlimDepositCollateral:
+  usePrepareCreateVault: hks.usePrepareCrosschainQiStablecoinSlimCreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareCrosschainQiStablecoinSlimDepositCollateral,
-  usePrepareCrosschainQiStablecoinSlimDestroyVault:
-    hks.usePrepareCrosschainQiStablecoinSlimDestroyVault,
-  usePrepareCrosschainQiStablecoinSlimGetPaid:
-    hks.usePrepareCrosschainQiStablecoinSlimGetPaid,
-  usePrepareCrosschainQiStablecoinSlimLiquidateVault:
+  usePrepareDestroyVault: hks.usePrepareCrosschainQiStablecoinSlimDestroyVault,
+  usePrepareGetPaid: hks.usePrepareCrosschainQiStablecoinSlimGetPaid,
+  usePrepareLiquidateVault:
     hks.usePrepareCrosschainQiStablecoinSlimLiquidateVault,
-  usePrepareCrosschainQiStablecoinSlimPayBackToken:
-    hks.usePrepareCrosschainQiStablecoinSlimPayBackToken,
-  usePrepareCrosschainQiStablecoinSlimRenounceOwnership:
+  usePreparePayBackToken: hks.usePrepareCrosschainQiStablecoinSlimPayBackToken,
+  usePrepareRenounceOwnership:
     hks.usePrepareCrosschainQiStablecoinSlimRenounceOwnership,
-  usePrepareCrosschainQiStablecoinSlimSafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareCrosschainQiStablecoinSlimSafeTransferFrom,
-  usePrepareCrosschainQiStablecoinSlimSetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareCrosschainQiStablecoinSlimSetApprovalForAll,
-  usePrepareCrosschainQiStablecoinSlimSetDebtRatio:
-    hks.usePrepareCrosschainQiStablecoinSlimSetDebtRatio,
-  usePrepareCrosschainQiStablecoinSlimSetGainRatio:
-    hks.usePrepareCrosschainQiStablecoinSlimSetGainRatio,
-  usePrepareCrosschainQiStablecoinSlimSetMinCollateralRatio:
+  usePrepareSetDebtRatio: hks.usePrepareCrosschainQiStablecoinSlimSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareCrosschainQiStablecoinSlimSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareCrosschainQiStablecoinSlimSetMinCollateralRatio,
-  usePrepareCrosschainQiStablecoinSlimSetStabilityPool:
+  usePrepareSetStabilityPool:
     hks.usePrepareCrosschainQiStablecoinSlimSetStabilityPool,
-  usePrepareCrosschainQiStablecoinSlimSetTokenUri:
-    hks.usePrepareCrosschainQiStablecoinSlimSetTokenUri,
-  usePrepareCrosschainQiStablecoinSlimSetTreasury:
-    hks.usePrepareCrosschainQiStablecoinSlimSetTreasury,
-  usePrepareCrosschainQiStablecoinSlimTransferFrom:
-    hks.usePrepareCrosschainQiStablecoinSlimTransferFrom,
-  usePrepareCrosschainQiStablecoinSlimTransferOwnership:
+  usePrepareSetTokenUri: hks.usePrepareCrosschainQiStablecoinSlimSetTokenUri,
+  usePrepareSetTreasury: hks.usePrepareCrosschainQiStablecoinSlimSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareCrosschainQiStablecoinSlimTransferFrom,
+  usePrepareTransferOwnership:
     hks.usePrepareCrosschainQiStablecoinSlimTransferOwnership,
-  usePrepareCrosschainQiStablecoinSlimWithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareCrosschainQiStablecoinSlimWithdrawCollateral,
-  usePrepareCrosschainQiStablecoinSlimWrite:
-    hks.usePrepareCrosschainQiStablecoinSlimWrite,
-};
+  usePrepareWrite: hks.usePrepareCrosschainQiStablecoinSlimWrite,
+} as const;
 
 const CrosschainQiStablecoinSlimV2 = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useCrosschainQiStablecoinSlimV2ApprovalEvent:
-    hks.useCrosschainQiStablecoinSlimV2ApprovalEvent,
-  useCrosschainQiStablecoinSlimV2ApprovalForAllEvent:
+  useApprovalEvent: hks.useCrosschainQiStablecoinSlimV2ApprovalEvent,
+  useApprovalForAllEvent:
     hks.useCrosschainQiStablecoinSlimV2ApprovalForAllEvent,
-  useCrosschainQiStablecoinSlimV2Approve:
-    hks.useCrosschainQiStablecoinSlimV2Approve,
-  useCrosschainQiStablecoinSlimV2BalanceOf:
-    hks.useCrosschainQiStablecoinSlimV2BalanceOf,
-  useCrosschainQiStablecoinSlimV2BorrowTokenEvent:
-    hks.useCrosschainQiStablecoinSlimV2BorrowTokenEvent,
-  useCrosschainQiStablecoinSlimV2Burn: hks.useCrosschainNativeQiStablecoinBurn,
-  useCrosschainQiStablecoinSlimV2ChangeEthPriceSource:
+  useApprove: hks.useCrosschainQiStablecoinSlimV2Approve,
+  useBalanceOf: hks.useCrosschainQiStablecoinSlimV2BalanceOf,
+  useBorrowTokenEvent: hks.useCrosschainQiStablecoinSlimV2BorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource:
     hks.useCrosschainQiStablecoinSlimV2ChangeEthPriceSource,
-  useCrosschainQiStablecoinSlimV2CheckCollateralPercentage:
+  useCheckCollateralPercentage:
     hks.useCrosschainQiStablecoinSlimV2CheckCollateralPercentage,
-  useCrosschainQiStablecoinSlimV2CheckCost:
-    hks.useCrosschainQiStablecoinSlimV2CheckCost,
-  useCrosschainQiStablecoinSlimV2CheckExtract:
-    hks.useCrosschainQiStablecoinSlimV2CheckExtract,
-  useCrosschainQiStablecoinSlimV2CheckLiquidation:
-    hks.useCrosschainQiStablecoinSlimV2CheckLiquidation,
-  useCrosschainQiStablecoinSlimV2ClosingFee:
-    hks.useCrosschainQiStablecoinSlimV2ClosingFee,
-  useCrosschainQiStablecoinSlimV2Collateral:
-    hks.useCrosschainQiStablecoinSlimV2Collateral,
-  useCrosschainQiStablecoinSlimV2CreateVault:
-    hks.useCrosschainQiStablecoinSlimV2CreateVault,
-  useCrosschainQiStablecoinSlimV2CreateVaultEvent:
-    hks.useCrosschainQiStablecoinSlimV2CreateVaultEvent,
-  useCrosschainQiStablecoinSlimV2DebtRatio:
-    hks.useCrosschainQiStablecoinSlimV2DebtRatio,
-  useCrosschainQiStablecoinSlimV2DepositCollateral:
-    hks.useCrosschainQiStablecoinSlimV2DepositCollateral,
-  useCrosschainQiStablecoinSlimV2DepositCollateralEvent:
+  useCheckCost: hks.useCrosschainQiStablecoinSlimV2CheckCost,
+  useCheckExtract: hks.useCrosschainQiStablecoinSlimV2CheckExtract,
+  useCheckLiquidation: hks.useCrosschainQiStablecoinSlimV2CheckLiquidation,
+  useClosingFee: hks.useCrosschainQiStablecoinSlimV2ClosingFee,
+  useCollateral: hks.useCrosschainQiStablecoinSlimV2Collateral,
+  useCreateVault: hks.useCrosschainQiStablecoinSlimV2CreateVault,
+  useCreateVaultEvent: hks.useCrosschainQiStablecoinSlimV2CreateVaultEvent,
+  useDebtRatio: hks.useCrosschainQiStablecoinSlimV2DebtRatio,
+  useDepositCollateral: hks.useCrosschainQiStablecoinSlimV2DepositCollateral,
+  useDepositCollateralEvent:
     hks.useCrosschainQiStablecoinSlimV2DepositCollateralEvent,
-  useCrosschainQiStablecoinSlimV2DestroyVault:
-    hks.useCrosschainQiStablecoinSlimV2DestroyVault,
-  useCrosschainQiStablecoinSlimV2DestroyVaultEvent:
-    hks.useCrosschainQiStablecoinSlimV2DestroyVaultEvent,
-  useCrosschainQiStablecoinSlimV2EthPriceSource:
-    hks.useCrosschainQiStablecoinSlimV2EthPriceSource,
-  useCrosschainQiStablecoinSlimV2Event:
-    hks.useCrosschainQiStablecoinSlimV2Event,
-  useCrosschainQiStablecoinSlimV2Exists:
-    hks.useCrosschainQiStablecoinSlimV2Exists,
-  useCrosschainQiStablecoinSlimV2GainRatio:
-    hks.useCrosschainQiStablecoinSlimV2GainRatio,
-  useCrosschainQiStablecoinSlimV2GetApproved:
-    hks.useCrosschainQiStablecoinSlimV2GetApproved,
-  useCrosschainQiStablecoinSlimV2GetClosingFee:
-    hks.useCrosschainQiStablecoinSlimV2GetClosingFee,
-  useCrosschainQiStablecoinSlimV2GetDebtCeiling:
-    hks.useCrosschainQiStablecoinSlimV2GetDebtCeiling,
-  useCrosschainQiStablecoinSlimV2GetEthPriceSource:
-    hks.useCrosschainQiStablecoinSlimV2GetEthPriceSource,
-  useCrosschainQiStablecoinSlimV2GetPaid:
-    hks.useCrosschainQiStablecoinSlimV2GetPaid,
-  useCrosschainQiStablecoinSlimV2GetTokenPriceSource:
+  useDestroyVault: hks.useCrosschainQiStablecoinSlimV2DestroyVault,
+  useDestroyVaultEvent: hks.useCrosschainQiStablecoinSlimV2DestroyVaultEvent,
+  useEthPriceSource: hks.useCrosschainQiStablecoinSlimV2EthPriceSource,
+  useEvent: hks.useCrosschainQiStablecoinSlimV2Event,
+  useExists: hks.useCrosschainQiStablecoinSlimV2Exists,
+  useGainRatio: hks.useCrosschainQiStablecoinSlimV2GainRatio,
+  useGetApproved: hks.useCrosschainQiStablecoinSlimV2GetApproved,
+  useGetClosingFee: hks.useCrosschainQiStablecoinSlimV2GetClosingFee,
+  useGetDebtCeiling: hks.useCrosschainQiStablecoinSlimV2GetDebtCeiling,
+  useGetEthPriceSource: hks.useCrosschainQiStablecoinSlimV2GetEthPriceSource,
+  useGetPaid: hks.useCrosschainQiStablecoinSlimV2GetPaid,
+  useGetTokenPriceSource:
     hks.useCrosschainQiStablecoinSlimV2GetTokenPriceSource,
-  useCrosschainQiStablecoinSlimV2IsApprovedForAll:
-    hks.useCrosschainQiStablecoinSlimV2IsApprovedForAll,
-  useCrosschainQiStablecoinSlimV2IsOwner:
-    hks.useCrosschainQiStablecoinSlimV2IsOwner,
-  useCrosschainQiStablecoinSlimV2LiquidateVault:
-    hks.useCrosschainQiStablecoinSlimV2LiquidateVault,
-  useCrosschainQiStablecoinSlimV2LiquidateVaultEvent:
+  useIsApprovedForAll: hks.useCrosschainQiStablecoinSlimV2IsApprovedForAll,
+  useIsOwner: hks.useCrosschainQiStablecoinSlimV2IsOwner,
+  useLiquidateVault: hks.useCrosschainQiStablecoinSlimV2LiquidateVault,
+  useLiquidateVaultEvent:
     hks.useCrosschainQiStablecoinSlimV2LiquidateVaultEvent,
-  useCrosschainQiStablecoinSlimV2Mai: hks.useCrosschainNativeQiStablecoinMai,
-  useCrosschainQiStablecoinSlimV2MaticDebt:
-    hks.useCrosschainQiStablecoinSlimV2MaticDebt,
-  useCrosschainQiStablecoinSlimV2MinimumCollateralPercentage:
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useCrosschainQiStablecoinSlimV2MaticDebt,
+  useMinimumCollateralPercentage:
     hks.useCrosschainQiStablecoinSlimV2MinimumCollateralPercentage,
-  useCrosschainQiStablecoinSlimV2Name: hks.useCrosschainNativeQiStablecoinName,
-  useCrosschainQiStablecoinSlimV2Owner:
-    hks.useCrosschainQiStablecoinSlimV2Owner,
-  useCrosschainQiStablecoinSlimV2OwnerOf:
-    hks.useCrosschainQiStablecoinSlimV2OwnerOf,
-  useCrosschainQiStablecoinSlimV2OwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOwner: hks.useCrosschainQiStablecoinSlimV2Owner,
+  useOwnerOf: hks.useCrosschainQiStablecoinSlimV2OwnerOf,
+  useOwnershipTransferredEvent:
     hks.useCrosschainQiStablecoinSlimV2OwnershipTransferredEvent,
-  useCrosschainQiStablecoinSlimV2PayBackToken:
-    hks.useCrosschainQiStablecoinSlimV2PayBackToken,
-  useCrosschainQiStablecoinSlimV2PayBackTokenEvent:
-    hks.useCrosschainQiStablecoinSlimV2PayBackTokenEvent,
-  useCrosschainQiStablecoinSlimV2PriceSourceDecimals:
+  usePayBackToken: hks.useCrosschainQiStablecoinSlimV2PayBackToken,
+  usePayBackTokenEvent: hks.useCrosschainQiStablecoinSlimV2PayBackTokenEvent,
+  usePriceSourceDecimals:
     hks.useCrosschainQiStablecoinSlimV2PriceSourceDecimals,
-  useCrosschainQiStablecoinSlimV2Read: hks.useCrosschainNativeQiStablecoinRead,
-  useCrosschainQiStablecoinSlimV2RenounceOwnership:
-    hks.useCrosschainQiStablecoinSlimV2RenounceOwnership,
-  useCrosschainQiStablecoinSlimV2SafeTransferFrom:
-    hks.useCrosschainQiStablecoinSlimV2SafeTransferFrom,
-  useCrosschainQiStablecoinSlimV2SetApprovalForAll:
-    hks.useCrosschainQiStablecoinSlimV2SetApprovalForAll,
-  useCrosschainQiStablecoinSlimV2SetDebtRatio:
-    hks.useCrosschainQiStablecoinSlimV2SetDebtRatio,
-  useCrosschainQiStablecoinSlimV2SetGainRatio:
-    hks.useCrosschainQiStablecoinSlimV2SetGainRatio,
-  useCrosschainQiStablecoinSlimV2SetMinCollateralRatio:
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useCrosschainQiStablecoinSlimV2RenounceOwnership,
+  useSafeTransferFrom: hks.useCrosschainQiStablecoinSlimV2SafeTransferFrom,
+  useSetApprovalForAll: hks.useCrosschainQiStablecoinSlimV2SetApprovalForAll,
+  useSetDebtRatio: hks.useCrosschainQiStablecoinSlimV2SetDebtRatio,
+  useSetGainRatio: hks.useCrosschainQiStablecoinSlimV2SetGainRatio,
+  useSetMinCollateralRatio:
     hks.useCrosschainQiStablecoinSlimV2SetMinCollateralRatio,
-  useCrosschainQiStablecoinSlimV2SetStabilityPool:
-    hks.useCrosschainQiStablecoinSlimV2SetStabilityPool,
-  useCrosschainQiStablecoinSlimV2SetTokenUri:
-    hks.useCrosschainQiStablecoinSlimV2SetTokenUri,
-  useCrosschainQiStablecoinSlimV2SetTreasury:
-    hks.useCrosschainQiStablecoinSlimV2SetTreasury,
-  useCrosschainQiStablecoinSlimV2StabilityPool:
-    hks.useCrosschainQiStablecoinSlimV2StabilityPool,
-  useCrosschainQiStablecoinSlimV2SupportsInterface:
-    hks.useCrosschainQiStablecoinSlimV2SupportsInterface,
-  useCrosschainQiStablecoinSlimV2Symbol:
-    hks.useCrosschainQiStablecoinSlimV2Symbol,
-  useCrosschainQiStablecoinSlimV2TokenByIndex:
-    hks.useCrosschainQiStablecoinSlimV2TokenByIndex,
-  useCrosschainQiStablecoinSlimV2TokenOfOwnerByIndex:
+  useSetStabilityPool: hks.useCrosschainQiStablecoinSlimV2SetStabilityPool,
+  useSetTokenUri: hks.useCrosschainQiStablecoinSlimV2SetTokenUri,
+  useSetTreasury: hks.useCrosschainQiStablecoinSlimV2SetTreasury,
+  useStabilityPool: hks.useCrosschainQiStablecoinSlimV2StabilityPool,
+  useSupportsInterface: hks.useCrosschainQiStablecoinSlimV2SupportsInterface,
+  useSymbol: hks.useCrosschainQiStablecoinSlimV2Symbol,
+  useTokenByIndex: hks.useCrosschainQiStablecoinSlimV2TokenByIndex,
+  useTokenOfOwnerByIndex:
     hks.useCrosschainQiStablecoinSlimV2TokenOfOwnerByIndex,
-  useCrosschainQiStablecoinSlimV2TokenPeg:
-    hks.useCrosschainQiStablecoinSlimV2TokenPeg,
-  useCrosschainQiStablecoinSlimV2TokenUri:
-    hks.useCrosschainQiStablecoinSlimV2TokenUri,
-  useCrosschainQiStablecoinSlimV2TotalBorrowed:
-    hks.useCrosschainQiStablecoinSlimV2TotalBorrowed,
-  useCrosschainQiStablecoinSlimV2TotalSupply:
-    hks.useCrosschainQiStablecoinSlimV2TotalSupply,
-  useCrosschainQiStablecoinSlimV2TransferEvent:
-    hks.useCrosschainQiStablecoinSlimV2TransferEvent,
-  useCrosschainQiStablecoinSlimV2TransferFrom:
-    hks.useCrosschainQiStablecoinSlimV2TransferFrom,
-  useCrosschainQiStablecoinSlimV2TransferOwnership:
-    hks.useCrosschainQiStablecoinSlimV2TransferOwnership,
-  useCrosschainQiStablecoinSlimV2TransferVaultEvent:
-    hks.useCrosschainQiStablecoinSlimV2TransferVaultEvent,
-  useCrosschainQiStablecoinSlimV2Treasury:
-    hks.useCrosschainQiStablecoinSlimV2Treasury,
-  useCrosschainQiStablecoinSlimV2Uri: hks.useCrosschainNativeQiStablecoinUri,
-  useCrosschainQiStablecoinSlimV2VaultCollateral:
-    hks.useCrosschainQiStablecoinSlimV2VaultCollateral,
-  useCrosschainQiStablecoinSlimV2VaultCount:
-    hks.useCrosschainQiStablecoinSlimV2VaultCount,
-  useCrosschainQiStablecoinSlimV2VaultDebt:
-    hks.useCrosschainQiStablecoinSlimV2VaultDebt,
-  useCrosschainQiStablecoinSlimV2WithdrawCollateral:
-    hks.useCrosschainQiStablecoinSlimV2WithdrawCollateral,
-  useCrosschainQiStablecoinSlimV2WithdrawCollateralEvent:
+  useTokenPeg: hks.useCrosschainQiStablecoinSlimV2TokenPeg,
+  useTokenUri: hks.useCrosschainQiStablecoinSlimV2TokenUri,
+  useTotalBorrowed: hks.useCrosschainQiStablecoinSlimV2TotalBorrowed,
+  useTotalSupply: hks.useCrosschainQiStablecoinSlimV2TotalSupply,
+  useTransferEvent: hks.useCrosschainQiStablecoinSlimV2TransferEvent,
+  useTransferFrom: hks.useCrosschainQiStablecoinSlimV2TransferFrom,
+  useTransferOwnership: hks.useCrosschainQiStablecoinSlimV2TransferOwnership,
+  useTransferVaultEvent: hks.useCrosschainQiStablecoinSlimV2TransferVaultEvent,
+  useTreasury: hks.useCrosschainQiStablecoinSlimV2Treasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useCrosschainQiStablecoinSlimV2VaultCollateral,
+  useVaultCount: hks.useCrosschainQiStablecoinSlimV2VaultCount,
+  useVaultDebt: hks.useCrosschainQiStablecoinSlimV2VaultDebt,
+  useWithdrawCollateral: hks.useCrosschainQiStablecoinSlimV2WithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useCrosschainQiStablecoinSlimV2WithdrawCollateralEvent,
-  useCrosschainQiStablecoinSlimV2Write:
-    hks.useCrosschainQiStablecoinSlimV2Write,
-  usePrepareCrosschainQiStablecoinSlimV2Approve:
-    hks.usePrepareCrosschainQiStablecoinSlimV2Approve,
-  usePrepareCrosschainQiStablecoinSlimV2BorrowToken:
-    hks.usePrepareCrosschainQiStablecoinSlimV2BorrowToken,
-  usePrepareCrosschainQiStablecoinSlimV2Burn:
-    hks.usePrepareCrosschainQiStablecoinSlimV2Burn,
-  usePrepareCrosschainQiStablecoinSlimV2ChangeEthPriceSource:
+  useWrite: hks.useCrosschainQiStablecoinSlimV2Write,
+  usePrepareApprove: hks.usePrepareCrosschainQiStablecoinSlimV2Approve,
+  usePrepareBorrowToken: hks.usePrepareCrosschainQiStablecoinSlimV2BorrowToken,
+  usePrepareBurn: hks.usePrepareCrosschainQiStablecoinSlimV2Burn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareCrosschainQiStablecoinSlimV2ChangeEthPriceSource,
-  usePrepareCrosschainQiStablecoinSlimV2CreateVault:
-    hks.usePrepareCrosschainQiStablecoinSlimV2CreateVault,
-  usePrepareCrosschainQiStablecoinSlimV2DepositCollateral:
+  usePrepareCreateVault: hks.usePrepareCrosschainQiStablecoinSlimV2CreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareCrosschainQiStablecoinSlimV2DepositCollateral,
-  usePrepareCrosschainQiStablecoinSlimV2DestroyVault:
+  usePrepareDestroyVault:
     hks.usePrepareCrosschainQiStablecoinSlimV2DestroyVault,
-  usePrepareCrosschainQiStablecoinSlimV2GetPaid:
-    hks.usePrepareCrosschainQiStablecoinSlimV2GetPaid,
-  usePrepareCrosschainQiStablecoinSlimV2LiquidateVault:
+  usePrepareGetPaid: hks.usePrepareCrosschainQiStablecoinSlimV2GetPaid,
+  usePrepareLiquidateVault:
     hks.usePrepareCrosschainQiStablecoinSlimV2LiquidateVault,
-  usePrepareCrosschainQiStablecoinSlimV2PayBackToken:
+  usePreparePayBackToken:
     hks.usePrepareCrosschainQiStablecoinSlimV2PayBackToken,
-  usePrepareCrosschainQiStablecoinSlimV2RenounceOwnership:
+  usePrepareRenounceOwnership:
     hks.usePrepareCrosschainQiStablecoinSlimV2RenounceOwnership,
-  usePrepareCrosschainQiStablecoinSlimV2SafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareCrosschainQiStablecoinSlimV2SafeTransferFrom,
-  usePrepareCrosschainQiStablecoinSlimV2SetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareCrosschainQiStablecoinSlimV2SetApprovalForAll,
-  usePrepareCrosschainQiStablecoinSlimV2SetDebtRatio:
+  usePrepareSetDebtRatio:
     hks.usePrepareCrosschainQiStablecoinSlimV2SetDebtRatio,
-  usePrepareCrosschainQiStablecoinSlimV2SetGainRatio:
+  usePrepareSetGainRatio:
     hks.usePrepareCrosschainQiStablecoinSlimV2SetGainRatio,
-  usePrepareCrosschainQiStablecoinSlimV2SetMinCollateralRatio:
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareCrosschainQiStablecoinSlimV2SetMinCollateralRatio,
-  usePrepareCrosschainQiStablecoinSlimV2SetStabilityPool:
+  usePrepareSetStabilityPool:
     hks.usePrepareCrosschainQiStablecoinSlimV2SetStabilityPool,
-  usePrepareCrosschainQiStablecoinSlimV2SetTokenUri:
-    hks.usePrepareCrosschainQiStablecoinSlimV2SetTokenUri,
-  usePrepareCrosschainQiStablecoinSlimV2SetTreasury:
-    hks.usePrepareCrosschainQiStablecoinSlimV2SetTreasury,
-  usePrepareCrosschainQiStablecoinSlimV2TransferFrom:
+  usePrepareSetTokenUri: hks.usePrepareCrosschainQiStablecoinSlimV2SetTokenUri,
+  usePrepareSetTreasury: hks.usePrepareCrosschainQiStablecoinSlimV2SetTreasury,
+  usePrepareTransferFrom:
     hks.usePrepareCrosschainQiStablecoinSlimV2TransferFrom,
-  usePrepareCrosschainQiStablecoinSlimV2TransferOwnership:
+  usePrepareTransferOwnership:
     hks.usePrepareCrosschainQiStablecoinSlimV2TransferOwnership,
-  usePrepareCrosschainQiStablecoinSlimV2WithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareCrosschainQiStablecoinSlimV2WithdrawCollateral,
-  usePrepareCrosschainQiStablecoinSlimV2Write:
-    hks.usePrepareCrosschainQiStablecoinSlimV2Write,
-};
+  usePrepareWrite: hks.usePrepareCrosschainQiStablecoinSlimV2Write,
+} as const;
 
 const CrosschainQiStablecoinwbtc = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useCrosschainQiStablecoinwbtcApprovalEvent:
-    hks.useCrosschainQiStablecoinwbtcApprovalEvent,
-  useCrosschainQiStablecoinwbtcApprovalForAllEvent:
-    hks.useCrosschainQiStablecoinwbtcApprovalForAllEvent,
-  useCrosschainQiStablecoinwbtcApprove:
-    hks.useCrosschainQiStablecoinwbtcApprove,
-  useCrosschainQiStablecoinwbtcBalanceOf:
-    hks.useCrosschainQiStablecoinwbtcBalanceOf,
-  useCrosschainQiStablecoinwbtcBorrowTokenEvent:
-    hks.useCrosschainQiStablecoinwbtcBorrowTokenEvent,
-  useCrosschainQiStablecoinwbtcBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useCrosschainQiStablecoinwbtcChangeEthPriceSource:
+  useApprovalEvent: hks.useCrosschainQiStablecoinwbtcApprovalEvent,
+  useApprovalForAllEvent: hks.useCrosschainQiStablecoinwbtcApprovalForAllEvent,
+  useApprove: hks.useCrosschainQiStablecoinwbtcApprove,
+  useBalanceOf: hks.useCrosschainQiStablecoinwbtcBalanceOf,
+  useBorrowTokenEvent: hks.useCrosschainQiStablecoinwbtcBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource:
     hks.useCrosschainQiStablecoinwbtcChangeEthPriceSource,
-  useCrosschainQiStablecoinwbtcCheckCollateralPercentage:
+  useCheckCollateralPercentage:
     hks.useCrosschainQiStablecoinwbtcCheckCollateralPercentage,
-  useCrosschainQiStablecoinwbtcCheckCost:
-    hks.useCrosschainQiStablecoinwbtcCheckCost,
-  useCrosschainQiStablecoinwbtcCheckExtract:
-    hks.useCrosschainQiStablecoinwbtcCheckExtract,
-  useCrosschainQiStablecoinwbtcCheckLiquidation:
-    hks.useCrosschainQiStablecoinwbtcCheckLiquidation,
-  useCrosschainQiStablecoinwbtcClosingFee:
-    hks.useCrosschainQiStablecoinwbtcClosingFee,
-  useCrosschainQiStablecoinwbtcCollateral:
-    hks.useCrosschainQiStablecoinwbtcCollateral,
-  useCrosschainQiStablecoinwbtcCreateVault:
-    hks.useCrosschainQiStablecoinwbtcCreateVault,
-  useCrosschainQiStablecoinwbtcCreateVaultEvent:
-    hks.useCrosschainQiStablecoinwbtcCreateVaultEvent,
-  useCrosschainQiStablecoinwbtcDebtRatio:
-    hks.useCrosschainQiStablecoinwbtcDebtRatio,
-  useCrosschainQiStablecoinwbtcDepositCollateral:
-    hks.useCrosschainQiStablecoinwbtcDepositCollateral,
-  useCrosschainQiStablecoinwbtcDepositCollateralEvent:
+  useCheckCost: hks.useCrosschainQiStablecoinwbtcCheckCost,
+  useCheckExtract: hks.useCrosschainQiStablecoinwbtcCheckExtract,
+  useCheckLiquidation: hks.useCrosschainQiStablecoinwbtcCheckLiquidation,
+  useClosingFee: hks.useCrosschainQiStablecoinwbtcClosingFee,
+  useCollateral: hks.useCrosschainQiStablecoinwbtcCollateral,
+  useCreateVault: hks.useCrosschainQiStablecoinwbtcCreateVault,
+  useCreateVaultEvent: hks.useCrosschainQiStablecoinwbtcCreateVaultEvent,
+  useDebtRatio: hks.useCrosschainQiStablecoinwbtcDebtRatio,
+  useDepositCollateral: hks.useCrosschainQiStablecoinwbtcDepositCollateral,
+  useDepositCollateralEvent:
     hks.useCrosschainQiStablecoinwbtcDepositCollateralEvent,
-  useCrosschainQiStablecoinwbtcDestroyVault:
-    hks.useCrosschainQiStablecoinwbtcDestroyVault,
-  useCrosschainQiStablecoinwbtcDestroyVaultEvent:
-    hks.useCrosschainQiStablecoinwbtcDestroyVaultEvent,
-  useCrosschainQiStablecoinwbtcEthPriceSource:
-    hks.useCrosschainQiStablecoinwbtcEthPriceSource,
-  useCrosschainQiStablecoinwbtcEvent: hks.useCrosschainQiStablecoinwbtcEvent,
-  useCrosschainQiStablecoinwbtcExists: hks.useCrosschainQiStablecoinwbtcExists,
-  useCrosschainQiStablecoinwbtcGainRatio:
-    hks.useCrosschainQiStablecoinwbtcGainRatio,
-  useCrosschainQiStablecoinwbtcGetApproved:
-    hks.useCrosschainQiStablecoinwbtcGetApproved,
-  useCrosschainQiStablecoinwbtcGetClosingFee:
-    hks.useCrosschainQiStablecoinwbtcGetClosingFee,
-  useCrosschainQiStablecoinwbtcGetDebtCeiling:
-    hks.useCrosschainQiStablecoinwbtcGetDebtCeiling,
-  useCrosschainQiStablecoinwbtcGetEthPriceSource:
-    hks.useCrosschainQiStablecoinwbtcGetEthPriceSource,
-  useCrosschainQiStablecoinwbtcGetOpeningFee:
-    hks.useCrosschainQiStablecoinwbtcGetOpeningFee,
-  useCrosschainQiStablecoinwbtcGetPaid:
-    hks.useCrosschainQiStablecoinwbtcGetPaid,
-  useCrosschainQiStablecoinwbtcGetTokenPriceSource:
-    hks.useCrosschainQiStablecoinwbtcGetTokenPriceSource,
-  useCrosschainQiStablecoinwbtcIsApprovedForAll:
-    hks.useCrosschainQiStablecoinwbtcIsApprovedForAll,
-  useCrosschainQiStablecoinwbtcIsOwner:
-    hks.useCrosschainQiStablecoinwbtcIsOwner,
-  useCrosschainQiStablecoinwbtcLiquidateVault:
-    hks.useCrosschainQiStablecoinwbtcLiquidateVault,
-  useCrosschainQiStablecoinwbtcLiquidateVaultEvent:
-    hks.useCrosschainQiStablecoinwbtcLiquidateVaultEvent,
-  useCrosschainQiStablecoinwbtcMai: hks.useCrosschainNativeQiStablecoinMai,
-  useCrosschainQiStablecoinwbtcMaticDebt:
-    hks.useCrosschainQiStablecoinwbtcMaticDebt,
+  useDestroyVault: hks.useCrosschainQiStablecoinwbtcDestroyVault,
+  useDestroyVaultEvent: hks.useCrosschainQiStablecoinwbtcDestroyVaultEvent,
+  useEthPriceSource: hks.useCrosschainQiStablecoinwbtcEthPriceSource,
+  useEvent: hks.useCrosschainQiStablecoinwbtcEvent,
+  useExists: hks.useCrosschainQiStablecoinwbtcExists,
+  useGainRatio: hks.useCrosschainQiStablecoinwbtcGainRatio,
+  useGetApproved: hks.useCrosschainQiStablecoinwbtcGetApproved,
+  useGetClosingFee: hks.useCrosschainQiStablecoinwbtcGetClosingFee,
+  useGetDebtCeiling: hks.useCrosschainQiStablecoinwbtcGetDebtCeiling,
+  useGetEthPriceSource: hks.useCrosschainQiStablecoinwbtcGetEthPriceSource,
+  useGetOpeningFee: hks.useCrosschainQiStablecoinwbtcGetOpeningFee,
+  useGetPaid: hks.useCrosschainQiStablecoinwbtcGetPaid,
+  useGetTokenPriceSource: hks.useCrosschainQiStablecoinwbtcGetTokenPriceSource,
+  useIsApprovedForAll: hks.useCrosschainQiStablecoinwbtcIsApprovedForAll,
+  useIsOwner: hks.useCrosschainQiStablecoinwbtcIsOwner,
+  useLiquidateVault: hks.useCrosschainQiStablecoinwbtcLiquidateVault,
+  useLiquidateVaultEvent: hks.useCrosschainQiStablecoinwbtcLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useCrosschainQiStablecoinwbtcMaticDebt,
   useCrosschainQiStablecoinwbtcMinimumCollateralPercentage:
     hks.useCrosschainQiStablecoinwbtcMinimumCollateralPercentage,
-  useCrosschainQiStablecoinwbtcName: hks.useCrosschainNativeQiStablecoinName,
-  useCrosschainQiStablecoinwbtcOpeningFee:
-    hks.useCrosschainQiStablecoinwbtcOpeningFee,
-  useCrosschainQiStablecoinwbtcOwner: hks.useCrosschainQiStablecoinwbtcOwner,
-  useCrosschainQiStablecoinwbtcOwnerOf:
-    hks.useCrosschainQiStablecoinwbtcOwnerOf,
-  useCrosschainQiStablecoinwbtcOwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useCrosschainQiStablecoinwbtcOpeningFee,
+  useOwner: hks.useCrosschainQiStablecoinwbtcOwner,
+  useOwnerOf: hks.useCrosschainQiStablecoinwbtcOwnerOf,
+  useOwnershipTransferredEvent:
     hks.useCrosschainQiStablecoinwbtcOwnershipTransferredEvent,
-  useCrosschainQiStablecoinwbtcPayBackToken:
-    hks.useCrosschainQiStablecoinwbtcPayBackToken,
-  useCrosschainQiStablecoinwbtcPayBackTokenEvent:
-    hks.useCrosschainQiStablecoinwbtcPayBackTokenEvent,
-  useCrosschainQiStablecoinwbtcPriceSourceDecimals:
-    hks.useCrosschainQiStablecoinwbtcPriceSourceDecimals,
-  useCrosschainQiStablecoinwbtcRead: hks.useCrosschainNativeQiStablecoinRead,
-  useCrosschainQiStablecoinwbtcRenounceOwnership:
-    hks.useCrosschainQiStablecoinwbtcRenounceOwnership,
-  useCrosschainQiStablecoinwbtcSafeTransferFrom:
-    hks.useCrosschainQiStablecoinwbtcSafeTransferFrom,
-  useCrosschainQiStablecoinwbtcSetApprovalForAll:
-    hks.useCrosschainQiStablecoinwbtcSetApprovalForAll,
-  useCrosschainQiStablecoinwbtcSetClosingFee:
-    hks.useCrosschainQiStablecoinwbtcSetClosingFee,
-  useCrosschainQiStablecoinwbtcSetDebtRatio:
-    hks.useCrosschainQiStablecoinwbtcSetDebtRatio,
-  useCrosschainQiStablecoinwbtcSetGainRatio:
-    hks.useCrosschainQiStablecoinwbtcSetGainRatio,
-  useCrosschainQiStablecoinwbtcSetMinCollateralRatio:
+  usePayBackToken: hks.useCrosschainQiStablecoinwbtcPayBackToken,
+  usePayBackTokenEvent: hks.useCrosschainQiStablecoinwbtcPayBackTokenEvent,
+  usePriceSourceDecimals: hks.useCrosschainQiStablecoinwbtcPriceSourceDecimals,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useCrosschainQiStablecoinwbtcRenounceOwnership,
+  useSafeTransferFrom: hks.useCrosschainQiStablecoinwbtcSafeTransferFrom,
+  useSetApprovalForAll: hks.useCrosschainQiStablecoinwbtcSetApprovalForAll,
+  useSetClosingFee: hks.useCrosschainQiStablecoinwbtcSetClosingFee,
+  useSetDebtRatio: hks.useCrosschainQiStablecoinwbtcSetDebtRatio,
+  useSetGainRatio: hks.useCrosschainQiStablecoinwbtcSetGainRatio,
+  useSetMinCollateralRatio:
     hks.useCrosschainQiStablecoinwbtcSetMinCollateralRatio,
-  useCrosschainQiStablecoinwbtcSetOpeningFee:
-    hks.useCrosschainQiStablecoinwbtcSetOpeningFee,
-  useCrosschainQiStablecoinwbtcSetStabilityPool:
-    hks.useCrosschainQiStablecoinwbtcSetStabilityPool,
-  useCrosschainQiStablecoinwbtcSetTokenUri:
-    hks.useCrosschainQiStablecoinwbtcSetTokenUri,
-  useCrosschainQiStablecoinwbtcSetTreasury:
-    hks.useCrosschainQiStablecoinwbtcSetTreasury,
-  useCrosschainQiStablecoinwbtcStabilityPool:
-    hks.useCrosschainQiStablecoinwbtcStabilityPool,
-  useCrosschainQiStablecoinwbtcSupportsInterface:
-    hks.useCrosschainQiStablecoinwbtcSupportsInterface,
-  useCrosschainQiStablecoinwbtcSymbol: hks.useCrosschainQiStablecoinwbtcSymbol,
-  useCrosschainQiStablecoinwbtcTokenByIndex:
-    hks.useCrosschainQiStablecoinwbtcTokenByIndex,
-  useCrosschainQiStablecoinwbtcTokenOfOwnerByIndex:
-    hks.useCrosschainQiStablecoinwbtcTokenOfOwnerByIndex,
-  useCrosschainQiStablecoinwbtcTokenPeg:
-    hks.useCrosschainQiStablecoinwbtcTokenPeg,
-  useCrosschainQiStablecoinwbtcTokenUri:
-    hks.useCrosschainQiStablecoinwbtcTokenUri,
-  useCrosschainQiStablecoinwbtcTotalBorrowed:
-    hks.useCrosschainQiStablecoinwbtcTotalBorrowed,
-  useCrosschainQiStablecoinwbtcTotalSupply:
-    hks.useCrosschainQiStablecoinwbtcTotalSupply,
-  useCrosschainQiStablecoinwbtcTransferEvent:
-    hks.useCrosschainQiStablecoinwbtcTransferEvent,
-  useCrosschainQiStablecoinwbtcTransferFrom:
-    hks.useCrosschainQiStablecoinwbtcTransferFrom,
-  useCrosschainQiStablecoinwbtcTransferOwnership:
-    hks.useCrosschainQiStablecoinwbtcTransferOwnership,
-  useCrosschainQiStablecoinwbtcTransferVaultEvent:
-    hks.useCrosschainQiStablecoinwbtcTransferVaultEvent,
-  useCrosschainQiStablecoinwbtcTreasury:
-    hks.useCrosschainQiStablecoinwbtcTreasury,
-  useCrosschainQiStablecoinwbtcUri: hks.useCrosschainNativeQiStablecoinUri,
-  useCrosschainQiStablecoinwbtcVaultCollateral:
-    hks.useCrosschainQiStablecoinwbtcVaultCollateral,
-  useCrosschainQiStablecoinwbtcVaultCount:
-    hks.useCrosschainQiStablecoinwbtcVaultCount,
-  useCrosschainQiStablecoinwbtcVaultDebt:
-    hks.useCrosschainQiStablecoinwbtcVaultDebt,
-  useCrosschainQiStablecoinwbtcWithdrawCollateral:
-    hks.useCrosschainQiStablecoinwbtcWithdrawCollateral,
-  useCrosschainQiStablecoinwbtcWithdrawCollateralEvent:
+  useSetOpeningFee: hks.useCrosschainQiStablecoinwbtcSetOpeningFee,
+  useSetStabilityPool: hks.useCrosschainQiStablecoinwbtcSetStabilityPool,
+  useSetTokenUri: hks.useCrosschainQiStablecoinwbtcSetTokenUri,
+  useSetTreasury: hks.useCrosschainQiStablecoinwbtcSetTreasury,
+  useStabilityPool: hks.useCrosschainQiStablecoinwbtcStabilityPool,
+  useSupportsInterface: hks.useCrosschainQiStablecoinwbtcSupportsInterface,
+  useSymbol: hks.useCrosschainQiStablecoinwbtcSymbol,
+  useTokenByIndex: hks.useCrosschainQiStablecoinwbtcTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useCrosschainQiStablecoinwbtcTokenOfOwnerByIndex,
+  useTokenPeg: hks.useCrosschainQiStablecoinwbtcTokenPeg,
+  useTokenUri: hks.useCrosschainQiStablecoinwbtcTokenUri,
+  useTotalBorrowed: hks.useCrosschainQiStablecoinwbtcTotalBorrowed,
+  useTotalSupply: hks.useCrosschainQiStablecoinwbtcTotalSupply,
+  useTransferEvent: hks.useCrosschainQiStablecoinwbtcTransferEvent,
+  useTransferFrom: hks.useCrosschainQiStablecoinwbtcTransferFrom,
+  useTransferOwnership: hks.useCrosschainQiStablecoinwbtcTransferOwnership,
+  useTransferVaultEvent: hks.useCrosschainQiStablecoinwbtcTransferVaultEvent,
+  useTreasury: hks.useCrosschainQiStablecoinwbtcTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useCrosschainQiStablecoinwbtcVaultCollateral,
+  useVaultCount: hks.useCrosschainQiStablecoinwbtcVaultCount,
+  useVaultDebt: hks.useCrosschainQiStablecoinwbtcVaultDebt,
+  useWithdrawCollateral: hks.useCrosschainQiStablecoinwbtcWithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useCrosschainQiStablecoinwbtcWithdrawCollateralEvent,
-  useCrosschainQiStablecoinwbtcWrite: hks.useCrosschainQiStablecoinwbtcWrite,
-  usePrepareCrosschainQiStablecoinwbtcApprove:
-    hks.usePrepareCrosschainQiStablecoinwbtcApprove,
-  usePrepareCrosschainQiStablecoinwbtcBorrowToken:
-    hks.usePrepareCrosschainQiStablecoinwbtcBorrowToken,
-  usePrepareCrosschainQiStablecoinwbtcBurn:
-    hks.usePrepareCrosschainQiStablecoinwbtcBurn,
-  usePrepareCrosschainQiStablecoinwbtcChangeEthPriceSource:
+  useWrite: hks.useCrosschainQiStablecoinwbtcWrite,
+  usePrepareApprove: hks.usePrepareCrosschainQiStablecoinwbtcApprove,
+  usePrepareBorrowToken: hks.usePrepareCrosschainQiStablecoinwbtcBorrowToken,
+  usePrepareBurn: hks.usePrepareCrosschainQiStablecoinwbtcBurn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareCrosschainQiStablecoinwbtcChangeEthPriceSource,
-  usePrepareCrosschainQiStablecoinwbtcCreateVault:
-    hks.usePrepareCrosschainQiStablecoinwbtcCreateVault,
-  usePrepareCrosschainQiStablecoinwbtcDepositCollateral:
+  usePrepareCreateVault: hks.usePrepareCrosschainQiStablecoinwbtcCreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareCrosschainQiStablecoinwbtcDepositCollateral,
-  usePrepareCrosschainQiStablecoinwbtcDestroyVault:
-    hks.usePrepareCrosschainQiStablecoinwbtcDestroyVault,
-  usePrepareCrosschainQiStablecoinwbtcGetPaid:
-    hks.usePrepareCrosschainQiStablecoinwbtcGetPaid,
-  usePrepareCrosschainQiStablecoinwbtcLiquidateVault:
+  usePrepareDestroyVault: hks.usePrepareCrosschainQiStablecoinwbtcDestroyVault,
+  usePrepareGetPaid: hks.usePrepareCrosschainQiStablecoinwbtcGetPaid,
+  usePrepareLiquidateVault:
     hks.usePrepareCrosschainQiStablecoinwbtcLiquidateVault,
-  usePrepareCrosschainQiStablecoinwbtcPayBackToken:
-    hks.usePrepareCrosschainQiStablecoinwbtcPayBackToken,
-  usePrepareCrosschainQiStablecoinwbtcRenounceOwnership:
+  usePreparePayBackToken: hks.usePrepareCrosschainQiStablecoinwbtcPayBackToken,
+  usePrepareRenounceOwnership:
     hks.usePrepareCrosschainQiStablecoinwbtcRenounceOwnership,
-  usePrepareCrosschainQiStablecoinwbtcSafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareCrosschainQiStablecoinwbtcSafeTransferFrom,
-  usePrepareCrosschainQiStablecoinwbtcSetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareCrosschainQiStablecoinwbtcSetApprovalForAll,
-  usePrepareCrosschainQiStablecoinwbtcSetClosingFee:
+  usePrepareSetClosingFee:
     hks.usePrepareCrosschainQiStablecoinwbtcSetClosingFee,
-  usePrepareCrosschainQiStablecoinwbtcSetDebtRatio:
-    hks.usePrepareCrosschainQiStablecoinwbtcSetDebtRatio,
-  usePrepareCrosschainQiStablecoinwbtcSetGainRatio:
-    hks.usePrepareCrosschainQiStablecoinwbtcSetGainRatio,
-  usePrepareCrosschainQiStablecoinwbtcSetMinCollateralRatio:
+  usePrepareSetDebtRatio: hks.usePrepareCrosschainQiStablecoinwbtcSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareCrosschainQiStablecoinwbtcSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareCrosschainQiStablecoinwbtcSetMinCollateralRatio,
-  usePrepareCrosschainQiStablecoinwbtcSetOpeningFee:
+  usePrepareSetOpeningFee:
     hks.usePrepareCrosschainQiStablecoinwbtcSetOpeningFee,
-  usePrepareCrosschainQiStablecoinwbtcSetStabilityPool:
+  usePrepareSetStabilityPool:
     hks.usePrepareCrosschainQiStablecoinwbtcSetStabilityPool,
-  usePrepareCrosschainQiStablecoinwbtcSetTokenUri:
-    hks.usePrepareCrosschainQiStablecoinwbtcSetTokenUri,
-  usePrepareCrosschainQiStablecoinwbtcSetTreasury:
-    hks.usePrepareCrosschainQiStablecoinwbtcSetTreasury,
-  usePrepareCrosschainQiStablecoinwbtcTransferFrom:
-    hks.usePrepareCrosschainQiStablecoinwbtcTransferFrom,
-  usePrepareCrosschainQiStablecoinwbtcTransferOwnership:
+  usePrepareSetTokenUri: hks.usePrepareCrosschainQiStablecoinwbtcSetTokenUri,
+  usePrepareSetTreasury: hks.usePrepareCrosschainQiStablecoinwbtcSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareCrosschainQiStablecoinwbtcTransferFrom,
+  usePrepareTransferOwnership:
     hks.usePrepareCrosschainQiStablecoinwbtcTransferOwnership,
-  usePrepareCrosschainQiStablecoinwbtcWithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareCrosschainQiStablecoinwbtcWithdrawCollateral,
-  usePrepareCrosschainQiStablecoinwbtcWrite:
-    hks.usePrepareCrosschainQiStablecoinwbtcWrite,
-};
+  usePrepareWrite: hks.usePrepareCrosschainQiStablecoinwbtcWrite,
+} as const;
 
 const Erc20Stablecoin = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useErc20StablecoinApprovalEvent: hks.useErc20StablecoinApprovalEvent,
-  useErc20StablecoinApprovalForAllEvent:
-    hks.useErc20StablecoinApprovalForAllEvent,
-  useErc20StablecoinApprove: hks.useErc20StablecoinApprove,
-  useErc20StablecoinBalanceOf: hks.useErc20StablecoinBalanceOf,
-  useErc20StablecoinBorrowTokenEvent: hks.useErc20StablecoinBorrowTokenEvent,
-  useErc20StablecoinBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useErc20StablecoinChangeEthPriceSource:
-    hks.useErc20StablecoinChangeEthPriceSource,
-  useErc20StablecoinCheckCollateralPercentage:
-    hks.useErc20StablecoinCheckCollateralPercentage,
-  useErc20StablecoinCheckCost: hks.useErc20StablecoinCheckCost,
-  useErc20StablecoinCheckExtract: hks.useErc20StablecoinCheckExtract,
-  useErc20StablecoinCheckLiquidation: hks.useErc20StablecoinCheckLiquidation,
-  useErc20StablecoinClosingFee: hks.useErc20StablecoinClosingFee,
+  useApprovalEvent: hks.useErc20StablecoinApprovalEvent,
+  useApprovalForAllEvent: hks.useErc20StablecoinApprovalForAllEvent,
+  useApprove: hks.useErc20StablecoinApprove,
+  useBalanceOf: hks.useErc20StablecoinBalanceOf,
+  useBorrowTokenEvent: hks.useErc20StablecoinBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useErc20StablecoinChangeEthPriceSource,
+  useCheckCollateralPercentage: hks.useErc20StablecoinCheckCollateralPercentage,
+  useCheckCost: hks.useErc20StablecoinCheckCost,
+  useCheckExtract: hks.useErc20StablecoinCheckExtract,
+  useCheckLiquidation: hks.useErc20StablecoinCheckLiquidation,
+  useClosingFee: hks.useErc20StablecoinClosingFee,
   useErc20StablecoinCollateral: hks.useErc20StablecoinCollateral,
-  useErc20StablecoinCreateVault: hks.useErc20StablecoinCreateVault,
-  useErc20StablecoinCreateVaultEvent: hks.useErc20StablecoinCreateVaultEvent,
-  useErc20StablecoinDebtRatio: hks.useErc20StablecoinDebtRatio,
-  useErc20StablecoinDepositCollateral: hks.useErc20StablecoinDepositCollateral,
-  useErc20StablecoinDepositCollateralEvent:
-    hks.useErc20StablecoinDepositCollateralEvent,
-  useErc20StablecoinDestroyVault: hks.useErc20StablecoinDestroyVault,
-  useErc20StablecoinDestroyVaultEvent: hks.useErc20StablecoinDestroyVaultEvent,
-  useErc20StablecoinEthPriceSource: hks.useErc20StablecoinEthPriceSource,
-  useErc20StablecoinEvent: hks.useErc20StablecoinEvent,
-  useErc20StablecoinExists: hks.useErc20StablecoinExists,
-  useErc20StablecoinGainRatio: hks.useErc20StablecoinGainRatio,
-  useErc20StablecoinGetApproved: hks.useErc20StablecoinGetApproved,
-  useErc20StablecoinGetClosingFee: hks.useErc20StablecoinGetClosingFee,
-  useErc20StablecoinGetDebtCeiling: hks.useErc20StablecoinGetDebtCeiling,
-  useErc20StablecoinGetEthPriceSource: hks.useErc20StablecoinGetEthPriceSource,
-  useErc20StablecoinGetOpeningFee: hks.useErc20StablecoinGetOpeningFee,
-  useErc20StablecoinGetPaid: hks.useErc20StablecoinGetPaid,
-  useErc20StablecoinGetTokenPriceSource:
-    hks.useErc20StablecoinGetTokenPriceSource,
-  useErc20StablecoinIsApprovedForAll: hks.useErc20StablecoinIsApprovedForAll,
-  useErc20StablecoinIsOwner: hks.useErc20StablecoinIsOwner,
-  useErc20StablecoinLiquidateVault: hks.useErc20StablecoinLiquidateVault,
-  useErc20StablecoinLiquidateVaultEvent:
-    hks.useErc20StablecoinLiquidateVaultEvent,
-  useErc20StablecoinMai: hks.useCrosschainNativeQiStablecoinMai,
-  useErc20StablecoinMaticDebt: hks.useErc20StablecoinMaticDebt,
-  useErc20StablecoinMinimumCollateralPercentage:
+  useCreateVault: hks.useErc20StablecoinCreateVault,
+  useCreateVaultEvent: hks.useErc20StablecoinCreateVaultEvent,
+  useDebtRatio: hks.useErc20StablecoinDebtRatio,
+  useDepositCollateral: hks.useErc20StablecoinDepositCollateral,
+  useDepositCollateralEvent: hks.useErc20StablecoinDepositCollateralEvent,
+  useDestroyVault: hks.useErc20StablecoinDestroyVault,
+  useDestroyVaultEvent: hks.useErc20StablecoinDestroyVaultEvent,
+  useEthPriceSource: hks.useErc20StablecoinEthPriceSource,
+  useEvent: hks.useErc20StablecoinEvent,
+  useExists: hks.useErc20StablecoinExists,
+  useGainRatio: hks.useErc20StablecoinGainRatio,
+  useGetApproved: hks.useErc20StablecoinGetApproved,
+  useGetClosingFee: hks.useErc20StablecoinGetClosingFee,
+  useGetDebtCeiling: hks.useErc20StablecoinGetDebtCeiling,
+  useGetEthPriceSource: hks.useErc20StablecoinGetEthPriceSource,
+  useGetOpeningFee: hks.useErc20StablecoinGetOpeningFee,
+  useGetPaid: hks.useErc20StablecoinGetPaid,
+  useGetTokenPriceSource: hks.useErc20StablecoinGetTokenPriceSource,
+  useIsApprovedForAll: hks.useErc20StablecoinIsApprovedForAll,
+  useIsOwner: hks.useErc20StablecoinIsOwner,
+  useLiquidateVault: hks.useErc20StablecoinLiquidateVault,
+  useLiquidateVaultEvent: hks.useErc20StablecoinLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useErc20StablecoinMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useErc20StablecoinMinimumCollateralPercentage,
-  useErc20StablecoinName: hks.useCrosschainNativeQiStablecoinName,
-  useErc20StablecoinOpeningFee: hks.useErc20StablecoinOpeningFee,
-  useErc20StablecoinOwner: hks.useErc20StablecoinOwner,
-  useErc20StablecoinOwnerOf: hks.useErc20StablecoinOwnerOf,
-  useErc20StablecoinOwnershipTransferredEvent:
-    hks.useErc20StablecoinOwnershipTransferredEvent,
-  useErc20StablecoinPayBackToken: hks.useErc20StablecoinPayBackToken,
-  useErc20StablecoinPayBackTokenEvent: hks.useErc20StablecoinPayBackTokenEvent,
-  useErc20StablecoinRead: hks.useCrosschainNativeQiStablecoinRead,
-  useErc20StablecoinRenounceOwnership: hks.useErc20StablecoinRenounceOwnership,
-  useErc20StablecoinSafeTransferFrom: hks.useErc20StablecoinSafeTransferFrom,
-  useErc20StablecoinSetApprovalForAll: hks.useErc20StablecoinSetApprovalForAll,
-  useErc20StablecoinSetClosingFee: hks.useErc20StablecoinSetClosingFee,
-  useErc20StablecoinSetDebtRatio: hks.useErc20StablecoinSetDebtRatio,
-  useErc20StablecoinSetGainRatio: hks.useErc20StablecoinSetGainRatio,
-  useErc20StablecoinSetMinCollateralRatio:
-    hks.useErc20StablecoinSetMinCollateralRatio,
-  useErc20StablecoinSetOpeningFee: hks.useErc20StablecoinSetOpeningFee,
-  useErc20StablecoinSetStabilityPool: hks.useErc20StablecoinSetStabilityPool,
-  useErc20StablecoinSetTreasury: hks.useErc20StablecoinSetTreasury,
-  useErc20StablecoinStabilityPool: hks.useErc20StablecoinStabilityPool,
-  useErc20StablecoinSupportsInterface: hks.useErc20StablecoinSupportsInterface,
-  useErc20StablecoinSymbol: hks.useErc20StablecoinSymbol,
-  useErc20StablecoinTokenByIndex: hks.useErc20StablecoinTokenByIndex,
-  useErc20StablecoinTokenOfOwnerByIndex:
-    hks.useErc20StablecoinTokenOfOwnerByIndex,
-  useErc20StablecoinTokenPeg: hks.useErc20StablecoinTokenPeg,
-  useErc20StablecoinTokenUri: hks.useErc20StablecoinTokenUri,
-  useErc20StablecoinTotalSupply: hks.useErc20StablecoinTotalSupply,
-  useErc20StablecoinTransferEvent: hks.useErc20StablecoinTransferEvent,
-  useErc20StablecoinTransferFrom: hks.useErc20StablecoinTransferFrom,
-  useErc20StablecoinTransferOwnership: hks.useErc20StablecoinTransferOwnership,
-  useErc20StablecoinTransferVaultEvent:
-    hks.useErc20StablecoinTransferVaultEvent,
-  useErc20StablecoinTreasury: hks.useErc20StablecoinTreasury,
-  useErc20StablecoinUri: hks.useCrosschainNativeQiStablecoinUri,
-  useErc20StablecoinVaultCollateral: hks.useErc20StablecoinVaultCollateral,
-  useErc20StablecoinVaultCount: hks.useErc20StablecoinVaultCount,
-  useErc20StablecoinVaultDebt: hks.useErc20StablecoinVaultDebt,
-  useErc20StablecoinWithdrawCollateral:
-    hks.useErc20StablecoinWithdrawCollateral,
-  useErc20StablecoinWithdrawCollateralEvent:
-    hks.useErc20StablecoinWithdrawCollateralEvent,
-  useErc20StablecoinWrite: hks.useErc20StablecoinWrite,
-  usePrepareErc20StablecoinApprove: hks.usePrepareErc20StablecoinApprove,
-  usePrepareErc20StablecoinBorrowToken:
-    hks.usePrepareErc20StablecoinBorrowToken,
-  usePrepareErc20StablecoinChangeEthPriceSource:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useErc20StablecoinOpeningFee,
+  useOwner: hks.useErc20StablecoinOwner,
+  useOwnerOf: hks.useErc20StablecoinOwnerOf,
+  useOwnershipTransferredEvent: hks.useErc20StablecoinOwnershipTransferredEvent,
+  usePayBackToken: hks.useErc20StablecoinPayBackToken,
+  usePayBackTokenEvent: hks.useErc20StablecoinPayBackTokenEvent,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useErc20StablecoinRenounceOwnership,
+  useSafeTransferFrom: hks.useErc20StablecoinSafeTransferFrom,
+  useSetApprovalForAll: hks.useErc20StablecoinSetApprovalForAll,
+  useSetClosingFee: hks.useErc20StablecoinSetClosingFee,
+  useSetDebtRatio: hks.useErc20StablecoinSetDebtRatio,
+  useSetGainRatio: hks.useErc20StablecoinSetGainRatio,
+  useSetMinCollateralRatio: hks.useErc20StablecoinSetMinCollateralRatio,
+  useSetOpeningFee: hks.useErc20StablecoinSetOpeningFee,
+  useSetStabilityPool: hks.useErc20StablecoinSetStabilityPool,
+  useSetTreasury: hks.useErc20StablecoinSetTreasury,
+  useStabilityPool: hks.useErc20StablecoinStabilityPool,
+  useSupportsInterface: hks.useErc20StablecoinSupportsInterface,
+  useSymbol: hks.useErc20StablecoinSymbol,
+  useTokenByIndex: hks.useErc20StablecoinTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useErc20StablecoinTokenOfOwnerByIndex,
+  useTokenPeg: hks.useErc20StablecoinTokenPeg,
+  useTokenUri: hks.useErc20StablecoinTokenUri,
+  useTotalSupply: hks.useErc20StablecoinTotalSupply,
+  useTransferEvent: hks.useErc20StablecoinTransferEvent,
+  useTransferFrom: hks.useErc20StablecoinTransferFrom,
+  useTransferOwnership: hks.useErc20StablecoinTransferOwnership,
+  useTransferVaultEvent: hks.useErc20StablecoinTransferVaultEvent,
+  useTreasury: hks.useErc20StablecoinTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useErc20StablecoinVaultCollateral,
+  useVaultCount: hks.useErc20StablecoinVaultCount,
+  useVaultDebt: hks.useErc20StablecoinVaultDebt,
+  useWithdrawCollateral: hks.useErc20StablecoinWithdrawCollateral,
+  useWithdrawCollateralEvent: hks.useErc20StablecoinWithdrawCollateralEvent,
+  useWrite: hks.useErc20StablecoinWrite,
+  usePrepareApprove: hks.usePrepareErc20StablecoinApprove,
+  usePrepareBorrowToken: hks.usePrepareErc20StablecoinBorrowToken,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareErc20StablecoinChangeEthPriceSource,
-  usePrepareErc20StablecoinCreateVault:
-    hks.usePrepareErc20StablecoinCreateVault,
-  usePrepareErc20StablecoinDepositCollateral:
-    hks.usePrepareErc20StablecoinDepositCollateral,
-  usePrepareErc20StablecoinDestroyVault:
-    hks.usePrepareErc20StablecoinDestroyVault,
-  usePrepareErc20StablecoinGetPaid: hks.usePrepareErc20StablecoinGetPaid,
-  usePrepareErc20StablecoinLiquidateVault:
-    hks.usePrepareErc20StablecoinLiquidateVault,
-  usePrepareErc20StablecoinPayBackToken:
-    hks.usePrepareErc20StablecoinPayBackToken,
-  usePrepareErc20StablecoinRenounceOwnership:
-    hks.usePrepareErc20StablecoinRenounceOwnership,
-  usePrepareErc20StablecoinSafeTransferFrom:
-    hks.usePrepareErc20StablecoinSafeTransferFrom,
-  usePrepareErc20StablecoinSetApprovalForAll:
-    hks.usePrepareErc20StablecoinSetApprovalForAll,
-  usePrepareErc20StablecoinSetClosingFee:
-    hks.usePrepareErc20StablecoinSetClosingFee,
-  usePrepareErc20StablecoinSetDebtRatio:
-    hks.usePrepareErc20StablecoinSetDebtRatio,
-  usePrepareErc20StablecoinSetGainRatio:
-    hks.usePrepareErc20StablecoinSetGainRatio,
-  usePrepareErc20StablecoinSetMinCollateralRatio:
+  usePrepareCreateVault: hks.usePrepareErc20StablecoinCreateVault,
+  usePrepareDepositCollateral: hks.usePrepareErc20StablecoinDepositCollateral,
+  usePrepareDestroyVault: hks.usePrepareErc20StablecoinDestroyVault,
+  usePrepareGetPaid: hks.usePrepareErc20StablecoinGetPaid,
+  usePrepareLiquidateVault: hks.usePrepareErc20StablecoinLiquidateVault,
+  usePreparePayBackToken: hks.usePrepareErc20StablecoinPayBackToken,
+  usePrepareRenounceOwnership: hks.usePrepareErc20StablecoinRenounceOwnership,
+  usePrepareSafeTransferFrom: hks.usePrepareErc20StablecoinSafeTransferFrom,
+  usePrepareSetApprovalForAll: hks.usePrepareErc20StablecoinSetApprovalForAll,
+  usePrepareSetClosingFee: hks.usePrepareErc20StablecoinSetClosingFee,
+  usePrepareSetDebtRatio: hks.usePrepareErc20StablecoinSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareErc20StablecoinSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareErc20StablecoinSetMinCollateralRatio,
-  usePrepareErc20StablecoinSetOpeningFee:
-    hks.usePrepareErc20StablecoinSetOpeningFee,
-  usePrepareErc20StablecoinSetStabilityPool:
-    hks.usePrepareErc20StablecoinSetStabilityPool,
-  usePrepareErc20StablecoinSetTreasury:
-    hks.usePrepareErc20StablecoinSetTreasury,
-  usePrepareErc20StablecoinTransferFrom:
-    hks.usePrepareErc20StablecoinTransferFrom,
-  usePrepareErc20StablecoinTransferOwnership:
-    hks.usePrepareErc20StablecoinTransferOwnership,
-  usePrepareErc20StablecoinWithdrawCollateral:
-    hks.usePrepareErc20StablecoinWithdrawCollateral,
-  usePrepareErc20StablecoinWrite: hks.usePrepareErc20StablecoinWrite,
-};
+  usePrepareSetOpeningFee: hks.usePrepareErc20StablecoinSetOpeningFee,
+  usePrepareSetStabilityPool: hks.usePrepareErc20StablecoinSetStabilityPool,
+  usePrepareSetTreasury: hks.usePrepareErc20StablecoinSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareErc20StablecoinTransferFrom,
+  usePrepareTransferOwnership: hks.usePrepareErc20StablecoinTransferOwnership,
+  usePrepareWithdrawCollateral: hks.usePrepareErc20StablecoinWithdrawCollateral,
+  usePrepareWrite: hks.usePrepareErc20StablecoinWrite,
+} as const;
 
 const Erc20QiStablecoinwbtc = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useErc20QiStablecoinwbtcApprovalEvent:
-    hks.useErc20QiStablecoinwbtcApprovalEvent,
-  useErc20QiStablecoinwbtcApprovalForAllEvent:
-    hks.useErc20QiStablecoinwbtcApprovalForAllEvent,
-  useErc20QiStablecoinwbtcApprove: hks.useErc20QiStablecoinwbtcApprove,
-  useErc20QiStablecoinwbtcBalanceOf: hks.useErc20QiStablecoinwbtcBalanceOf,
-  useErc20QiStablecoinwbtcBorrowTokenEvent:
-    hks.useErc20QiStablecoinwbtcBorrowTokenEvent,
-  useErc20QiStablecoinwbtcBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useErc20QiStablecoinwbtcChangeEthPriceSource:
-    hks.useErc20QiStablecoinwbtcChangeEthPriceSource,
-  useErc20QiStablecoinwbtcCheckCollateralPercentage:
+  useApprovalEvent: hks.useErc20QiStablecoinwbtcApprovalEvent,
+  useApprovalForAllEvent: hks.useErc20QiStablecoinwbtcApprovalForAllEvent,
+  useApprove: hks.useErc20QiStablecoinwbtcApprove,
+  useBalanceOf: hks.useErc20QiStablecoinwbtcBalanceOf,
+  useBorrowTokenEvent: hks.useErc20QiStablecoinwbtcBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useErc20QiStablecoinwbtcChangeEthPriceSource,
+  useCheckCollateralPercentage:
     hks.useErc20QiStablecoinwbtcCheckCollateralPercentage,
-  useErc20QiStablecoinwbtcCheckCost: hks.useErc20QiStablecoinwbtcCheckCost,
-  useErc20QiStablecoinwbtcCheckExtract:
-    hks.useErc20QiStablecoinwbtcCheckExtract,
-  useErc20QiStablecoinwbtcCheckLiquidation:
-    hks.useErc20QiStablecoinwbtcCheckLiquidation,
-  useErc20QiStablecoinwbtcClosingFee: hks.useErc20QiStablecoinwbtcClosingFee,
-  useErc20QiStablecoinwbtcCollateral: hks.useErc20QiStablecoinwbtcCollateral,
-  useErc20QiStablecoinwbtcCreateVault: hks.useErc20QiStablecoinwbtcCreateVault,
-  useErc20QiStablecoinwbtcCreateVaultEvent:
-    hks.useErc20QiStablecoinwbtcCreateVaultEvent,
-  useErc20QiStablecoinwbtcDebtRatio: hks.useErc20QiStablecoinwbtcDebtRatio,
-  useErc20QiStablecoinwbtcDepositCollateral:
-    hks.useErc20QiStablecoinwbtcDepositCollateral,
-  useErc20QiStablecoinwbtcDepositCollateralEvent:
-    hks.useErc20QiStablecoinwbtcDepositCollateralEvent,
-  useErc20QiStablecoinwbtcDestroyVault:
-    hks.useErc20QiStablecoinwbtcDestroyVault,
-  useErc20QiStablecoinwbtcDestroyVaultEvent:
-    hks.useErc20QiStablecoinwbtcDestroyVaultEvent,
-  useErc20QiStablecoinwbtcEthPriceSource:
-    hks.useErc20QiStablecoinwbtcEthPriceSource,
-  useErc20QiStablecoinwbtcEvent: hks.useErc20QiStablecoinwbtcEvent,
-  useErc20QiStablecoinwbtcExists: hks.useErc20QiStablecoinwbtcExists,
-  useErc20QiStablecoinwbtcGainRatio: hks.useErc20QiStablecoinwbtcGainRatio,
-  useErc20QiStablecoinwbtcGetApproved: hks.useErc20QiStablecoinwbtcGetApproved,
-  useErc20QiStablecoinwbtcGetClosingFee:
-    hks.useErc20QiStablecoinwbtcGetClosingFee,
-  useErc20QiStablecoinwbtcGetDebtCeiling:
-    hks.useErc20QiStablecoinwbtcGetDebtCeiling,
-  useErc20QiStablecoinwbtcGetEthPriceSource:
-    hks.useErc20QiStablecoinwbtcGetEthPriceSource,
-  useErc20QiStablecoinwbtcGetOpeningFee:
-    hks.useErc20QiStablecoinwbtcGetOpeningFee,
-  useErc20QiStablecoinwbtcGetPaid: hks.useErc20QiStablecoinwbtcGetPaid,
-  useErc20QiStablecoinwbtcGetTokenPriceSource:
-    hks.useErc20QiStablecoinwbtcGetTokenPriceSource,
-  useErc20QiStablecoinwbtcIsApprovedForAll:
-    hks.useErc20QiStablecoinwbtcIsApprovedForAll,
-  useErc20QiStablecoinwbtcIsOwner: hks.useErc20QiStablecoinwbtcIsOwner,
-  useErc20QiStablecoinwbtcLiquidateVault:
-    hks.useErc20QiStablecoinwbtcLiquidateVault,
-  useErc20QiStablecoinwbtcLiquidateVaultEvent:
-    hks.useErc20QiStablecoinwbtcLiquidateVaultEvent,
-  useErc20QiStablecoinwbtcMai: hks.useCrosschainNativeQiStablecoinMai,
-  useErc20QiStablecoinwbtcMaticDebt: hks.useErc20QiStablecoinwbtcMaticDebt,
-  useErc20QiStablecoinwbtcMinimumCollateralPercentage:
+  useCheckCost: hks.useErc20QiStablecoinwbtcCheckCost,
+  useCheckExtract: hks.useErc20QiStablecoinwbtcCheckExtract,
+  useCheckLiquidation: hks.useErc20QiStablecoinwbtcCheckLiquidation,
+  useClosingFee: hks.useErc20QiStablecoinwbtcClosingFee,
+  useCollateral: hks.useErc20QiStablecoinwbtcCollateral,
+  useCreateVault: hks.useErc20QiStablecoinwbtcCreateVault,
+  useCreateVaultEvent: hks.useErc20QiStablecoinwbtcCreateVaultEvent,
+  useDebtRatio: hks.useErc20QiStablecoinwbtcDebtRatio,
+  useDepositCollateral: hks.useErc20QiStablecoinwbtcDepositCollateral,
+  useDepositCollateralEvent: hks.useErc20QiStablecoinwbtcDepositCollateralEvent,
+  useDestroyVault: hks.useErc20QiStablecoinwbtcDestroyVault,
+  useDestroyVaultEvent: hks.useErc20QiStablecoinwbtcDestroyVaultEvent,
+  useEthPriceSource: hks.useErc20QiStablecoinwbtcEthPriceSource,
+  useEvent: hks.useErc20QiStablecoinwbtcEvent,
+  useExists: hks.useErc20QiStablecoinwbtcExists,
+  useGainRatio: hks.useErc20QiStablecoinwbtcGainRatio,
+  useGetApproved: hks.useErc20QiStablecoinwbtcGetApproved,
+  useGetClosingFee: hks.useErc20QiStablecoinwbtcGetClosingFee,
+  useGetDebtCeiling: hks.useErc20QiStablecoinwbtcGetDebtCeiling,
+  useGetEthPriceSource: hks.useErc20QiStablecoinwbtcGetEthPriceSource,
+  useGetOpeningFee: hks.useErc20QiStablecoinwbtcGetOpeningFee,
+  useGetPaid: hks.useErc20QiStablecoinwbtcGetPaid,
+  useGetTokenPriceSource: hks.useErc20QiStablecoinwbtcGetTokenPriceSource,
+  useIsApprovedForAll: hks.useErc20QiStablecoinwbtcIsApprovedForAll,
+  useIsOwner: hks.useErc20QiStablecoinwbtcIsOwner,
+  useLiquidateVault: hks.useErc20QiStablecoinwbtcLiquidateVault,
+  useLiquidateVaultEvent: hks.useErc20QiStablecoinwbtcLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useErc20QiStablecoinwbtcMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useErc20QiStablecoinwbtcMinimumCollateralPercentage,
-  useErc20QiStablecoinwbtcName: hks.useCrosschainNativeQiStablecoinName,
-  useErc20QiStablecoinwbtcOpeningFee: hks.useErc20QiStablecoinwbtcOpeningFee,
-  useErc20QiStablecoinwbtcOwner: hks.useErc20QiStablecoinwbtcOwner,
-  useErc20QiStablecoinwbtcOwnerOf: hks.useErc20QiStablecoinwbtcOwnerOf,
-  useErc20QiStablecoinwbtcOwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useErc20QiStablecoinwbtcOpeningFee,
+  useOwner: hks.useErc20QiStablecoinwbtcOwner,
+  useOwnerOf: hks.useErc20QiStablecoinwbtcOwnerOf,
+  useOwnershipTransferredEvent:
     hks.useErc20QiStablecoinwbtcOwnershipTransferredEvent,
-  useErc20QiStablecoinwbtcPayBackToken:
-    hks.useErc20QiStablecoinwbtcPayBackToken,
-  useErc20QiStablecoinwbtcPayBackTokenEvent:
-    hks.useErc20QiStablecoinwbtcPayBackTokenEvent,
-  useErc20QiStablecoinwbtcPriceSourceDecimals:
-    hks.useErc20QiStablecoinwbtcPriceSourceDecimals,
-  useErc20QiStablecoinwbtcRead: hks.useCrosschainNativeQiStablecoinRead,
-  useErc20QiStablecoinwbtcRenounceOwnership:
-    hks.useErc20QiStablecoinwbtcRenounceOwnership,
-  useErc20QiStablecoinwbtcSafeTransferFrom:
-    hks.useErc20QiStablecoinwbtcSafeTransferFrom,
-  useErc20QiStablecoinwbtcSetApprovalForAll:
-    hks.useErc20QiStablecoinwbtcSetApprovalForAll,
-  useErc20QiStablecoinwbtcSetClosingFee:
-    hks.useErc20QiStablecoinwbtcSetClosingFee,
-  useErc20QiStablecoinwbtcSetDebtRatio:
-    hks.useErc20QiStablecoinwbtcSetDebtRatio,
-  useErc20QiStablecoinwbtcSetGainRatio:
-    hks.useErc20QiStablecoinwbtcSetGainRatio,
-  useErc20QiStablecoinwbtcSetMinCollateralRatio:
-    hks.useErc20QiStablecoinwbtcSetMinCollateralRatio,
-  useErc20QiStablecoinwbtcSetOpeningFee:
-    hks.useErc20QiStablecoinwbtcSetOpeningFee,
-  useErc20QiStablecoinwbtcSetStabilityPool:
-    hks.useErc20QiStablecoinwbtcSetStabilityPool,
-  useErc20QiStablecoinwbtcSetTreasury: hks.useErc20QiStablecoinwbtcSetTreasury,
-  useErc20QiStablecoinwbtcStabilityPool:
-    hks.useErc20QiStablecoinwbtcStabilityPool,
-  useErc20QiStablecoinwbtcSupportsInterface:
-    hks.useErc20QiStablecoinwbtcSupportsInterface,
-  useErc20QiStablecoinwbtcSymbol: hks.useErc20QiStablecoinwbtcSymbol,
-  useErc20QiStablecoinwbtcTokenByIndex:
-    hks.useErc20QiStablecoinwbtcTokenByIndex,
-  useErc20QiStablecoinwbtcTokenOfOwnerByIndex:
-    hks.useErc20QiStablecoinwbtcTokenOfOwnerByIndex,
-  useErc20QiStablecoinwbtcTokenPeg: hks.useErc20QiStablecoinwbtcTokenPeg,
-  useErc20QiStablecoinwbtcTokenUri: hks.useErc20QiStablecoinwbtcTokenUri,
-  useErc20QiStablecoinwbtcTotalSupply: hks.useErc20QiStablecoinwbtcTotalSupply,
-  useErc20QiStablecoinwbtcTransferEvent:
-    hks.useErc20QiStablecoinwbtcTransferEvent,
-  useErc20QiStablecoinwbtcTransferFrom:
-    hks.useErc20QiStablecoinwbtcTransferFrom,
-  useErc20QiStablecoinwbtcTransferOwnership:
-    hks.useErc20QiStablecoinwbtcTransferOwnership,
-  useErc20QiStablecoinwbtcTransferVaultEvent:
-    hks.useErc20QiStablecoinwbtcTransferVaultEvent,
-  useErc20QiStablecoinwbtcTreasury: hks.useErc20QiStablecoinwbtcTreasury,
-  useErc20QiStablecoinwbtcUri: hks.useCrosschainNativeQiStablecoinUri,
-  useErc20QiStablecoinwbtcVaultCollateral:
-    hks.useErc20QiStablecoinwbtcVaultCollateral,
-  useErc20QiStablecoinwbtcVaultCount: hks.useErc20QiStablecoinwbtcVaultCount,
-  useErc20QiStablecoinwbtcVaultDebt: hks.useErc20QiStablecoinwbtcVaultDebt,
-  useErc20QiStablecoinwbtcWithdrawCollateral:
-    hks.useErc20QiStablecoinwbtcWithdrawCollateral,
-  useErc20QiStablecoinwbtcWithdrawCollateralEvent:
+  usePayBackToken: hks.useErc20QiStablecoinwbtcPayBackToken,
+  usePayBackTokenEvent: hks.useErc20QiStablecoinwbtcPayBackTokenEvent,
+  usePriceSourceDecimals: hks.useErc20QiStablecoinwbtcPriceSourceDecimals,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useErc20QiStablecoinwbtcRenounceOwnership,
+  useSafeTransferFrom: hks.useErc20QiStablecoinwbtcSafeTransferFrom,
+  useSetApprovalForAll: hks.useErc20QiStablecoinwbtcSetApprovalForAll,
+  useSetClosingFee: hks.useErc20QiStablecoinwbtcSetClosingFee,
+  useSetDebtRatio: hks.useErc20QiStablecoinwbtcSetDebtRatio,
+  useSetGainRatio: hks.useErc20QiStablecoinwbtcSetGainRatio,
+  useSetMinCollateralRatio: hks.useErc20QiStablecoinwbtcSetMinCollateralRatio,
+  useSetOpeningFee: hks.useErc20QiStablecoinwbtcSetOpeningFee,
+  useSetStabilityPool: hks.useErc20QiStablecoinwbtcSetStabilityPool,
+  useSetTreasury: hks.useErc20QiStablecoinwbtcSetTreasury,
+  useStabilityPool: hks.useErc20QiStablecoinwbtcStabilityPool,
+  useSupportsInterface: hks.useErc20QiStablecoinwbtcSupportsInterface,
+  useSymbol: hks.useErc20QiStablecoinwbtcSymbol,
+  useTokenByIndex: hks.useErc20QiStablecoinwbtcTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useErc20QiStablecoinwbtcTokenOfOwnerByIndex,
+  useTokenPeg: hks.useErc20QiStablecoinwbtcTokenPeg,
+  useTokenUri: hks.useErc20QiStablecoinwbtcTokenUri,
+  useTotalSupply: hks.useErc20QiStablecoinwbtcTotalSupply,
+  useTransferEvent: hks.useErc20QiStablecoinwbtcTransferEvent,
+  useTransferFrom: hks.useErc20QiStablecoinwbtcTransferFrom,
+  useTransferOwnership: hks.useErc20QiStablecoinwbtcTransferOwnership,
+  useTransferVaultEvent: hks.useErc20QiStablecoinwbtcTransferVaultEvent,
+  useTreasury: hks.useErc20QiStablecoinwbtcTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useErc20QiStablecoinwbtcVaultCollateral,
+  useVaultCount: hks.useErc20QiStablecoinwbtcVaultCount,
+  useVaultDebt: hks.useErc20QiStablecoinwbtcVaultDebt,
+  useWithdrawCollateral: hks.useErc20QiStablecoinwbtcWithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useErc20QiStablecoinwbtcWithdrawCollateralEvent,
-  useErc20QiStablecoinwbtcWrite: hks.useErc20QiStablecoinwbtcWrite,
-  usePrepareErc20QiStablecoinwbtcApprove:
-    hks.usePrepareErc20QiStablecoinwbtcApprove,
-  usePrepareErc20QiStablecoinwbtcBorrowToken:
-    hks.usePrepareErc20QiStablecoinwbtcBorrowToken,
-  usePrepareErc20QiStablecoinwbtcChangeEthPriceSource:
+  useWrite: hks.useErc20QiStablecoinwbtcWrite,
+  usePrepareApprove: hks.usePrepareErc20QiStablecoinwbtcApprove,
+  usePrepareBorrowToken: hks.usePrepareErc20QiStablecoinwbtcBorrowToken,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareErc20QiStablecoinwbtcChangeEthPriceSource,
-  usePrepareErc20QiStablecoinwbtcCreateVault:
-    hks.usePrepareErc20QiStablecoinwbtcCreateVault,
-  usePrepareErc20QiStablecoinwbtcDepositCollateral:
+  usePrepareCreateVault: hks.usePrepareErc20QiStablecoinwbtcCreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareErc20QiStablecoinwbtcDepositCollateral,
-  usePrepareErc20QiStablecoinwbtcDestroyVault:
-    hks.usePrepareErc20QiStablecoinwbtcDestroyVault,
-  usePrepareErc20QiStablecoinwbtcGetPaid:
-    hks.usePrepareErc20QiStablecoinwbtcGetPaid,
-  usePrepareErc20QiStablecoinwbtcLiquidateVault:
-    hks.usePrepareErc20QiStablecoinwbtcLiquidateVault,
-  usePrepareErc20QiStablecoinwbtcPayBackToken:
-    hks.usePrepareErc20QiStablecoinwbtcPayBackToken,
-  usePrepareErc20QiStablecoinwbtcRenounceOwnership:
+  usePrepareDestroyVault: hks.usePrepareErc20QiStablecoinwbtcDestroyVault,
+  usePrepareGetPaid: hks.usePrepareErc20QiStablecoinwbtcGetPaid,
+  usePrepareLiquidateVault: hks.usePrepareErc20QiStablecoinwbtcLiquidateVault,
+  usePreparePayBackToken: hks.usePrepareErc20QiStablecoinwbtcPayBackToken,
+  usePrepareRenounceOwnership:
     hks.usePrepareErc20QiStablecoinwbtcRenounceOwnership,
-  usePrepareErc20QiStablecoinwbtcSafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareErc20QiStablecoinwbtcSafeTransferFrom,
-  usePrepareErc20QiStablecoinwbtcSetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareErc20QiStablecoinwbtcSetApprovalForAll,
-  usePrepareErc20QiStablecoinwbtcSetClosingFee:
-    hks.usePrepareErc20QiStablecoinwbtcSetClosingFee,
-  usePrepareErc20QiStablecoinwbtcSetDebtRatio:
-    hks.usePrepareErc20QiStablecoinwbtcSetDebtRatio,
-  usePrepareErc20QiStablecoinwbtcSetGainRatio:
-    hks.usePrepareErc20QiStablecoinwbtcSetGainRatio,
-  usePrepareErc20QiStablecoinwbtcSetMinCollateralRatio:
+  usePrepareSetClosingFee: hks.usePrepareErc20QiStablecoinwbtcSetClosingFee,
+  usePrepareSetDebtRatio: hks.usePrepareErc20QiStablecoinwbtcSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareErc20QiStablecoinwbtcSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareErc20QiStablecoinwbtcSetMinCollateralRatio,
-  usePrepareErc20QiStablecoinwbtcSetOpeningFee:
-    hks.usePrepareErc20QiStablecoinwbtcSetOpeningFee,
-  usePrepareErc20QiStablecoinwbtcSetStabilityPool:
+  usePrepareSetOpeningFee: hks.usePrepareErc20QiStablecoinwbtcSetOpeningFee,
+  usePrepareSetStabilityPool:
     hks.usePrepareErc20QiStablecoinwbtcSetStabilityPool,
-  usePrepareErc20QiStablecoinwbtcSetTreasury:
-    hks.usePrepareErc20QiStablecoinwbtcSetTreasury,
-  usePrepareErc20QiStablecoinwbtcTransferFrom:
-    hks.usePrepareErc20QiStablecoinwbtcTransferFrom,
-  usePrepareErc20QiStablecoinwbtcTransferOwnership:
+  usePrepareSetTreasury: hks.usePrepareErc20QiStablecoinwbtcSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareErc20QiStablecoinwbtcTransferFrom,
+  usePrepareTransferOwnership:
     hks.usePrepareErc20QiStablecoinwbtcTransferOwnership,
-  usePrepareErc20QiStablecoinwbtcWithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareErc20QiStablecoinwbtcWithdrawCollateral,
-  usePrepareErc20QiStablecoinwbtcWrite:
-    hks.usePrepareErc20QiStablecoinwbtcWrite,
-};
+  usePrepareWrite: hks.usePrepareErc20QiStablecoinwbtcWrite,
+} as const;
 
 const Erc20QiStablecoincamwbtc = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useErc20QiStablecoincamwbtcApprovalEvent:
-    hks.useErc20QiStablecoincamwbtcApprovalEvent,
-  useErc20QiStablecoincamwbtcApprovalForAllEvent:
-    hks.useErc20QiStablecoincamwbtcApprovalForAllEvent,
-  useErc20QiStablecoincamwbtcApprove: hks.useErc20QiStablecoincamwbtcApprove,
-  useErc20QiStablecoincamwbtcBalanceOf:
-    hks.useErc20QiStablecoincamwbtcBalanceOf,
-  useErc20QiStablecoincamwbtcBorrowTokenEvent:
-    hks.useErc20QiStablecoincamwbtcBorrowTokenEvent,
-  useErc20QiStablecoincamwbtcBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useErc20QiStablecoincamwbtcChangeEthPriceSource:
-    hks.useErc20QiStablecoincamwbtcChangeEthPriceSource,
-  useErc20QiStablecoincamwbtcCheckCollateralPercentage:
+  useApprovalEvent: hks.useErc20QiStablecoincamwbtcApprovalEvent,
+  useApprovalForAllEvent: hks.useErc20QiStablecoincamwbtcApprovalForAllEvent,
+  useApprove: hks.useErc20QiStablecoincamwbtcApprove,
+  useBalanceOf: hks.useErc20QiStablecoincamwbtcBalanceOf,
+  useBorrowTokenEvent: hks.useErc20QiStablecoincamwbtcBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useErc20QiStablecoincamwbtcChangeEthPriceSource,
+  useCheckCollateralPercentage:
     hks.useErc20QiStablecoincamwbtcCheckCollateralPercentage,
-  useErc20QiStablecoincamwbtcCheckCost:
-    hks.useErc20QiStablecoincamwbtcCheckCost,
-  useErc20QiStablecoincamwbtcCheckExtract:
-    hks.useErc20QiStablecoincamwbtcCheckExtract,
-  useErc20QiStablecoincamwbtcCheckLiquidation:
-    hks.useErc20QiStablecoincamwbtcCheckLiquidation,
-  useErc20QiStablecoincamwbtcClosingFee:
-    hks.useErc20QiStablecoincamwbtcClosingFee,
-  useErc20QiStablecoincamwbtcCollateral:
-    hks.useErc20QiStablecoincamwbtcCollateral,
-  useErc20QiStablecoincamwbtcCreateVault:
-    hks.useErc20QiStablecoincamwbtcCreateVault,
-  useErc20QiStablecoincamwbtcCreateVaultEvent:
-    hks.useErc20QiStablecoincamwbtcCreateVaultEvent,
-  useErc20QiStablecoincamwbtcDebtRatio:
-    hks.useErc20QiStablecoincamwbtcDebtRatio,
-  useErc20QiStablecoincamwbtcDepositCollateral:
-    hks.useErc20QiStablecoincamwbtcDepositCollateral,
-  useErc20QiStablecoincamwbtcDepositCollateralEvent:
+  useCheckCost: hks.useErc20QiStablecoincamwbtcCheckCost,
+  useCheckExtract: hks.useErc20QiStablecoincamwbtcCheckExtract,
+  useCheckLiquidation: hks.useErc20QiStablecoincamwbtcCheckLiquidation,
+  useClosingFee: hks.useErc20QiStablecoincamwbtcClosingFee,
+  useCollateral: hks.useErc20QiStablecoincamwbtcCollateral,
+  useCreateVault: hks.useErc20QiStablecoincamwbtcCreateVault,
+  useCreateVaultEvent: hks.useErc20QiStablecoincamwbtcCreateVaultEvent,
+  useDebtRatio: hks.useErc20QiStablecoincamwbtcDebtRatio,
+  useDepositCollateral: hks.useErc20QiStablecoincamwbtcDepositCollateral,
+  useDepositCollateralEvent:
     hks.useErc20QiStablecoincamwbtcDepositCollateralEvent,
-  useErc20QiStablecoincamwbtcDestroyVault:
-    hks.useErc20QiStablecoincamwbtcDestroyVault,
-  useErc20QiStablecoincamwbtcDestroyVaultEvent:
-    hks.useErc20QiStablecoincamwbtcDestroyVaultEvent,
-  useErc20QiStablecoincamwbtcEthPriceSource:
-    hks.useErc20QiStablecoincamwbtcEthPriceSource,
-  useErc20QiStablecoincamwbtcEvent: hks.useErc20QiStablecoincamwbtcEvent,
-  useErc20QiStablecoincamwbtcExists: hks.useErc20QiStablecoincamwbtcExists,
-  useErc20QiStablecoincamwbtcGainRatio:
-    hks.useErc20QiStablecoincamwbtcGainRatio,
-  useErc20QiStablecoincamwbtcGetApproved:
-    hks.useErc20QiStablecoincamwbtcGetApproved,
-  useErc20QiStablecoincamwbtcGetClosingFee:
-    hks.useErc20QiStablecoincamwbtcGetClosingFee,
-  useErc20QiStablecoincamwbtcGetDebtCeiling:
-    hks.useErc20QiStablecoincamwbtcGetDebtCeiling,
-  useErc20QiStablecoincamwbtcGetEthPriceSource:
-    hks.useErc20QiStablecoincamwbtcGetEthPriceSource,
-  useErc20QiStablecoincamwbtcGetOpeningFee:
-    hks.useErc20QiStablecoincamwbtcGetOpeningFee,
-  useErc20QiStablecoincamwbtcGetPaid: hks.useErc20QiStablecoincamwbtcGetPaid,
-  useErc20QiStablecoincamwbtcGetTokenPriceSource:
-    hks.useErc20QiStablecoincamwbtcGetTokenPriceSource,
-  useErc20QiStablecoincamwbtcIsApprovedForAll:
-    hks.useErc20QiStablecoincamwbtcIsApprovedForAll,
-  useErc20QiStablecoincamwbtcIsOwner: hks.useErc20QiStablecoincamwbtcIsOwner,
-  useErc20QiStablecoincamwbtcLiquidateVault:
-    hks.useErc20QiStablecoincamwbtcLiquidateVault,
-  useErc20QiStablecoincamwbtcLiquidateVaultEvent:
-    hks.useErc20QiStablecoincamwbtcLiquidateVaultEvent,
-  useErc20QiStablecoincamwbtcMai: hks.useCrosschainNativeQiStablecoinMai,
-  useErc20QiStablecoincamwbtcMaticDebt:
-    hks.useErc20QiStablecoincamwbtcMaticDebt,
-  useErc20QiStablecoincamwbtcMinimumCollateralPercentage:
+  useDestroyVault: hks.useErc20QiStablecoincamwbtcDestroyVault,
+  useDestroyVaultEvent: hks.useErc20QiStablecoincamwbtcDestroyVaultEvent,
+  useEthPriceSource: hks.useErc20QiStablecoincamwbtcEthPriceSource,
+  useEvent: hks.useErc20QiStablecoincamwbtcEvent,
+  useExists: hks.useErc20QiStablecoincamwbtcExists,
+  useGainRatio: hks.useErc20QiStablecoincamwbtcGainRatio,
+  useGetApproved: hks.useErc20QiStablecoincamwbtcGetApproved,
+  useGetClosingFee: hks.useErc20QiStablecoincamwbtcGetClosingFee,
+  useGetDebtCeiling: hks.useErc20QiStablecoincamwbtcGetDebtCeiling,
+  useGetEthPriceSource: hks.useErc20QiStablecoincamwbtcGetEthPriceSource,
+  useGetOpeningFee: hks.useErc20QiStablecoincamwbtcGetOpeningFee,
+  useGetPaid: hks.useErc20QiStablecoincamwbtcGetPaid,
+  useGetTokenPriceSource: hks.useErc20QiStablecoincamwbtcGetTokenPriceSource,
+  useIsApprovedForAll: hks.useErc20QiStablecoincamwbtcIsApprovedForAll,
+  useIsOwner: hks.useErc20QiStablecoincamwbtcIsOwner,
+  useLiquidateVault: hks.useErc20QiStablecoincamwbtcLiquidateVault,
+  useLiquidateVaultEvent: hks.useErc20QiStablecoincamwbtcLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useErc20QiStablecoincamwbtcMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useErc20QiStablecoincamwbtcMinimumCollateralPercentage,
-  useErc20QiStablecoincamwbtcName: hks.useCrosschainNativeQiStablecoinName,
-  useErc20QiStablecoincamwbtcOpeningFee:
-    hks.useErc20QiStablecoincamwbtcOpeningFee,
-  useErc20QiStablecoincamwbtcOwner: hks.useErc20QiStablecoincamwbtcOwner,
-  useErc20QiStablecoincamwbtcOwnerOf: hks.useErc20QiStablecoincamwbtcOwnerOf,
-  useErc20QiStablecoincamwbtcOwnershipTransferredEvent:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useErc20QiStablecoincamwbtcOpeningFee,
+  useOwner: hks.useErc20QiStablecoincamwbtcOwner,
+  useOwnerOf: hks.useErc20QiStablecoincamwbtcOwnerOf,
+  useOwnershipTransferredEvent:
     hks.useErc20QiStablecoincamwbtcOwnershipTransferredEvent,
-  useErc20QiStablecoincamwbtcPayBackToken:
-    hks.useErc20QiStablecoincamwbtcPayBackToken,
-  useErc20QiStablecoincamwbtcPayBackTokenEvent:
-    hks.useErc20QiStablecoincamwbtcPayBackTokenEvent,
-  useErc20QiStablecoincamwbtcRead: hks.useCrosschainNativeQiStablecoinRead,
-  useErc20QiStablecoincamwbtcRenounceOwnership:
-    hks.useErc20QiStablecoincamwbtcRenounceOwnership,
-  useErc20QiStablecoincamwbtcSafeTransferFrom:
-    hks.useErc20QiStablecoincamwbtcSafeTransferFrom,
-  useErc20QiStablecoincamwbtcSetApprovalForAll:
-    hks.useErc20QiStablecoincamwbtcSetApprovalForAll,
-  useErc20QiStablecoincamwbtcSetClosingFee:
-    hks.useErc20QiStablecoincamwbtcSetClosingFee,
-  useErc20QiStablecoincamwbtcSetDebtRatio:
-    hks.useErc20QiStablecoincamwbtcSetDebtRatio,
-  useErc20QiStablecoincamwbtcSetGainRatio:
-    hks.useErc20QiStablecoincamwbtcSetGainRatio,
-  useErc20QiStablecoincamwbtcSetMinCollateralRatio:
+  usePayBackToken: hks.useErc20QiStablecoincamwbtcPayBackToken,
+  usePayBackTokenEvent: hks.useErc20QiStablecoincamwbtcPayBackTokenEvent,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useErc20QiStablecoincamwbtcRenounceOwnership,
+  useSafeTransferFrom: hks.useErc20QiStablecoincamwbtcSafeTransferFrom,
+  useSetApprovalForAll: hks.useErc20QiStablecoincamwbtcSetApprovalForAll,
+  useSetClosingFee: hks.useErc20QiStablecoincamwbtcSetClosingFee,
+  useSetDebtRatio: hks.useErc20QiStablecoincamwbtcSetDebtRatio,
+  useSetGainRatio: hks.useErc20QiStablecoincamwbtcSetGainRatio,
+  useSetMinCollateralRatio:
     hks.useErc20QiStablecoincamwbtcSetMinCollateralRatio,
-  useErc20QiStablecoincamwbtcSetOpeningFee:
-    hks.useErc20QiStablecoincamwbtcSetOpeningFee,
-  useErc20QiStablecoincamwbtcSetStabilityPool:
-    hks.useErc20QiStablecoincamwbtcSetStabilityPool,
-  useErc20QiStablecoincamwbtcSetTreasury:
-    hks.useErc20QiStablecoincamwbtcSetTreasury,
-  useErc20QiStablecoincamwbtcStabilityPool:
-    hks.useErc20QiStablecoincamwbtcStabilityPool,
-  useErc20QiStablecoincamwbtcSupportsInterface:
-    hks.useErc20QiStablecoincamwbtcSupportsInterface,
-  useErc20QiStablecoincamwbtcSymbol: hks.useErc20QiStablecoincamwbtcSymbol,
-  useErc20QiStablecoincamwbtcTokenByIndex:
-    hks.useErc20QiStablecoincamwbtcTokenByIndex,
-  useErc20QiStablecoincamwbtcTokenOfOwnerByIndex:
-    hks.useErc20QiStablecoincamwbtcTokenOfOwnerByIndex,
-  useErc20QiStablecoincamwbtcTokenPeg: hks.useErc20QiStablecoincamwbtcTokenPeg,
-  useErc20QiStablecoincamwbtcTokenUri: hks.useErc20QiStablecoincamwbtcTokenUri,
-  useErc20QiStablecoincamwbtcTotalSupply:
-    hks.useErc20QiStablecoincamwbtcTotalSupply,
-  useErc20QiStablecoincamwbtcTransferEvent:
-    hks.useErc20QiStablecoincamwbtcTransferEvent,
-  useErc20QiStablecoincamwbtcTransferFrom:
-    hks.useErc20QiStablecoincamwbtcTransferFrom,
-  useErc20QiStablecoincamwbtcTransferOwnership:
-    hks.useErc20QiStablecoincamwbtcTransferOwnership,
-  useErc20QiStablecoincamwbtcTransferVaultEvent:
-    hks.useErc20QiStablecoincamwbtcTransferVaultEvent,
-  useErc20QiStablecoincamwbtcTreasury: hks.useErc20QiStablecoincamwbtcTreasury,
-  useErc20QiStablecoincamwbtcUri: hks.useCrosschainNativeQiStablecoinUri,
-  useErc20QiStablecoincamwbtcVaultCollateral:
-    hks.useErc20QiStablecoincamwbtcVaultCollateral,
-  useErc20QiStablecoincamwbtcVaultCount:
-    hks.useErc20QiStablecoincamwbtcVaultCount,
-  useErc20QiStablecoincamwbtcVaultDebt:
-    hks.useErc20QiStablecoincamwbtcVaultDebt,
-  useErc20QiStablecoincamwbtcWithdrawCollateral:
-    hks.useErc20QiStablecoincamwbtcWithdrawCollateral,
-  useErc20QiStablecoincamwbtcWithdrawCollateralEvent:
+  useSetOpeningFee: hks.useErc20QiStablecoincamwbtcSetOpeningFee,
+  useSetStabilityPool: hks.useErc20QiStablecoincamwbtcSetStabilityPool,
+  useSetTreasury: hks.useErc20QiStablecoincamwbtcSetTreasury,
+  useStabilityPool: hks.useErc20QiStablecoincamwbtcStabilityPool,
+  useSupportsInterface: hks.useErc20QiStablecoincamwbtcSupportsInterface,
+  useSymbol: hks.useErc20QiStablecoincamwbtcSymbol,
+  useTokenByIndex: hks.useErc20QiStablecoincamwbtcTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useErc20QiStablecoincamwbtcTokenOfOwnerByIndex,
+  useTokenPeg: hks.useErc20QiStablecoincamwbtcTokenPeg,
+  useTokenUri: hks.useErc20QiStablecoincamwbtcTokenUri,
+  useTotalSupply: hks.useErc20QiStablecoincamwbtcTotalSupply,
+  useTransferEvent: hks.useErc20QiStablecoincamwbtcTransferEvent,
+  useTransferFrom: hks.useErc20QiStablecoincamwbtcTransferFrom,
+  useTransferOwnership: hks.useErc20QiStablecoincamwbtcTransferOwnership,
+  useTransferVaultEvent: hks.useErc20QiStablecoincamwbtcTransferVaultEvent,
+  useTreasury: hks.useErc20QiStablecoincamwbtcTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useErc20QiStablecoincamwbtcVaultCollateral,
+  useVaultCount: hks.useErc20QiStablecoincamwbtcVaultCount,
+  useVaultDebt: hks.useErc20QiStablecoincamwbtcVaultDebt,
+  useWithdrawCollateral: hks.useErc20QiStablecoincamwbtcWithdrawCollateral,
+  useWithdrawCollateralEvent:
     hks.useErc20QiStablecoincamwbtcWithdrawCollateralEvent,
-  useErc20QiStablecoincamwbtcWrite: hks.useErc20QiStablecoincamwbtcWrite,
-  usePrepareErc20QiStablecoincamwbtcApprove:
-    hks.usePrepareErc20QiStablecoincamwbtcApprove,
-  usePrepareErc20QiStablecoincamwbtcBorrowToken:
-    hks.usePrepareErc20QiStablecoincamwbtcBorrowToken,
-  usePrepareErc20QiStablecoincamwbtcChangeEthPriceSource:
+  useWrite: hks.useErc20QiStablecoincamwbtcWrite,
+  usePrepareApprove: hks.usePrepareErc20QiStablecoincamwbtcApprove,
+  usePrepareBorrowToken: hks.usePrepareErc20QiStablecoincamwbtcBorrowToken,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareErc20QiStablecoincamwbtcChangeEthPriceSource,
-  usePrepareErc20QiStablecoincamwbtcCreateVault:
-    hks.usePrepareErc20QiStablecoincamwbtcCreateVault,
-  usePrepareErc20QiStablecoincamwbtcDepositCollateral:
+  usePrepareCreateVault: hks.usePrepareErc20QiStablecoincamwbtcCreateVault,
+  usePrepareDepositCollateral:
     hks.usePrepareErc20QiStablecoincamwbtcDepositCollateral,
-  usePrepareErc20QiStablecoincamwbtcDestroyVault:
-    hks.usePrepareErc20QiStablecoincamwbtcDestroyVault,
-  usePrepareErc20QiStablecoincamwbtcGetPaid:
-    hks.usePrepareErc20QiStablecoincamwbtcGetPaid,
-  usePrepareErc20QiStablecoincamwbtcLiquidateVault:
+  usePrepareDestroyVault: hks.usePrepareErc20QiStablecoincamwbtcDestroyVault,
+  usePrepareGetPaid: hks.usePrepareErc20QiStablecoincamwbtcGetPaid,
+  usePrepareLiquidateVault:
     hks.usePrepareErc20QiStablecoincamwbtcLiquidateVault,
-  usePrepareErc20QiStablecoincamwbtcPayBackToken:
-    hks.usePrepareErc20QiStablecoincamwbtcPayBackToken,
-  usePrepareErc20QiStablecoincamwbtcRenounceOwnership:
+  usePreparePayBackToken: hks.usePrepareErc20QiStablecoincamwbtcPayBackToken,
+  usePrepareRenounceOwnership:
     hks.usePrepareErc20QiStablecoincamwbtcRenounceOwnership,
-  usePrepareErc20QiStablecoincamwbtcSafeTransferFrom:
+  usePrepareSafeTransferFrom:
     hks.usePrepareErc20QiStablecoincamwbtcSafeTransferFrom,
-  usePrepareErc20QiStablecoincamwbtcSetApprovalForAll:
+  usePrepareSetApprovalForAll:
     hks.usePrepareErc20QiStablecoincamwbtcSetApprovalForAll,
-  usePrepareErc20QiStablecoincamwbtcSetClosingFee:
-    hks.usePrepareErc20QiStablecoincamwbtcSetClosingFee,
-  usePrepareErc20QiStablecoincamwbtcSetDebtRatio:
-    hks.usePrepareErc20QiStablecoincamwbtcSetDebtRatio,
-  usePrepareErc20QiStablecoincamwbtcSetGainRatio:
-    hks.usePrepareErc20QiStablecoincamwbtcSetGainRatio,
-  usePrepareErc20QiStablecoincamwbtcSetMinCollateralRatio:
+  usePrepareSetClosingFee: hks.usePrepareErc20QiStablecoincamwbtcSetClosingFee,
+  usePrepareSetDebtRatio: hks.usePrepareErc20QiStablecoincamwbtcSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareErc20QiStablecoincamwbtcSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareErc20QiStablecoincamwbtcSetMinCollateralRatio,
-  usePrepareErc20QiStablecoincamwbtcSetOpeningFee:
-    hks.usePrepareErc20QiStablecoincamwbtcSetOpeningFee,
-  usePrepareErc20QiStablecoincamwbtcSetStabilityPool:
+  usePrepareSetOpeningFee: hks.usePrepareErc20QiStablecoincamwbtcSetOpeningFee,
+  usePrepareSetStabilityPool:
     hks.usePrepareErc20QiStablecoincamwbtcSetStabilityPool,
-  usePrepareErc20QiStablecoincamwbtcSetTreasury:
-    hks.usePrepareErc20QiStablecoincamwbtcSetTreasury,
-  usePrepareErc20QiStablecoincamwbtcTransferFrom:
-    hks.usePrepareErc20QiStablecoincamwbtcTransferFrom,
-  usePrepareErc20QiStablecoincamwbtcTransferOwnership:
+  usePrepareSetTreasury: hks.usePrepareErc20QiStablecoincamwbtcSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareErc20QiStablecoincamwbtcTransferFrom,
+  usePrepareTransferOwnership:
     hks.usePrepareErc20QiStablecoincamwbtcTransferOwnership,
-  usePrepareErc20QiStablecoincamwbtcWithdrawCollateral:
+  usePrepareWithdrawCollateral:
     hks.usePrepareErc20QiStablecoincamwbtcWithdrawCollateral,
-  usePrepareErc20QiStablecoincamwbtcWrite:
-    hks.usePrepareErc20QiStablecoincamwbtcWrite,
-};
+  usePrepareWrite: hks.usePrepareErc20QiStablecoincamwbtcWrite,
+} as const;
 
 const QiStablecoin = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useQiStablecoinApprovalEvent: hks.useQiStablecoinApprovalEvent,
-  useQiStablecoinApprove: hks.useQiStablecoinApprove,
-  useQiStablecoinBalanceOf: hks.useQiStablecoinBalanceOf,
-  useQiStablecoinBorrowTokenEvent: hks.useQiStablecoinBorrowTokenEvent,
-  useQiStablecoinBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useQiStablecoinChangeEthPriceSource: hks.useQiStablecoinChangeEthPriceSource,
-  useQiStablecoinClosingFee: hks.useQiStablecoinClosingFee,
-  useQiStablecoinCreateVault: hks.useQiStablecoinCreateVault,
-  useQiStablecoinCreateVaultEvent: hks.useQiStablecoinCreateVaultEvent,
-  useQiStablecoinDepositCollateral: hks.useQiStablecoinDepositCollateral,
-  useQiStablecoinDepositCollateralEvent:
-    hks.useQiStablecoinDepositCollateralEvent,
-  useQiStablecoinDestroyVault: hks.useQiStablecoinDestroyVault,
-  useQiStablecoinDestroyVaultEvent: hks.useQiStablecoinDestroyVaultEvent,
-  useQiStablecoinEthPriceSource: hks.useQiStablecoinEthPriceSource,
-  useQiStablecoinEvent: hks.useQiStablecoinEvent,
-  useQiStablecoinGetClosingFee: hks.useQiStablecoinGetClosingFee,
-  useQiStablecoinGetDebtCeiling: hks.useQiStablecoinGetDebtCeiling,
-  useQiStablecoinGetEthPriceSource: hks.useQiStablecoinGetEthPriceSource,
-  useQiStablecoinGetTokenPriceSource: hks.useQiStablecoinGetTokenPriceSource,
-  useQiStablecoinIsOwner: hks.useQiStablecoinIsOwner,
-  useQiStablecoinMai: hks.useCrosschainNativeQiStablecoinMai,
-  useQiStablecoinName: hks.useCrosschainNativeQiStablecoinName,
-  useQiStablecoinOwner: hks.useQiStablecoinOwner,
-  useQiStablecoinOwnershipTransferredEvent:
-    hks.useQiStablecoinOwnershipTransferredEvent,
-  useQiStablecoinPayBackToken: hks.useQiStablecoinPayBackToken,
-  useQiStablecoinPayBackTokenEvent: hks.useQiStablecoinPayBackTokenEvent,
-  useQiStablecoinRead: hks.useCrosschainNativeQiStablecoinRead,
-  useQiStablecoinRenounceOwnership: hks.useQiStablecoinRenounceOwnership,
-  useQiStablecoinSetClosingFee: hks.useQiStablecoinSetClosingFee,
-  useQiStablecoinSetTreasury: hks.useQiStablecoinSetTreasury,
-  useQiStablecoinSymbol: hks.useQiStablecoinSymbol,
-  useQiStablecoinTotalSupply: hks.useQiStablecoinTotalSupply,
-  useQiStablecoinTransferEvent: hks.useQiStablecoinTransferEvent,
-  useQiStablecoinTransferFrom: hks.useQiStablecoinTransferFrom,
-  useQiStablecoinTransferOwnership: hks.useQiStablecoinTransferOwnership,
-  useQiStablecoinTransferVaultEvent: hks.useQiStablecoinTransferVaultEvent,
-  useQiStablecoinTreasury: hks.useQiStablecoinTreasury,
-  useQiStablecoinUri: hks.useCrosschainNativeQiStablecoinUri,
-  useQiStablecoinVaultCollateral: hks.useQiStablecoinVaultCollateral,
-  useQiStablecoinVaultCount: hks.useQiStablecoinVaultCount,
-  useQiStablecoinVaultDebt: hks.useQiStablecoinVaultDebt,
-  useQiStablecoinWithdrawCollateral: hks.useQiStablecoinWithdrawCollateral,
-  useQiStablecoinWithdrawCollateralEvent:
-    hks.useQiStablecoinWithdrawCollateralEvent,
-  useQiStablecoinWrite: hks.useQiStablecoinWrite,
-  usePrepareQiStablecoinApprove: hks.usePrepareQiStablecoinApprove,
-  usePrepareQiStablecoinBorrowToken: hks.usePrepareQiStablecoinBorrowToken,
-  usePrepareQiStablecoinBurn: hks.usePrepareQiStablecoinBurn,
-  usePrepareQiStablecoinChangeEthPriceSource:
+  useApprovalEvent: hks.useQiStablecoinApprovalEvent,
+  useApprove: hks.useQiStablecoinApprove,
+  useBalanceOf: hks.useQiStablecoinBalanceOf,
+  useBorrowTokenEvent: hks.useQiStablecoinBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useQiStablecoinChangeEthPriceSource,
+  useClosingFee: hks.useQiStablecoinClosingFee,
+  useCreateVault: hks.useQiStablecoinCreateVault,
+  useCreateVaultEvent: hks.useQiStablecoinCreateVaultEvent,
+  useDepositCollateral: hks.useQiStablecoinDepositCollateral,
+  useDepositCollateralEvent: hks.useQiStablecoinDepositCollateralEvent,
+  useDestroyVault: hks.useQiStablecoinDestroyVault,
+  useDestroyVaultEvent: hks.useQiStablecoinDestroyVaultEvent,
+  useEthPriceSource: hks.useQiStablecoinEthPriceSource,
+  useEvent: hks.useQiStablecoinEvent,
+  useGetClosingFee: hks.useQiStablecoinGetClosingFee,
+  useGetDebtCeiling: hks.useQiStablecoinGetDebtCeiling,
+  useGetEthPriceSource: hks.useQiStablecoinGetEthPriceSource,
+  useGetTokenPriceSource: hks.useQiStablecoinGetTokenPriceSource,
+  useIsOwner: hks.useQiStablecoinIsOwner,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOwner: hks.useQiStablecoinOwner,
+  useOwnershipTransferredEvent: hks.useQiStablecoinOwnershipTransferredEvent,
+  usePayBackToken: hks.useQiStablecoinPayBackToken,
+  usePayBackTokenEvent: hks.useQiStablecoinPayBackTokenEvent,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useQiStablecoinRenounceOwnership,
+  useSetClosingFee: hks.useQiStablecoinSetClosingFee,
+  useSetTreasury: hks.useQiStablecoinSetTreasury,
+  useSymbol: hks.useQiStablecoinSymbol,
+  useTotalSupply: hks.useQiStablecoinTotalSupply,
+  useTransferEvent: hks.useQiStablecoinTransferEvent,
+  useTransferFrom: hks.useQiStablecoinTransferFrom,
+  useTransferOwnership: hks.useQiStablecoinTransferOwnership,
+  useTransferVaultEvent: hks.useQiStablecoinTransferVaultEvent,
+  useTreasury: hks.useQiStablecoinTreasury,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useQiStablecoinVaultCollateral,
+  useVaultCount: hks.useQiStablecoinVaultCount,
+  useVaultDebt: hks.useQiStablecoinVaultDebt,
+  useWithdrawCollateral: hks.useQiStablecoinWithdrawCollateral,
+  useWithdrawCollateralEvent: hks.useQiStablecoinWithdrawCollateralEvent,
+  useWrite: hks.useQiStablecoinWrite,
+  usePrepareApprove: hks.usePrepareQiStablecoinApprove,
+  usePrepareBorrowToken: hks.usePrepareQiStablecoinBorrowToken,
+  usePrepareBurn: hks.usePrepareQiStablecoinBurn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareQiStablecoinChangeEthPriceSource,
-  usePrepareQiStablecoinCreateVault: hks.usePrepareQiStablecoinCreateVault,
-  usePrepareQiStablecoinDepositCollateral:
-    hks.usePrepareQiStablecoinDepositCollateral,
-  usePrepareQiStablecoinDestroyVault: hks.usePrepareQiStablecoinDestroyVault,
-  usePrepareQiStablecoinPayBackToken: hks.usePrepareQiStablecoinPayBackToken,
-  usePrepareQiStablecoinRenounceOwnership:
-    hks.usePrepareQiStablecoinRenounceOwnership,
-  usePrepareQiStablecoinSetClosingFee: hks.usePrepareQiStablecoinSetClosingFee,
-  usePrepareQiStablecoinSetTreasury: hks.usePrepareQiStablecoinSetTreasury,
-  usePrepareQiStablecoinTransferFrom: hks.usePrepareQiStablecoinTransferFrom,
-  usePrepareQiStablecoinTransferOwnership:
-    hks.usePrepareQiStablecoinTransferOwnership,
-  usePrepareQiStablecoinWithdrawCollateral:
-    hks.usePrepareQiStablecoinWithdrawCollateral,
-  usePrepareQiStablecoinWrite: hks.usePrepareQiStablecoinWrite,
-};
+  usePrepareCreateVault: hks.usePrepareQiStablecoinCreateVault,
+  usePrepareDepositCollateral: hks.usePrepareQiStablecoinDepositCollateral,
+  usePrepareDestroyVault: hks.usePrepareQiStablecoinDestroyVault,
+  usePreparePayBackToken: hks.usePrepareQiStablecoinPayBackToken,
+  usePrepareRenounceOwnership: hks.usePrepareQiStablecoinRenounceOwnership,
+  usePrepareSetClosingFee: hks.usePrepareQiStablecoinSetClosingFee,
+  usePrepareSetTreasury: hks.usePrepareQiStablecoinSetTreasury,
+  usePrepareTransferFrom: hks.usePrepareQiStablecoinTransferFrom,
+  usePrepareTransferOwnership: hks.usePrepareQiStablecoinTransferOwnership,
+  usePrepareWithdrawCollateral: hks.usePrepareQiStablecoinWithdrawCollateral,
+  usePrepareWrite: hks.usePrepareQiStablecoinWrite,
+} as const;
 
 const StableQiVault = {
-  crosschainNativeQiStablecoinABI: hks.crosschainNativeQiStablecoinABI,
-  useStableQiVaultApprovalEvent: hks.useStableQiVaultApprovalEvent,
-  useStableQiVaultApprovalForAllEvent: hks.useStableQiVaultApprovalForAllEvent,
-  useStableQiVaultApprove: hks.useStableQiVaultApprove,
-  useStableQiVaultBalanceOf: hks.useStableQiVaultBalanceOf,
-  useStableQiVaultBorrowTokenEvent: hks.useStableQiVaultBorrowTokenEvent,
-  useStableQiVaultBurn: hks.useCrosschainNativeQiStablecoinBurn,
-  useStableQiVaultChangeEthPriceSource:
-    hks.useStableQiVaultChangeEthPriceSource,
-  useStableQiVaultCheckCollateralPercentage:
-    hks.useStableQiVaultCheckCollateralPercentage,
-  useStableQiVaultCheckCost: hks.useStableQiVaultCheckCost,
-  useStableQiVaultCheckExtract: hks.useStableQiVaultCheckExtract,
-  useStableQiVaultCheckLiquidation: hks.useStableQiVaultCheckLiquidation,
-  useStableQiVaultClosingFee: hks.useStableQiVaultClosingFee,
-  useStableQiVaultCollateral: hks.useStableQiVaultCollateral,
-  useStableQiVaultCreateVault: hks.useStableQiVaultCreateVault,
-  useStableQiVaultCreateVaultEvent: hks.useStableQiVaultCreateVaultEvent,
-  useStableQiVaultDebtRatio: hks.useStableQiVaultDebtRatio,
-  useStableQiVaultDepositCollateral: hks.useStableQiVaultDepositCollateral,
-  useStableQiVaultDepositCollateralEvent:
-    hks.useStableQiVaultDepositCollateralEvent,
-  useStableQiVaultDestroyVault: hks.useStableQiVaultDestroyVault,
-  useStableQiVaultDestroyVaultEvent: hks.useStableQiVaultDestroyVaultEvent,
-  useStableQiVaultEthPriceSource: hks.useStableQiVaultEthPriceSource,
-  useStableQiVaultEvent: hks.useStableQiVaultEvent,
-  useStableQiVaultExists: hks.useStableQiVaultExists,
-  useStableQiVaultGainRatio: hks.useStableQiVaultGainRatio,
-  useStableQiVaultGetApproved: hks.useStableQiVaultGetApproved,
-  useStableQiVaultGetClosingFee: hks.useStableQiVaultGetClosingFee,
-  useStableQiVaultGetDebtCeiling: hks.useStableQiVaultGetDebtCeiling,
-  useStableQiVaultGetEthPriceSource: hks.useStableQiVaultGetEthPriceSource,
-  useStableQiVaultGetPaid: hks.useStableQiVaultGetPaid,
-  useStableQiVaultGetTokenPriceSource: hks.useStableQiVaultGetTokenPriceSource,
-  useStableQiVaultIsApprovedForAll: hks.useStableQiVaultIsApprovedForAll,
-  useStableQiVaultLiquidateVault: hks.useStableQiVaultLiquidateVault,
-  useStableQiVaultLiquidateVaultEvent: hks.useStableQiVaultLiquidateVaultEvent,
-  useStableQiVaultMai: hks.useCrosschainNativeQiStablecoinMai,
-  useStableQiVaultMaticDebt: hks.useStableQiVaultMaticDebt,
-  useStableQiVaultMinimumCollateralPercentage:
+  useApprovalEvent: hks.useStableQiVaultApprovalEvent,
+  useApprovalForAllEvent: hks.useStableQiVaultApprovalForAllEvent,
+  useApprove: hks.useStableQiVaultApprove,
+  useBalanceOf: hks.useStableQiVaultBalanceOf,
+  useBorrowTokenEvent: hks.useStableQiVaultBorrowTokenEvent,
+  useBurn: hks.useCrosschainNativeQiStablecoinBurn,
+  useChangeEthPriceSource: hks.useStableQiVaultChangeEthPriceSource,
+  useCheckCollateralPercentage: hks.useStableQiVaultCheckCollateralPercentage,
+  useCheckCost: hks.useStableQiVaultCheckCost,
+  useCheckExtract: hks.useStableQiVaultCheckExtract,
+  useCheckLiquidation: hks.useStableQiVaultCheckLiquidation,
+  useClosingFee: hks.useStableQiVaultClosingFee,
+  useCollateral: hks.useStableQiVaultCollateral,
+  useCreateVault: hks.useStableQiVaultCreateVault,
+  useCreateVaultEvent: hks.useStableQiVaultCreateVaultEvent,
+  useDebtRatio: hks.useStableQiVaultDebtRatio,
+  useDepositCollateral: hks.useStableQiVaultDepositCollateral,
+  useDepositCollateralEvent: hks.useStableQiVaultDepositCollateralEvent,
+  useDestroyVault: hks.useStableQiVaultDestroyVault,
+  useDestroyVaultEvent: hks.useStableQiVaultDestroyVaultEvent,
+  useEthPriceSource: hks.useStableQiVaultEthPriceSource,
+  useEvent: hks.useStableQiVaultEvent,
+  useExists: hks.useStableQiVaultExists,
+  useGainRatio: hks.useStableQiVaultGainRatio,
+  useGetApproved: hks.useStableQiVaultGetApproved,
+  useGetClosingFee: hks.useStableQiVaultGetClosingFee,
+  useGetDebtCeiling: hks.useStableQiVaultGetDebtCeiling,
+  useGetEthPriceSource: hks.useStableQiVaultGetEthPriceSource,
+  useGetPaid: hks.useStableQiVaultGetPaid,
+  useGetTokenPriceSource: hks.useStableQiVaultGetTokenPriceSource,
+  useIsApprovedForAll: hks.useStableQiVaultIsApprovedForAll,
+  useLiquidateVault: hks.useStableQiVaultLiquidateVault,
+  useLiquidateVaultEvent: hks.useStableQiVaultLiquidateVaultEvent,
+  useMai: hks.useCrosschainNativeQiStablecoinMai,
+  useMaticDebt: hks.useStableQiVaultMaticDebt,
+  useMinimumCollateralPercentage:
     hks.useStableQiVaultMinimumCollateralPercentage,
-  useStableQiVaultName: hks.useCrosschainNativeQiStablecoinName,
-  useStableQiVaultOpeningFee: hks.useStableQiVaultOpeningFee,
-  useStableQiVaultOwner: hks.useStableQiVaultOwner,
-  useStableQiVaultOwnerOf: hks.useStableQiVaultOwnerOf,
-  useStableQiVaultOwnershipTransferredEvent:
-    hks.useStableQiVaultOwnershipTransferredEvent,
-  useStableQiVaultPayBackToken: hks.useStableQiVaultPayBackToken,
-  useStableQiVaultPayBackTokenEvent: hks.useStableQiVaultPayBackTokenEvent,
-  useStableQiVaultPriceSourceDecimals: hks.useStableQiVaultPriceSourceDecimals,
-  useStableQiVaultRead: hks.useCrosschainNativeQiStablecoinRead,
-  useStableQiVaultRenounceOwnership: hks.useStableQiVaultRenounceOwnership,
-  useStableQiVaultSafeTransferFrom: hks.useStableQiVaultSafeTransferFrom,
-  useStableQiVaultSetApprovalForAll: hks.useStableQiVaultSetApprovalForAll,
-  useStableQiVaultSetClosingFee: hks.useStableQiVaultSetClosingFee,
-  useStableQiVaultSetDebtRatio: hks.useStableQiVaultSetDebtRatio,
-  useStableQiVaultSetGainRatio: hks.useStableQiVaultSetGainRatio,
-  useStableQiVaultSetMinCollateralRatio:
-    hks.useStableQiVaultSetMinCollateralRatio,
-  useStableQiVaultSetOpeningFee: hks.useStableQiVaultSetOpeningFee,
-  useStableQiVaultSetStabilityPool: hks.useStableQiVaultSetStabilityPool,
-  useStableQiVaultSetTokenUri: hks.useStableQiVaultSetTokenUri,
-  useStableQiVaultStabilityPool: hks.useStableQiVaultStabilityPool,
-  useStableQiVaultSupportsInterface: hks.useStableQiVaultSupportsInterface,
-  useStableQiVaultSymbol: hks.useStableQiVaultSymbol,
-  useStableQiVaultTokenByIndex: hks.useStableQiVaultTokenByIndex,
-  useStableQiVaultTokenOfOwnerByIndex: hks.useStableQiVaultTokenOfOwnerByIndex,
-  useStableQiVaultTokenPeg: hks.useStableQiVaultTokenPeg,
-  useStableQiVaultTokenUri: hks.useStableQiVaultTokenUri,
-  useStableQiVaultTotalBorrowed: hks.useStableQiVaultTotalBorrowed,
-  useStableQiVaultTotalSupply: hks.useStableQiVaultTotalSupply,
-  useStableQiVaultTransferEvent: hks.useStableQiVaultTransferEvent,
-  useStableQiVaultTransferFrom: hks.useStableQiVaultTransferFrom,
-  useStableQiVaultTransferOwnership: hks.useStableQiVaultTransferOwnership,
-  useStableQiVaultUri: hks.useCrosschainNativeQiStablecoinUri,
-  useStableQiVaultVaultCollateral: hks.useStableQiVaultVaultCollateral,
-  useStableQiVaultVaultCount: hks.useStableQiVaultVaultCount,
-  useStableQiVaultVaultDebt: hks.useStableQiVaultVaultDebt,
-  useStableQiVaultWithdrawCollateral: hks.useStableQiVaultWithdrawCollateral,
-  useStableQiVaultWithdrawCollateralEvent:
-    hks.useStableQiVaultWithdrawCollateralEvent,
-  useStableQiVaultWrite: hks.useStableQiVaultWrite,
-  usePrepareStableQiVaultApprove: hks.usePrepareStableQiVaultApprove,
-  usePrepareStableQiVaultBorrowToken: hks.usePrepareStableQiVaultBorrowToken,
-  usePrepareStableQiVaultBurn: hks.usePrepareStableQiVaultBurn,
-  usePrepareStableQiVaultChangeEthPriceSource:
+  useName: hks.useCrosschainNativeQiStablecoinName,
+  useOpeningFee: hks.useStableQiVaultOpeningFee,
+  useOwner: hks.useStableQiVaultOwner,
+  useOwnerOf: hks.useStableQiVaultOwnerOf,
+  useOwnershipTransferredEvent: hks.useStableQiVaultOwnershipTransferredEvent,
+  usePayBackToken: hks.useStableQiVaultPayBackToken,
+  usePayBackTokenEvent: hks.useStableQiVaultPayBackTokenEvent,
+  usePriceSourceDecimals: hks.useStableQiVaultPriceSourceDecimals,
+  useRead: hks.useCrosschainNativeQiStablecoinRead,
+  useRenounceOwnership: hks.useStableQiVaultRenounceOwnership,
+  useSafeTransferFrom: hks.useStableQiVaultSafeTransferFrom,
+  useSetApprovalForAll: hks.useStableQiVaultSetApprovalForAll,
+  useSetClosingFee: hks.useStableQiVaultSetClosingFee,
+  useSetDebtRatio: hks.useStableQiVaultSetDebtRatio,
+  useSetGainRatio: hks.useStableQiVaultSetGainRatio,
+  useSetMinCollateralRatio: hks.useStableQiVaultSetMinCollateralRatio,
+  useSetOpeningFee: hks.useStableQiVaultSetOpeningFee,
+  useSetStabilityPool: hks.useStableQiVaultSetStabilityPool,
+  useSetTokenUri: hks.useStableQiVaultSetTokenUri,
+  useStabilityPool: hks.useStableQiVaultStabilityPool,
+  useSupportsInterface: hks.useStableQiVaultSupportsInterface,
+  useSymbol: hks.useStableQiVaultSymbol,
+  useTokenByIndex: hks.useStableQiVaultTokenByIndex,
+  useTokenOfOwnerByIndex: hks.useStableQiVaultTokenOfOwnerByIndex,
+  useTokenPeg: hks.useStableQiVaultTokenPeg,
+  useTokenUri: hks.useStableQiVaultTokenUri,
+  useTotalBorrowed: hks.useStableQiVaultTotalBorrowed,
+  useTotalSupply: hks.useStableQiVaultTotalSupply,
+  useTransferEvent: hks.useStableQiVaultTransferEvent,
+  useTransferFrom: hks.useStableQiVaultTransferFrom,
+  useTransferOwnership: hks.useStableQiVaultTransferOwnership,
+  useUri: hks.useCrosschainNativeQiStablecoinUri,
+  useVaultCollateral: hks.useStableQiVaultVaultCollateral,
+  useVaultCount: hks.useStableQiVaultVaultCount,
+  useVaultDebt: hks.useStableQiVaultVaultDebt,
+  useWithdrawCollateral: hks.useStableQiVaultWithdrawCollateral,
+  useWithdrawCollateralEvent: hks.useStableQiVaultWithdrawCollateralEvent,
+  useWrite: hks.useStableQiVaultWrite,
+  usePrepareApprove: hks.usePrepareStableQiVaultApprove,
+  usePrepareBorrowToken: hks.usePrepareStableQiVaultBorrowToken,
+  usePrepareBurn: hks.usePrepareStableQiVaultBurn,
+  usePrepareChangeEthPriceSource:
     hks.usePrepareStableQiVaultChangeEthPriceSource,
-  usePrepareStableQiVaultCreateVault: hks.usePrepareStableQiVaultCreateVault,
-  usePrepareStableQiVaultDepositCollateral:
-    hks.usePrepareStableQiVaultDepositCollateral,
-  usePrepareStableQiVaultDestroyVault: hks.usePrepareStableQiVaultDestroyVault,
-  usePrepareStableQiVaultGetPaid: hks.usePrepareStableQiVaultGetPaid,
-  usePrepareStableQiVaultLiquidateVault:
-    hks.usePrepareStableQiVaultLiquidateVault,
-  usePrepareStableQiVaultPayBackToken: hks.usePrepareStableQiVaultPayBackToken,
-  usePrepareStableQiVaultRenounceOwnership:
-    hks.usePrepareStableQiVaultRenounceOwnership,
-  usePrepareStableQiVaultSafeTransferFrom:
-    hks.usePrepareStableQiVaultSafeTransferFrom,
-  usePrepareStableQiVaultSetApprovalForAll:
-    hks.usePrepareStableQiVaultSetApprovalForAll,
-  usePrepareStableQiVaultSetClosingFee:
-    hks.usePrepareStableQiVaultSetClosingFee,
-  usePrepareStableQiVaultSetDebtRatio: hks.usePrepareStableQiVaultSetDebtRatio,
-  usePrepareStableQiVaultSetGainRatio: hks.usePrepareStableQiVaultSetGainRatio,
-  usePrepareStableQiVaultSetMinCollateralRatio:
+  usePrepareCreateVault: hks.usePrepareStableQiVaultCreateVault,
+  usePrepareDepositCollateral: hks.usePrepareStableQiVaultDepositCollateral,
+  usePrepareDestroyVault: hks.usePrepareStableQiVaultDestroyVault,
+  usePrepareGetPaid: hks.usePrepareStableQiVaultGetPaid,
+  usePrepareLiquidateVault: hks.usePrepareStableQiVaultLiquidateVault,
+  usePreparePayBackToken: hks.usePrepareStableQiVaultPayBackToken,
+  usePrepareRenounceOwnership: hks.usePrepareStableQiVaultRenounceOwnership,
+  usePrepareSafeTransferFrom: hks.usePrepareStableQiVaultSafeTransferFrom,
+  usePrepareSetApprovalForAll: hks.usePrepareStableQiVaultSetApprovalForAll,
+  usePrepareSetClosingFee: hks.usePrepareStableQiVaultSetClosingFee,
+  usePrepareSetDebtRatio: hks.usePrepareStableQiVaultSetDebtRatio,
+  usePrepareSetGainRatio: hks.usePrepareStableQiVaultSetGainRatio,
+  usePrepareSetMinCollateralRatio:
     hks.usePrepareStableQiVaultSetMinCollateralRatio,
-  usePrepareStableQiVaultSetOpeningFee:
-    hks.usePrepareStableQiVaultSetOpeningFee,
-  usePrepareStableQiVaultSetStabilityPool:
-    hks.usePrepareStableQiVaultSetStabilityPool,
-  usePrepareStableQiVaultSetTokenUri: hks.usePrepareStableQiVaultSetTokenUri,
-  usePrepareStableQiVaultTransferFrom: hks.usePrepareStableQiVaultTransferFrom,
-  usePrepareStableQiVaultTransferOwnership:
-    hks.usePrepareStableQiVaultTransferOwnership,
-  usePrepareStableQiVaultWithdrawCollateral:
-    hks.usePrepareStableQiVaultWithdrawCollateral,
-  usePrepareStableQiVaultWrite: hks.usePrepareStableQiVaultWrite,
-};
+  usePrepareSetOpeningFee: hks.usePrepareStableQiVaultSetOpeningFee,
+  usePrepareSetStabilityPool: hks.usePrepareStableQiVaultSetStabilityPool,
+  usePrepareSetTokenUri: hks.usePrepareStableQiVaultSetTokenUri,
+  usePrepareTransferFrom: hks.usePrepareStableQiVaultTransferFrom,
+  usePrepareTransferOwnership: hks.usePrepareStableQiVaultTransferOwnership,
+  usePrepareWithdrawCollateral: hks.usePrepareStableQiVaultWithdrawCollateral,
+  usePrepareWrite: hks.usePrepareStableQiVaultWrite,
+} as const;
 
 export type VaultMethods =
   | typeof CrosschainNativeQiStablecoin
@@ -1870,7 +1270,7 @@ export type VaultMethods =
   | typeof QiStablecoin
   | typeof StableQiVault;
 
-export const Lookup: Record<VaultContractDiscriminator, VaultMethods> = {
+export const Lookup = {
   CrosschainNativeQiStablecoin: CrosschainNativeQiStablecoin,
   CrosschainQiStablecoin: CrosschainQiStablecoin,
   CrosschainQiStablecoinSlim: CrosschainQiStablecoinSlim,
@@ -1882,7 +1282,7 @@ export const Lookup: Record<VaultContractDiscriminator, VaultMethods> = {
   Erc20Stablecoin: Erc20Stablecoin,
   QiStablecoin: QiStablecoin,
   StableQiVault: StableQiVault,
-};
+} as const;
 
 export {
   CrosschainNativeQiStablecoin,

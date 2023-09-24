@@ -17,6 +17,7 @@ import { WatchContractEvents } from "./components/WatchContractEvents";
 import { WatchPendingTransactions } from "./components/WatchPendingTransactions";
 import { WriteContract } from "./components/WriteContract";
 import { WriteContractPrepared } from "./components/WriteContractPrepared";
+import Dougy from "./Dougy";
 
 export function App() {
   const { isConnected } = useAccount();
@@ -30,6 +31,9 @@ export function App() {
       {isConnected && (
         <>
           <hr />
+          <h2>Dougy</h2>
+          <Dougy />
+          <br />
           <h2>Network</h2>
           <NetworkSwitcher />
           <br />
