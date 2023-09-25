@@ -7,8 +7,8 @@ function CollateralCard(props: { collateral: COLLATERAL | COLLATERAL_V2 }) {
   const { useBalanceOf } = Lookup[collateral.discriminator];
   const { address } = useAccount();
   const balance = useBalanceOf({
-    address: collateral.vaultAddress,
-    args: [address],
+    address: collateral.vaultAddress as `0x${string}`,
+    args: [address as `0x${string}`],
     chainId: collateral.chainId,
     enabled: Boolean(address),
   });
