@@ -1,11 +1,86 @@
-import { COLLATERAL, COLLATERAL_V2, COLLATERALS } from "@qidao/sdk";
-import { useAccount } from "wagmi";
-import { Lookup } from "./scopedHooks";
+import {
+  COLLATERAL,
+  COLLATERAL_V2,
+  COLLATERALS,
+  QiStablecoin,
+} from "@qidao/sdk";
+import { VaultContractDiscriminator } from "@qidao/sdk/dist/src/vaultInfo";
+import { Abi, ReadContractParameters } from "viem";
+import { useAccount, useContractRead } from "wagmi";
 import { range } from "lodash";
 
-function useCollateral(collateral: COLLATERAL | COLLATERAL_V2) {
-  if (collateral.discriminator === "QiStablecoin") throw new Error("TODO");
-  return Lookup[collateral.discriminator];
+import {
+  qiStablecoinABI,
+  crosschainQiStablecoinV2ABI,
+  crosschainQiStablecoinSlimV2ABI,
+  crosschainQiStablecoinwbtcABI,
+  crosschainNativeQiStablecoinABI,
+  crosschainQiStablecoinSlimABI,
+  crosschainQiStablecoinABI,
+  erc20QiStablecoincamwbtcABI,
+  erc20QiStablecoinwbtcABI,
+  stableQiVaultABI,
+  erc20StablecoinABI,
+} from "../constABIs";
+
+type ABI =
+  | typeof qiStablecoinABI
+  | typeof crosschainQiStablecoinV2ABI
+  | typeof crosschainQiStablecoinSlimV2ABI
+  | typeof crosschainQiStablecoinwbtcABI
+  | typeof crosschainNativeQiStablecoinABI
+  | typeof crosschainQiStablecoinSlimABI
+  | typeof crosschainQiStablecoinABI
+  | typeof erc20QiStablecoincamwbtcABI
+  | typeof erc20QiStablecoinwbtcABI
+  | typeof stableQiVaultABI
+  | typeof erc20StablecoinABI;
+
+const lookup = {
+  QiStablecoin: crosschainQiStablecoinABI,
+  CrosschainQiStablecoinV2: crosschainQiStablecoinV2ABI,
+  CrosschainQiStablecoinSlimV2: crosschainQiStablecoinSlimV2ABI,
+  CrosschainQiStablecoinwbtc: crosschainQiStablecoinwbtcABI,
+  CrosschainNativeQiStablecoin: crosschainNativeQiStablecoinABI,
+  CrosschainQiStablecoinSlim: crosschainQiStablecoinSlimABI,
+  CrosschainQiStablecoin: crosschainQiStablecoinABI,
+  Erc20QiStablecoincamwbtc: erc20QiStablecoincamwbtcABI,
+  Erc20QiStablecoinwbtc: erc20QiStablecoinwbtcABI,
+  StableQiVault: stableQiVaultABI,
+  Erc20Stablecoin: erc20StablecoinABI,
+} satisfies { [key in VaultContractDiscriminator]: Abi };
+
+type AbiMap = typeof lookup;
+
+function abiLookup<Td extends VaultContractDiscriminator>(discriminator: Td) {
+  return lookup[discriminator];
+}
+
+function asMaximallyNarrowedAbi<
+  TParams extends ReadContractParameters<AbiMap[VaultContractDiscriminator]>,
+>(readParams: TParams) {
+  const { functionName, abi, args } = readParams;
+  const abiEntry = abi.find((entry) => {
+    if (entry.type !== "function") return false;
+    if (entry.name !== functionName) return false;
+    if (entry.inputs.length !== args?.length) return false;
+  });
+  abiEntry?.inputs.forEach((input, i) => {
+    if (input.type === "address") {
+      if (typeof args?.[i] !== "string") return false;
+    } else if (input.type === "uint256") {
+      if (typeof args?.[i] !== "bigint") return false;
+    } else if (input.type === "bytes4") {
+      if (typeof args?.[i] !== "string") return false;
+    } else if (input.type === "bool") {
+      if (typeof args?.[i] !== "boolean") return false;
+    } else {
+      return true;
+    }
+  });
+  if (!abiEntry) throw new Error("No matching abi entry");
+
+  return readParams;
 }
 
 function VaultCard({
@@ -18,37 +93,54 @@ function VaultCard({
   const { address } = useAccount();
   if (!address) return <></>; //TODO: loading state
 
-  const { useVaultDebt, useVaultCollateral, useTokenOfOwnerByIndex } =
-    useCollateral(collateral);
+  const foobar = abiLookup(collateral.discriminator);
 
-  const vaultGlobalIdxRes = useTokenOfOwnerByIndex({
+  const blah = asMaximallyNarrowedAbi({
     chainId: collateral.chainId,
-    args: [address, index],
+    address: collateral.vaultAddress as `0x${string}`,
+    functionName: "getDebtCeiling",
+    abi: foobar,
+    args: [],
   });
 
-  const vaultGlobalIdx = vaultGlobalIdxRes.data;
-  if (!vaultGlobalIdx) return <></>;
-
-  const debt = useVaultDebt({
+  const foo = useContractRead({
     chainId: collateral.chainId,
-    args: [vaultGlobalIdx],
+    address: collateral.vaultAddress as `0x${string}`,
+    functionName: "ownerOf",
+    abi: erc20StablecoinABI,
+    args: [],
   });
-  if (debt.error) console.error(debt.error);
 
-  const collateralBalance = useVaultCollateral({
-    chainId: collateral.chainId,
-    args: [vaultGlobalIdx],
-  });
-  if (collateralBalance.error) console.error(collateralBalance.error);
-
-  if (debt.data === 0n || !debt.data) return <></>;
+  // const { useVaultDebt, useVaultCollateral, useTokenOfOwnerByIndex } =
+  //
+  // const vaultGlobalIdxRes = useTokenOfOwnerByIndex({
+  //   chainId: collateral.chainId,
+  //   args: [address, index],
+  // });
+  //
+  // const vaultGlobalIdx = vaultGlobalIdxRes.data;
+  // if (!vaultGlobalIdx) return <></>;
+  //
+  // const debt = useVaultDebt({
+  //   chainId: collateral.chainId,
+  //   args: [vaultGlobalIdx],
+  // });
+  // if (debt.error) console.error(debt.error);
+  //
+  // const collateralBalance = useVaultCollateral({
+  //   chainId: collateral.chainId,
+  //   args: [vaultGlobalIdx],
+  // });
+  // if (collateralBalance.error) console.error(collateralBalance.error);
+  //
+  // if (debt.data === 0n || !debt.data) return <></>;
 
   return (
     <div>
       <p>{collateral.token.name}</p>
       <p>{collateral.vaultAddress}</p>
-      <p>{debt.data?.toString()}</p>
-      <p>{collateralBalance.data?.toString()}</p>
+      {/*<p>{debt.data?.toString()}</p>*/}
+      {/*<p>{collateralBalance.data?.toString()}</p>*/}
     </div>
   );
 }
@@ -59,7 +151,11 @@ function CollateralCard({
   collateral: COLLATERAL | COLLATERAL_V2;
 }) {
   if (collateral.discriminator === "QiStablecoin") return <></>;
-  const { useBalanceOf } = useCollateral(collateral);
+  const { useBalanceOf } = {
+    useBalanceOf: (_: any) => {
+      return { data: 1n, error: null };
+    },
+  };
   if (!useBalanceOf) return <></>;
   const { address } = useAccount();
   const balance = useBalanceOf({
