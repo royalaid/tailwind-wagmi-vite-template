@@ -6,7 +6,8 @@ import {
   QiStablecoin,
 } from "@qidao/sdk";
 import { VaultContractDiscriminator } from "@qidao/sdk/dist/src/vaultInfo";
-import { Chain, ReadContractParameters } from "viem";
+import { AbiItem, Chain, ReadContractParameters } from "viem";
+import { readContract } from "viem/contract";
 import { CallParameters } from "viem/src/actions/public/call";
 import { useAccount, useContractRead } from "wagmi";
 import { range } from "lodash";
@@ -72,19 +73,20 @@ function asMaximallyNarrowedAbi<
     "account" | "blockNumber" | "blockTag"
   > &
     ExtractAbiFunction<TAbi, TFunctionName>,
->(readParams: {
+>(
+  readParams: {
+    chainId: ChainId;
+    address: `0x${string}`;
+    abi: TAbi;
+    functionName: TFunctionName;
+    args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
+  } & Omit<ReadContractParameters<TAbi, TFunctionName>, "address">,
+): {
   chainId: ChainId;
   address: `0x${string}`;
   abi: TAbi;
   functionName: TFunctionName;
-  args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
-}): {
-  chainId: ChainId;
-  address: `0x${string}`;
-  abi: TAbi;
-  functionName: TFunctionName;
-  args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
-} {
+} & Omit<ReadContractParameters<TAbi, TFunctionName>, "address"> {
   const { functionName, abi, args } = readParams;
 
   const abiEntry = abi.find((entry) => {
@@ -110,14 +112,6 @@ function VaultCard({
 
   const foobar = abiLookup(collateral.discriminator);
 
-  const blah = asMaximallyNarrowedAbi({
-    chainId: collateral.chainId,
-    address: collateral.vaultAddress as `0x${string}`,
-    functionName: "vaultCollateral",
-    abi: foobar,
-    args: [0n],
-  });
-
   const foo = useContractRead({
     chainId: collateral.chainId,
     address: collateral.vaultAddress as `0x${string}`,
@@ -132,8 +126,16 @@ function VaultCard({
   //   chainId: collateral.chainId,
   //   args: [address, index],
   // });
+  const blah = asMaximallyNarrowedAbi({
+    chainId: collateral.chainId,
+    address: collateral.vaultAddress as `0x${string}`,
+    functionName: "tokenOfOwnerByIndex",
+    abi: foobar,
+    args: [address, index],
+  });
+  const vaultGlobalIdxRes = useContractRead(blah);
   //
-  // const vaultGlobalIdx = vaultGlobalIdxRes.data;
+  const vaultGlobalIdx = vaultGlobalIdxRes.data;
   // if (!vaultGlobalIdx) return <></>;
   //
   // const debt = useVaultDebt({
