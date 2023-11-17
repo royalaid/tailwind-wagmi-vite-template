@@ -5,9 +5,15 @@ import {
   QiStablecoin,
 } from "@qidao/sdk";
 import { VaultContractDiscriminator } from "@qidao/sdk/dist/src/vaultInfo";
-import { Abi, ReadContractParameters } from "viem";
+import { ReadContractParameters } from "viem";
 import { useAccount, useContractRead } from "wagmi";
 import { range } from "lodash";
+import {
+  Abi,
+  ExtractAbiFunctionNames,
+  ExtractAbiFunction,
+  AbiParametersToPrimitiveTypes,
+} from "abitype";
 
 import {
   qiStablecoinABI,
@@ -57,30 +63,32 @@ function abiLookup<Td extends VaultContractDiscriminator>(discriminator: Td) {
 }
 
 function asMaximallyNarrowedAbi<
-  TParams extends ReadContractParameters<AbiMap[VaultContractDiscriminator]>,
->(readParams: TParams) {
+  TAbi extends Abi,
+  TFunctionName extends ExtractAbiFunctionNames<TAbi, "pure" | "view">,
+  TAbiFunction extends ExtractAbiFunction<
+    TAbi,
+    TFunctionName
+  > = ExtractAbiFunction<TAbi, TFunctionName>,
+>(readParams: {
+  abi: TAbi;
+  functionName: TFunctionName;
+  args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
+}): {
+  abi: TAbi;
+  functionName: TFunctionName;
+  args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
+} {
   const { functionName, abi, args } = readParams;
+
   const abiEntry = abi.find((entry) => {
     if (entry.type !== "function") return false;
     if (entry.name !== functionName) return false;
     if (entry.inputs.length !== args?.length) return false;
   });
-  abiEntry?.inputs.forEach((input, i) => {
-    if (input.type === "address") {
-      if (typeof args?.[i] !== "string") return false;
-    } else if (input.type === "uint256") {
-      if (typeof args?.[i] !== "bigint") return false;
-    } else if (input.type === "bytes4") {
-      if (typeof args?.[i] !== "string") return false;
-    } else if (input.type === "bool") {
-      if (typeof args?.[i] !== "boolean") return false;
-    } else {
-      return true;
-    }
-  });
+
   if (!abiEntry) throw new Error("No matching abi entry");
 
-  return readParams;
+  return readParams; // This will now return a narrowed type based on the ABI function's outputs
 }
 
 function VaultCard({
@@ -98,17 +106,17 @@ function VaultCard({
   const blah = asMaximallyNarrowedAbi({
     chainId: collateral.chainId,
     address: collateral.vaultAddress as `0x${string}`,
-    functionName: "getDebtCeiling",
+    functionName: "ownerOf",
     abi: foobar,
-    args: [],
+    args: [0n],
   });
 
   const foo = useContractRead({
     chainId: collateral.chainId,
     address: collateral.vaultAddress as `0x${string}`,
-    functionName: "ownerOf",
-    abi: erc20StablecoinABI,
-    args: [],
+    functionName: "tokenOfOwnerByIndex",
+    abi: erc20QiStablecoinwbtcABI,
+    args: [address, 0n],
   });
 
   // const { useVaultDebt, useVaultCollateral, useTokenOfOwnerByIndex } =
