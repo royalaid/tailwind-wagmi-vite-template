@@ -1,11 +1,13 @@
 import {
+  ChainId,
   COLLATERAL,
   COLLATERAL_V2,
   COLLATERALS,
   QiStablecoin,
 } from "@qidao/sdk";
 import { VaultContractDiscriminator } from "@qidao/sdk/dist/src/vaultInfo";
-import { ReadContractParameters } from "viem";
+import { Chain, ReadContractParameters } from "viem";
+import { CallParameters } from "viem/src/actions/public/call";
 import { useAccount, useContractRead } from "wagmi";
 import { range } from "lodash";
 import {
@@ -65,15 +67,20 @@ function abiLookup<Td extends VaultContractDiscriminator>(discriminator: Td) {
 function asMaximallyNarrowedAbi<
   TAbi extends Abi,
   TFunctionName extends ExtractAbiFunctionNames<TAbi, "pure" | "view">,
-  TAbiFunction extends ExtractAbiFunction<
-    TAbi,
-    TFunctionName
-  > = ExtractAbiFunction<TAbi, TFunctionName>,
+  TAbiFunction extends ExtractAbiFunction<TAbi, TFunctionName> = Pick<
+    CallParameters,
+    "account" | "blockNumber" | "blockTag"
+  > &
+    ExtractAbiFunction<TAbi, TFunctionName>,
 >(readParams: {
+  chainId: ChainId;
+  address: `0x${string}`;
   abi: TAbi;
   functionName: TFunctionName;
   args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
 }): {
+  chainId: ChainId;
+  address: `0x${string}`;
   abi: TAbi;
   functionName: TFunctionName;
   args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
@@ -106,7 +113,7 @@ function VaultCard({
   const blah = asMaximallyNarrowedAbi({
     chainId: collateral.chainId,
     address: collateral.vaultAddress as `0x${string}`,
-    functionName: "ownerOf",
+    functionName: "vaultCollateral",
     abi: foobar,
     args: [0n],
   });
