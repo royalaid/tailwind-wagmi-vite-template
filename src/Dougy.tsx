@@ -6,10 +6,17 @@ import {
   QiStablecoin,
 } from "@qidao/sdk";
 import { VaultContractDiscriminator } from "@qidao/sdk/dist/src/vaultInfo";
+import { QueryObserverResult } from "@tanstack/react-query";
+import { ReadContractResult } from "@wagmi/core";
 import { AbiItem, Chain, ReadContractParameters } from "viem";
 import { readContract } from "viem/contract";
 import { CallParameters } from "viem/src/actions/public/call";
-import { useAccount, useContractRead } from "wagmi";
+import {
+  Address,
+  useAccount,
+  useContractRead,
+  UseContractReadConfig,
+} from "wagmi";
 import { range } from "lodash";
 import {
   Abi,
@@ -46,15 +53,15 @@ type ABI =
   | typeof erc20StablecoinABI;
 
 const lookup = {
-  QiStablecoin: crosschainQiStablecoinABI,
-  CrosschainQiStablecoinV2: crosschainQiStablecoinV2ABI,
-  CrosschainQiStablecoinSlimV2: crosschainQiStablecoinSlimV2ABI,
-  CrosschainQiStablecoinwbtc: crosschainQiStablecoinwbtcABI,
-  CrosschainNativeQiStablecoin: crosschainNativeQiStablecoinABI,
-  CrosschainQiStablecoinSlim: crosschainQiStablecoinSlimABI,
-  CrosschainQiStablecoin: crosschainQiStablecoinABI,
-  Erc20QiStablecoincamwbtc: erc20QiStablecoincamwbtcABI,
-  Erc20QiStablecoinwbtc: erc20QiStablecoinwbtcABI,
+  QiStablecoin: erc20StablecoinABI,
+  CrosschainQiStablecoinV2: erc20StablecoinABI,
+  CrosschainQiStablecoinSlimV2: erc20StablecoinABI,
+  CrosschainQiStablecoinwbtc: erc20StablecoinABI,
+  CrosschainNativeQiStablecoin: erc20StablecoinABI,
+  CrosschainQiStablecoinSlim: erc20StablecoinABI,
+  CrosschainQiStablecoin: erc20StablecoinABI,
+  Erc20QiStablecoincamwbtc: erc20StablecoinABI,
+  Erc20QiStablecoinwbtc: erc20StablecoinABI,
   StableQiVault: stableQiVaultABI,
   Erc20Stablecoin: erc20StablecoinABI,
 } satisfies { [key in VaultContractDiscriminator]: Abi };
@@ -64,6 +71,37 @@ type AbiMap = typeof lookup;
 function abiLookup<Td extends VaultContractDiscriminator>(discriminator: Td) {
   return lookup[discriminator];
 }
+
+type UseQueryResult<TData, TError> = Pick<
+  QueryObserverResult<TData, TError>,
+  | "data"
+  | "error"
+  | "fetchStatus"
+  | "isError"
+  | "isFetched"
+  | "isFetchedAfterMount"
+  | "isFetching"
+  | "isLoading"
+  | "isRefetching"
+  | "isSuccess"
+  | "refetch"
+> & {
+  isIdle: boolean;
+  status: "idle" | "loading" | "success" | "error";
+  internal: Pick<
+    QueryObserverResult,
+    | "dataUpdatedAt"
+    | "errorUpdatedAt"
+    | "failureCount"
+    | "isLoadingError"
+    | "isPaused"
+    | "isPlaceholderData"
+    | "isPreviousData"
+    | "isRefetchError"
+    | "isStale"
+    | "remove"
+  >;
+};
 
 function asMaximallyNarrowedAbi<
   TAbi extends Abi,
@@ -81,23 +119,21 @@ function asMaximallyNarrowedAbi<
     functionName: TFunctionName;
     args: AbiParametersToPrimitiveTypes<TAbiFunction["inputs"], "inputs">;
   } & Omit<ReadContractParameters<TAbi, TFunctionName>, "address">,
-): {
-  chainId: ChainId;
-  address: `0x${string}`;
-  abi: TAbi;
-  functionName: TFunctionName;
-} & Omit<ReadContractParameters<TAbi, TFunctionName>, "address"> {
+): UseQueryResult<ReadContractResult<TAbi, TFunctionName>, Error> {
   const { functionName, abi, args } = readParams;
 
   const abiEntry = abi.find((entry) => {
     if (entry.type !== "function") return false;
     if (entry.name !== functionName) return false;
     if (entry.inputs.length !== args?.length) return false;
+    return entry;
   });
 
   if (!abiEntry) throw new Error("No matching abi entry");
+  //HERE BE DRAGONS
+  return useContractRead(readParams as any);
 
-  return readParams; // This will now return a narrowed type based on the ABI function's outputs
+  // return readParams; // This will now return a narrowed type based on the ABI function's outputs
 }
 
 function VaultCard({
@@ -133,9 +169,9 @@ function VaultCard({
     abi: foobar,
     args: [address, index],
   });
-  const vaultGlobalIdxRes = useContractRead(blah);
   //
-  const vaultGlobalIdx = vaultGlobalIdxRes.data;
+  const vaultGlobalIdx = blah.data;
+  console.log({ vaultGlobalIdx });
   // if (!vaultGlobalIdx) return <></>;
   //
   // const debt = useVaultDebt({
